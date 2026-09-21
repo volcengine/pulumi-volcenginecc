@@ -572,15 +572,15 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProviderArgs build() {
-            $.accessKey = Codegen.stringProp("accessKey").output().arg($.accessKey).env("VOLCENGINE_ACCESS_KEY").getNullable();
+            $.accessKey = Codegen.stringProp("accessKey").secret().arg($.accessKey).env("VOLCENGINE_ACCESS_KEY").getNullable();
             $.customerHeaders = Codegen.stringProp("customerHeaders").output().arg($.customerHeaders).env("VOLCENGINE_CUSTOMER_HEADERS").getNullable();
             $.disableSsl = Codegen.booleanProp("disableSsl").output().arg($.disableSsl).env("VOLCENGINE_DISABLE_SSL").getNullable();
             $.filePath = Codegen.stringProp("filePath").output().arg($.filePath).env("VOLCENGINE_FILE_PATH").getNullable();
             $.profile = Codegen.stringProp("profile").output().arg($.profile).env("VOLCENGINE_PROFILE").getNullable();
             $.proxyUrl = Codegen.stringProp("proxyUrl").output().arg($.proxyUrl).env("VOLCENGINE_PROXY_URL").getNullable();
             $.region = Codegen.stringProp("region").output().arg($.region).env("VOLCENGINE_REGION").getNullable();
-            $.secretKey = Codegen.stringProp("secretKey").output().arg($.secretKey).env("VOLCENGINE_SECRET_KEY").getNullable();
-            $.sessionToken = Codegen.stringProp("sessionToken").output().arg($.sessionToken).env("VOLCENGINE_SESSION_TOKEN").getNullable();
+            $.secretKey = Codegen.stringProp("secretKey").secret().arg($.secretKey).env("VOLCENGINE_SECRET_KEY").getNullable();
+            $.sessionToken = Codegen.stringProp("sessionToken").secret().arg($.sessionToken).env("VOLCENGINE_SESSION_TOKEN").getNullable();
             return $;
         }
     }

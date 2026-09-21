@@ -63,7 +63,8 @@
                     "environment": [
                         "VOLCENGINE_ACCESS_KEY"
                     ]
-                }
+                },
+                "secret": true
             },
             "assumeRole": {
                 "$ref": "#/types/volcenginecc:config/assumeRole:assumeRole",
@@ -150,7 +151,8 @@
                     "environment": [
                         "VOLCENGINE_SECRET_KEY"
                     ]
-                }
+                },
+                "secret": true
             },
             "sessionToken": {
                 "type": "string",
@@ -159,7 +161,8 @@
                     "environment": [
                         "VOLCENGINE_SESSION_TOKEN"
                     ]
-                }
+                },
+                "secret": true
             }
         }
     },
@@ -75686,7 +75689,8 @@
         "properties": {
             "accessKey": {
                 "type": "string",
-                "description": "The Access Key for Volcengine Provider. It can also be sourced from the `VOLCENGINE_ACCESS_KEY` environment variable"
+                "description": "The Access Key for Volcengine Provider. It can also be sourced from the `VOLCENGINE_ACCESS_KEY` environment variable",
+                "secret": true
             },
             "assumeRole": {
                 "$ref": "#/types/volcenginecc:index/ProviderAssumeRole:ProviderAssumeRole",
@@ -75738,11 +75742,13 @@
             },
             "secretKey": {
                 "type": "string",
-                "description": "The Secret Key for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SECRET_KEY` environment variable"
+                "description": "The Secret Key for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SECRET_KEY` environment variable",
+                "secret": true
             },
             "sessionToken": {
                 "type": "string",
-                "description": "The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment variable"
+                "description": "The Session Token for Volcengine Provider. It can also be sourced from the `VOLCENGINE_SESSION_TOKEN` environment variable",
+                "secret": true
             }
         },
         "inputProperties": {
@@ -75753,7 +75759,8 @@
                     "environment": [
                         "VOLCENGINE_ACCESS_KEY"
                     ]
-                }
+                },
+                "secret": true
             },
             "assumeRole": {
                 "$ref": "#/types/volcenginecc:index/ProviderAssumeRole:ProviderAssumeRole",
@@ -75840,7 +75847,8 @@
                     "environment": [
                         "VOLCENGINE_SECRET_KEY"
                     ]
-                }
+                },
+                "secret": true
             },
             "sessionToken": {
                 "type": "string",
@@ -75849,7 +75857,8 @@
                     "environment": [
                         "VOLCENGINE_SESSION_TOKEN"
                     ]
-                }
+                },
+                "secret": true
             }
         },
         "methods": {
