@@ -6,6 +6,7 @@ package com.volcengine.volcenginecc.cloudmonitor.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.volcengine.volcenginecc.cloudmonitor.inputs.ObjectGroupObjectArgs;
+import com.volcengine.volcenginecc.cloudmonitor.inputs.ObjectGroupTemplateDetailArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -110,6 +111,23 @@ public final class ObjectGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * List of alarm template information associated with the object group, returned by the server.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
+    @Import(name="templateDetails")
+    private @Nullable Output<List<ObjectGroupTemplateDetailArgs>> templateDetails;
+
+    /**
+     * @return List of alarm template information associated with the object group, returned by the server.
+     * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+     * 
+     */
+    public Optional<Output<List<ObjectGroupTemplateDetailArgs>>> templateDetails() {
+        return Optional.ofNullable(this.templateDetails);
+    }
+
+    /**
      * Object group last update time
      * 
      */
@@ -133,6 +151,7 @@ public final class ObjectGroupState extends com.pulumi.resources.ResourceArgs {
         this.groupId = $.groupId;
         this.name = $.name;
         this.objects = $.objects;
+        this.templateDetails = $.templateDetails;
         this.updatedAt = $.updatedAt;
     }
 
@@ -291,6 +310,40 @@ public final class ObjectGroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder objects(ObjectGroupObjectArgs... objects) {
             return objects(List.of(objects));
+        }
+
+        /**
+         * @param templateDetails List of alarm template information associated with the object group, returned by the server.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder templateDetails(@Nullable Output<List<ObjectGroupTemplateDetailArgs>> templateDetails) {
+            $.templateDetails = templateDetails;
+            return this;
+        }
+
+        /**
+         * @param templateDetails List of alarm template information associated with the object group, returned by the server.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder templateDetails(List<ObjectGroupTemplateDetailArgs> templateDetails) {
+            return templateDetails(Output.of(templateDetails));
+        }
+
+        /**
+         * @param templateDetails List of alarm template information associated with the object group, returned by the server.
+         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder templateDetails(ObjectGroupTemplateDetailArgs... templateDetails) {
+            return templateDetails(List.of(templateDetails));
         }
 
         /**

@@ -1425,9 +1425,15 @@
                                             "maxItemsOne": false
                                         }
                                     }
+                                },
+                                "rules": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
+                    },
+                    "template_details": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -2987,6 +2993,9 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "volcenginecc_organization_delegated_administrator": {
+                "current": "volcenginecc:organization/delegatedAdministrator:DelegatedAdministrator"
             },
             "volcenginecc_organization_organization": {
                 "current": "volcenginecc:organization/organization:Organization"
@@ -7543,9 +7552,15 @@
                                             "maxItemsOne": false
                                         }
                                     }
+                                },
+                                "rules": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
+                    },
+                    "template_details": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -9838,6 +9853,17 @@
             },
             "volcenginecc_organization_accounts": {
                 "current": "volcenginecc:organization/getAccounts:getAccounts",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_organization_delegated_administrator": {
+                "current": "volcenginecc:organization/getDelegatedAdministrator:getDelegatedAdministrator"
+            },
+            "volcenginecc_organization_delegated_administrators": {
+                "current": "volcenginecc:organization/getDelegatedAdministrators:getDelegatedAdministrators",
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -14122,6 +14148,7 @@
             "volcenginecc_natgateway_ngw": {},
             "volcenginecc_natgateway_snatentry": {},
             "volcenginecc_organization_account": {},
+            "volcenginecc_organization_delegated_administrator": {},
             "volcenginecc_organization_organization": {},
             "volcenginecc_organization_service_control_policy": {},
             "volcenginecc_organization_service_control_policy_enabler": {},

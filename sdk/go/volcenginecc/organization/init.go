@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "volcenginecc:organization/account:Account":
 		r = &Account{}
+	case "volcenginecc:organization/delegatedAdministrator:DelegatedAdministrator":
+		r = &DelegatedAdministrator{}
 	case "volcenginecc:organization/organization:Organization":
 		r = &Organization{}
 	case "volcenginecc:organization/serviceControlPolicy:ServiceControlPolicy":
@@ -47,6 +49,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"volcenginecc",
 		"organization/account",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"volcenginecc",
+		"organization/delegatedAdministrator",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -35,6 +35,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudmonitor.Outputs
         /// </summary>
         public readonly string Region;
         /// <summary>
+        /// List of alarm rules associated with the monitored object, returned by the server.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetObjectGroupObjectRuleResult> Rules;
+        /// <summary>
         /// Object access method, such as `Dimension` / `DimensionCondition`
         /// </summary>
         public readonly string Type;
@@ -51,6 +55,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudmonitor.Outputs
 
             string region,
 
+            ImmutableArray<Outputs.GetObjectGroupObjectRuleResult> rules,
+
             string type)
         {
             DimensionConditions = dimensionConditions;
@@ -58,6 +64,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Cloudmonitor.Outputs
             Id = id;
             Namespace = @namespace;
             Region = region;
+            Rules = rules;
             Type = type;
         }
     }
