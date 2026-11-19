@@ -20,6 +20,7 @@ import com.volcengine.volcenginecc.rdsmysql.outputs.InstanceMaintenanceWindow;
 import com.volcengine.volcenginecc.rdsmysql.outputs.InstanceNode;
 import com.volcengine.volcenginecc.rdsmysql.outputs.InstanceProxyDetail;
 import com.volcengine.volcenginecc.rdsmysql.outputs.InstanceTag;
+import com.volcengine.volcenginecc.rdsmysql.outputs.InstanceTdeConfig;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -1091,6 +1092,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<List<InstanceTag>> tags() {
         return this.tags;
+    }
+    /**
+     * Instance transparent data encryption TDE configuration. TDE cannot be disabled after it is enabled. Enabling transparent data encryption TDE requires restarting the instance.
+     * 
+     */
+    @Export(name="tdeConfig", refs={InstanceTdeConfig.class}, tree="[0]")
+    private Output<InstanceTdeConfig> tdeConfig;
+
+    /**
+     * @return Instance transparent data encryption TDE configuration. TDE cannot be disabled after it is enabled. Enabling transparent data encryption TDE requires restarting the instance.
+     * 
+     */
+    public Output<InstanceTdeConfig> tdeConfig() {
+        return this.tdeConfig;
     }
     /**
      * Time zone

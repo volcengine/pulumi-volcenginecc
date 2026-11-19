@@ -1378,6 +1378,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "organization/delegatedAdministrator",
+  "fqn": "pulumi_volcenginecc.organization",
+  "classes": {
+   "volcenginecc:organization/delegatedAdministrator:DelegatedAdministrator": "DelegatedAdministrator"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "organization/organization",
   "fqn": "pulumi_volcenginecc.organization",
   "classes": {

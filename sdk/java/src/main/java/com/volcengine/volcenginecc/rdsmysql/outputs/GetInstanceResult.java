@@ -15,6 +15,7 @@ import com.volcengine.volcenginecc.rdsmysql.outputs.GetInstanceMaintenanceWindow
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetInstanceNode;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetInstanceProxyDetail;
 import com.volcengine.volcenginecc.rdsmysql.outputs.GetInstanceTag;
+import com.volcengine.volcenginecc.rdsmysql.outputs.GetInstanceTdeConfig;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -369,6 +370,11 @@ public final class GetInstanceResult {
      * 
      */
     private List<GetInstanceTag> tags;
+    /**
+     * @return Instance transparent data encryption TDE configuration. TDE cannot be disabled after it is enabled. Enabling transparent data encryption TDE requires restarting the instance.
+     * 
+     */
+    private GetInstanceTdeConfig tdeConfig;
     /**
      * @return Time zone
      * 
@@ -885,6 +891,13 @@ public final class GetInstanceResult {
         return this.tags;
     }
     /**
+     * @return Instance transparent data encryption TDE configuration. TDE cannot be disabled after it is enabled. Enabling transparent data encryption TDE requires restarting the instance.
+     * 
+     */
+    public GetInstanceTdeConfig tdeConfig() {
+        return this.tdeConfig;
+    }
+    /**
      * @return Time zone
      * 
      */
@@ -1005,6 +1018,7 @@ public final class GetInstanceResult {
         private String superAccountPassword;
         private String syncMode;
         private List<GetInstanceTag> tags;
+        private GetInstanceTdeConfig tdeConfig;
         private String timeZone;
         private String updatedTime;
         private Integer vcpu;
@@ -1083,6 +1097,7 @@ public final class GetInstanceResult {
     	      this.superAccountPassword = defaults.superAccountPassword;
     	      this.syncMode = defaults.syncMode;
     	      this.tags = defaults.tags;
+    	      this.tdeConfig = defaults.tdeConfig;
     	      this.timeZone = defaults.timeZone;
     	      this.updatedTime = defaults.updatedTime;
     	      this.vcpu = defaults.vcpu;
@@ -1662,6 +1677,14 @@ public final class GetInstanceResult {
             return tags(List.of(tags));
         }
         @CustomType.Setter
+        public Builder tdeConfig(GetInstanceTdeConfig tdeConfig) {
+            if (tdeConfig == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "tdeConfig");
+            }
+            this.tdeConfig = tdeConfig;
+            return this;
+        }
+        @CustomType.Setter
         public Builder timeZone(String timeZone) {
             if (timeZone == null) {
               throw new MissingRequiredPropertyException("GetInstanceResult", "timeZone");
@@ -1783,6 +1806,7 @@ public final class GetInstanceResult {
             _resultValue.superAccountPassword = superAccountPassword;
             _resultValue.syncMode = syncMode;
             _resultValue.tags = tags;
+            _resultValue.tdeConfig = tdeConfig;
             _resultValue.timeZone = timeZone;
             _resultValue.updatedTime = updatedTime;
             _resultValue.vcpu = vcpu;

@@ -12,6 +12,8 @@ import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
 import com.volcengine.volcenginecc.organization.inputs.GetAccountArgs;
 import com.volcengine.volcenginecc.organization.inputs.GetAccountPlainArgs;
+import com.volcengine.volcenginecc.organization.inputs.GetDelegatedAdministratorArgs;
+import com.volcengine.volcenginecc.organization.inputs.GetDelegatedAdministratorPlainArgs;
 import com.volcengine.volcenginecc.organization.inputs.GetOrganizationArgs;
 import com.volcengine.volcenginecc.organization.inputs.GetOrganizationPlainArgs;
 import com.volcengine.volcenginecc.organization.inputs.GetServiceControlPolicyArgs;
@@ -22,6 +24,8 @@ import com.volcengine.volcenginecc.organization.inputs.GetUnitArgs;
 import com.volcengine.volcenginecc.organization.inputs.GetUnitPlainArgs;
 import com.volcengine.volcenginecc.organization.outputs.GetAccountResult;
 import com.volcengine.volcenginecc.organization.outputs.GetAccountsResult;
+import com.volcengine.volcenginecc.organization.outputs.GetDelegatedAdministratorResult;
+import com.volcengine.volcenginecc.organization.outputs.GetDelegatedAdministratorsResult;
 import com.volcengine.volcenginecc.organization.outputs.GetOrganizationResult;
 import com.volcengine.volcenginecc.organization.outputs.GetOrganizationsResult;
 import com.volcengine.volcenginecc.organization.outputs.GetServiceControlPoliciesResult;
@@ -116,6 +120,90 @@ public final class OrganizationFunctions {
      */
     public static CompletableFuture<GetAccountsResult> getAccountsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("volcenginecc:organization/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Organization::DelegatedAdministrator
+     * 
+     */
+    public static Output<GetDelegatedAdministratorResult> getDelegatedAdministrator(GetDelegatedAdministratorArgs args) {
+        return getDelegatedAdministrator(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Organization::DelegatedAdministrator
+     * 
+     */
+    public static CompletableFuture<GetDelegatedAdministratorResult> getDelegatedAdministratorPlain(GetDelegatedAdministratorPlainArgs args) {
+        return getDelegatedAdministratorPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::Organization::DelegatedAdministrator
+     * 
+     */
+    public static Output<GetDelegatedAdministratorResult> getDelegatedAdministrator(GetDelegatedAdministratorArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:organization/getDelegatedAdministrator:getDelegatedAdministrator", TypeShape.of(GetDelegatedAdministratorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Organization::DelegatedAdministrator
+     * 
+     */
+    public static Output<GetDelegatedAdministratorResult> getDelegatedAdministrator(GetDelegatedAdministratorArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:organization/getDelegatedAdministrator:getDelegatedAdministrator", TypeShape.of(GetDelegatedAdministratorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::Organization::DelegatedAdministrator
+     * 
+     */
+    public static CompletableFuture<GetDelegatedAdministratorResult> getDelegatedAdministratorPlain(GetDelegatedAdministratorPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:organization/getDelegatedAdministrator:getDelegatedAdministrator", TypeShape.of(GetDelegatedAdministratorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::DelegatedAdministrator
+     * 
+     */
+    public static Output<GetDelegatedAdministratorsResult> getDelegatedAdministrators() {
+        return getDelegatedAdministrators(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::DelegatedAdministrator
+     * 
+     */
+    public static CompletableFuture<GetDelegatedAdministratorsResult> getDelegatedAdministratorsPlain() {
+        return getDelegatedAdministratorsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::DelegatedAdministrator
+     * 
+     */
+    public static Output<GetDelegatedAdministratorsResult> getDelegatedAdministrators(InvokeArgs args) {
+        return getDelegatedAdministrators(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::DelegatedAdministrator
+     * 
+     */
+    public static CompletableFuture<GetDelegatedAdministratorsResult> getDelegatedAdministratorsPlain(InvokeArgs args) {
+        return getDelegatedAdministratorsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::DelegatedAdministrator
+     * 
+     */
+    public static Output<GetDelegatedAdministratorsResult> getDelegatedAdministrators(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:organization/getDelegatedAdministrators:getDelegatedAdministrators", TypeShape.of(GetDelegatedAdministratorsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::DelegatedAdministrator
+     * 
+     */
+    public static Output<GetDelegatedAdministratorsResult> getDelegatedAdministrators(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:organization/getDelegatedAdministrators:getDelegatedAdministrators", TypeShape.of(GetDelegatedAdministratorsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::Organization::DelegatedAdministrator
+     * 
+     */
+    public static CompletableFuture<GetDelegatedAdministratorsResult> getDelegatedAdministratorsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:organization/getDelegatedAdministrators:getDelegatedAdministrators", TypeShape.of(GetDelegatedAdministratorsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data Source schema for Volcengine::Organization::Organization
