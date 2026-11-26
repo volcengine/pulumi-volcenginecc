@@ -25,7 +25,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
     /// {
     ///     var example = new Volcenginecc.Tidb.Instance("example", new()
     ///     {
-    ///         DisplayName = "ccapi-tidb-instance-full",
+    ///         InstanceName = "ccapi-tidb-instance-full",
     ///         AutoScaling = new Volcenginecc.Tidb.Inputs.InstanceAutoScalingArgs
     ///         {
     ///             Min_rcu = 2000,
@@ -74,12 +74,18 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import volcenginecc:tidb/instance:Instance example "cluster_id"
+    /// $ pulumi import volcenginecc:tidb/instance:Instance example "instance_id"
     /// ```
     /// </summary>
     [VolcengineccResourceType("volcenginecc:tidb/instance:Instance")]
     public partial class Instance : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Account ID of the instance owner
+        /// </summary>
+        [Output("accountId")]
+        public Output<string> AccountId { get; private set; } = null!;
+
         /// <summary>
         /// Annotation
         /// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
@@ -106,29 +112,17 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         public Output<Outputs.InstanceAutomatedBackupPolicy> AutomatedBackupPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Cluster Backup List
+        /// Instance backup list
         /// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
         /// </summary>
         [Output("backups")]
         public Output<ImmutableArray<Outputs.InstanceBackup>> Backups { get; private set; } = null!;
 
         /// <summary>
-        /// Cluster ID
-        /// </summary>
-        [Output("clusterId")]
-        public Output<string> ClusterId { get; private set; } = null!;
-
-        /// <summary>
         /// Creation Time (ISO8601)
         /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
-
-        /// <summary>
-        /// Cluster Display Name
-        /// </summary>
-        [Output("displayName")]
-        public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// Data Encryption Configuration
@@ -149,17 +143,23 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         public Output<string> HighAvailabilityType { get; private set; } = null!;
 
         /// <summary>
+        /// Instance ID
+        /// </summary>
+        [Output("instanceId")]
+        public Output<string> InstanceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Instance name
+        /// </summary>
+        [Output("instanceName")]
+        public Output<string> InstanceName { get; private set; } = null!;
+
+        /// <summary>
         /// Tags
         /// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
         /// </summary>
         [Output("labels")]
         public Output<ImmutableArray<Outputs.InstanceLabel>> Labels { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource Name: clusters/{clusterId}
-        /// </summary>
-        [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// Volcano Engine Project Name
@@ -186,7 +186,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         public Output<Outputs.InstanceSpendingLimit> SpendingLimit { get; private set; } = null!;
 
         /// <summary>
-        /// Cluster Status
+        /// Instance status
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -289,12 +289,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         public Input<Inputs.InstanceAutomatedBackupPolicyArgs>? AutomatedBackupPolicy { get; set; }
 
         /// <summary>
-        /// Cluster Display Name
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
         /// Data Encryption Configuration
         /// </summary>
         [Input("encryptionConfig")]
@@ -305,6 +299,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         /// </summary>
         [Input("highAvailabilityType")]
         public Input<string>? HighAvailabilityType { get; set; }
+
+        /// <summary>
+        /// Instance name
+        /// </summary>
+        [Input("instanceName")]
+        public Input<string>? InstanceName { get; set; }
 
         /// <summary>
         /// Volcano Engine Project Name
@@ -364,6 +364,12 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
 
     public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Account ID of the instance owner
+        /// </summary>
+        [Input("accountId")]
+        public Input<string>? AccountId { get; set; }
+
         [Input("annotations")]
         private InputList<Inputs.InstanceAnnotationGetArgs>? _annotations;
 
@@ -399,7 +405,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         private InputList<Inputs.InstanceBackupGetArgs>? _backups;
 
         /// <summary>
-        /// Cluster Backup List
+        /// Instance backup list
         /// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
         /// </summary>
         public InputList<Inputs.InstanceBackupGetArgs> Backups
@@ -409,22 +415,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         }
 
         /// <summary>
-        /// Cluster ID
-        /// </summary>
-        [Input("clusterId")]
-        public Input<string>? ClusterId { get; set; }
-
-        /// <summary>
         /// Creation Time (ISO8601)
         /// </summary>
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }
-
-        /// <summary>
-        /// Cluster Display Name
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
 
         /// <summary>
         /// Data Encryption Configuration
@@ -444,6 +438,18 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         [Input("highAvailabilityType")]
         public Input<string>? HighAvailabilityType { get; set; }
 
+        /// <summary>
+        /// Instance ID
+        /// </summary>
+        [Input("instanceId")]
+        public Input<string>? InstanceId { get; set; }
+
+        /// <summary>
+        /// Instance name
+        /// </summary>
+        [Input("instanceName")]
+        public Input<string>? InstanceName { get; set; }
+
         [Input("labels")]
         private InputList<Inputs.InstanceLabelGetArgs>? _labels;
 
@@ -456,12 +462,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
             get => _labels ?? (_labels = new InputList<Inputs.InstanceLabelGetArgs>());
             set => _labels = value;
         }
-
-        /// <summary>
-        /// Resource Name: clusters/{clusterId}
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Volcano Engine Project Name
@@ -488,7 +488,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         public Input<Inputs.InstanceSpendingLimitGetArgs>? SpendingLimit { get; set; }
 
         /// <summary>
-        /// Cluster Status
+        /// Instance status
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

@@ -19,7 +19,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
         /// </summary>
         public readonly string? SubnetId;
         /// <summary>
-        /// Availability Zone ID
+        /// Availability zone ID
         /// </summary>
         public readonly string? ZoneId;
 

@@ -15,17 +15,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
     public sealed class GetBranchEndpointsPrivateEndpointResult
     {
         /// <summary>
-        /// Alicloud private endpoint
-        /// </summary>
-        public readonly Outputs.GetBranchEndpointsPrivateEndpointAlicloudResult Alicloud;
-        /// <summary>
         /// Private endpoint authorized network list
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBranchEndpointsPrivateEndpointAuthorizedNetworkResult> AuthorizedNetworks;
-        /// <summary>
-        /// AWS private endpoint
-        /// </summary>
-        public readonly Outputs.GetBranchEndpointsPrivateEndpointAwsResult Aws;
         /// <summary>
         /// Disable private network access
         /// </summary>
@@ -57,11 +49,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
 
         [OutputConstructor]
         private GetBranchEndpointsPrivateEndpointResult(
-            Outputs.GetBranchEndpointsPrivateEndpointAlicloudResult alicloud,
-
             ImmutableArray<Outputs.GetBranchEndpointsPrivateEndpointAuthorizedNetworkResult> authorizedNetworks,
-
-            Outputs.GetBranchEndpointsPrivateEndpointAwsResult aws,
 
             bool disabled,
 
@@ -77,9 +65,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
 
             string vpcEndpointName)
         {
-            Alicloud = alicloud;
             AuthorizedNetworks = authorizedNetworks;
-            Aws = aws;
             Disabled = disabled;
             Host = host;
             Port = port;

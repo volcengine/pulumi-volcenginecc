@@ -31,14 +31,14 @@ public final class InstanceZoneArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Availability Zone ID
+     * Availability zone ID
      * 
      */
     @Import(name="zoneId")
     private @Nullable Output<String> zoneId;
 
     /**
-     * @return Availability Zone ID
+     * @return Availability zone ID
      * 
      */
     public Optional<Output<String>> zoneId() {
@@ -92,7 +92,7 @@ public final class InstanceZoneArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneId Availability Zone ID
+         * @param zoneId Availability zone ID
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class InstanceZoneArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneId Availability Zone ID
+         * @param zoneId Availability zone ID
          * 
          * @return builder
          * 

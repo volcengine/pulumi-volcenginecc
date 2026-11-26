@@ -25,9 +25,9 @@ class InstanceArgs:
                  vpc_id: pulumi.Input[_builtins.str],
                  zones: pulumi.Input[Sequence[pulumi.Input['InstanceZoneArgs']]],
                  automated_backup_policy: pulumi.Input[Optional['InstanceAutomatedBackupPolicyArgs']] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_config: pulumi.Input[Optional['InstanceEncryptionConfigArgs']] = None,
                  high_availability_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_plan: pulumi.Input[Optional[_builtins.str]] = None,
@@ -40,9 +40,9 @@ class InstanceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InstanceZoneArgs']]] zones: Availability Zones and Subnets Used at Creation
                Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
         :param pulumi.Input['InstanceAutomatedBackupPolicyArgs'] automated_backup_policy: Automatic Backup Policy
-        :param pulumi.Input[_builtins.str] display_name: Cluster Display Name
         :param pulumi.Input['InstanceEncryptionConfigArgs'] encryption_config: Data Encryption Configuration
         :param pulumi.Input[_builtins.str] high_availability_type: High Availability Type
+        :param pulumi.Input[_builtins.str] instance_name: Instance name
         :param pulumi.Input[_builtins.str] project_name: Volcano Engine Project Name
         :param pulumi.Input[_builtins.str] region_id: Deployment Region
         :param pulumi.Input[_builtins.str] service_plan: Service Plan
@@ -54,12 +54,12 @@ class InstanceArgs:
         pulumi.set(__self__, "zones", zones)
         if automated_backup_policy is not None:
             pulumi.set(__self__, "automated_backup_policy", automated_backup_policy)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
         if encryption_config is not None:
             pulumi.set(__self__, "encryption_config", encryption_config)
         if high_availability_type is not None:
             pulumi.set(__self__, "high_availability_type", high_availability_type)
+        if instance_name is not None:
+            pulumi.set(__self__, "instance_name", instance_name)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
         if region_id is not None:
@@ -119,18 +119,6 @@ class InstanceArgs:
         pulumi.set(self, "automated_backup_policy", value)
 
     @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Cluster Display Name
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "display_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> pulumi.Input[Optional['InstanceEncryptionConfigArgs']]:
         """
@@ -153,6 +141,18 @@ class InstanceArgs:
     @high_availability_type.setter
     def high_availability_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "high_availability_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Instance name
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -207,19 +207,19 @@ class InstanceArgs:
 @pulumi.input_type
 class _InstanceState:
     def __init__(__self__, *,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  annotations: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceAnnotationArgs']]]] = None,
                  audit_log_config: pulumi.Input[Optional['InstanceAuditLogConfigArgs']] = None,
                  auto_scaling: pulumi.Input[Optional['InstanceAutoScalingArgs']] = None,
                  automated_backup_policy: pulumi.Input[Optional['InstanceAutomatedBackupPolicyArgs']] = None,
                  backups: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceBackupArgs']]]] = None,
-                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  create_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_config: pulumi.Input[Optional['InstanceEncryptionConfigArgs']] = None,
                  endpoints: pulumi.Input[Optional['InstanceEndpointsArgs']] = None,
                  high_availability_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  labels: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceLabelArgs']]]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_plan: pulumi.Input[Optional[_builtins.str]] = None,
@@ -234,27 +234,27 @@ class _InstanceState:
         """
         Input properties used for looking up and filtering Instance resources.
 
+        :param pulumi.Input[_builtins.str] account_id: Account ID of the instance owner
         :param pulumi.Input[Sequence[pulumi.Input['InstanceAnnotationArgs']]] annotations: Annotation
                Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
         :param pulumi.Input['InstanceAuditLogConfigArgs'] audit_log_config: Audit Log Configuration
         :param pulumi.Input['InstanceAutoScalingArgs'] auto_scaling: Auto Scaling
         :param pulumi.Input['InstanceAutomatedBackupPolicyArgs'] automated_backup_policy: Automatic Backup Policy
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceBackupArgs']]] backups: Cluster Backup List
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceBackupArgs']]] backups: Instance backup list
                Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-        :param pulumi.Input[_builtins.str] cluster_id: Cluster ID
         :param pulumi.Input[_builtins.str] create_time: Creation Time (ISO8601)
-        :param pulumi.Input[_builtins.str] display_name: Cluster Display Name
         :param pulumi.Input['InstanceEncryptionConfigArgs'] encryption_config: Data Encryption Configuration
         :param pulumi.Input['InstanceEndpointsArgs'] endpoints: Connection Endpoint
         :param pulumi.Input[_builtins.str] high_availability_type: High Availability Type
+        :param pulumi.Input[_builtins.str] instance_id: Instance ID
+        :param pulumi.Input[_builtins.str] instance_name: Instance name
         :param pulumi.Input[Sequence[pulumi.Input['InstanceLabelArgs']]] labels: Tags
                Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-        :param pulumi.Input[_builtins.str] name: Resource Name: clusters/{clusterId}
         :param pulumi.Input[_builtins.str] project_name: Volcano Engine Project Name
         :param pulumi.Input[_builtins.str] region_id: Deployment Region
         :param pulumi.Input[_builtins.str] service_plan: Service Plan
         :param pulumi.Input['InstanceSpendingLimitArgs'] spending_limit: Spending Limit Configuration
-        :param pulumi.Input[_builtins.str] state: Cluster Status
+        :param pulumi.Input[_builtins.str] state: Instance status
         :param pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]] tags: Instance Tags
                Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
         :param pulumi.Input[_builtins.str] update_time: Last Updated Time (ISO8601)
@@ -264,6 +264,8 @@ class _InstanceState:
         :param pulumi.Input[Sequence[pulumi.Input['InstanceZoneArgs']]] zones: Availability Zones and Subnets Used at Creation
                Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
         """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if audit_log_config is not None:
@@ -274,22 +276,20 @@ class _InstanceState:
             pulumi.set(__self__, "automated_backup_policy", automated_backup_policy)
         if backups is not None:
             pulumi.set(__self__, "backups", backups)
-        if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
         if create_time is not None:
             pulumi.set(__self__, "create_time", create_time)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
         if encryption_config is not None:
             pulumi.set(__self__, "encryption_config", encryption_config)
         if endpoints is not None:
             pulumi.set(__self__, "endpoints", endpoints)
         if high_availability_type is not None:
             pulumi.set(__self__, "high_availability_type", high_availability_type)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if instance_name is not None:
+            pulumi.set(__self__, "instance_name", instance_name)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
         if region_id is not None:
@@ -312,6 +312,18 @@ class _InstanceState:
             pulumi.set(__self__, "vpc_id", vpc_id)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Account ID of the instance owner
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -366,7 +378,7 @@ class _InstanceState:
     @pulumi.getter
     def backups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstanceBackupArgs']]]]:
         """
-        Cluster Backup List
+        Instance backup list
         Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
         """
         return pulumi.get(self, "backups")
@@ -374,18 +386,6 @@ class _InstanceState:
     @backups.setter
     def backups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceBackupArgs']]]]):
         pulumi.set(self, "backups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Cluster ID
-        """
-        return pulumi.get(self, "cluster_id")
-
-    @cluster_id.setter
-    def cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="createTime")
@@ -398,18 +398,6 @@ class _InstanceState:
     @create_time.setter
     def create_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "create_time", value)
-
-    @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Cluster Display Name
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfig")
@@ -448,6 +436,30 @@ class _InstanceState:
         pulumi.set(self, "high_availability_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Instance ID
+        """
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instance_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Instance name
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instance_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstanceLabelArgs']]]]:
         """
@@ -459,18 +471,6 @@ class _InstanceState:
     @labels.setter
     def labels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceLabelArgs']]]]):
         pulumi.set(self, "labels", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Resource Name: clusters/{clusterId}
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -524,7 +524,7 @@ class _InstanceState:
     @pulumi.getter
     def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Cluster Status
+        Instance status
         """
         return pulumi.get(self, "state")
 
@@ -615,9 +615,9 @@ class Instance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling: pulumi.Input[Optional[Union['InstanceAutoScalingArgs', 'InstanceAutoScalingArgsDict']]] = None,
                  automated_backup_policy: pulumi.Input[Optional[Union['InstanceAutomatedBackupPolicyArgs', 'InstanceAutomatedBackupPolicyArgsDict']]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_config: pulumi.Input[Optional[Union['InstanceEncryptionConfigArgs', 'InstanceEncryptionConfigArgsDict']]] = None,
                  high_availability_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_plan: pulumi.Input[Optional[_builtins.str]] = None,
@@ -635,7 +635,7 @@ class Instance(pulumi.CustomResource):
         import pulumi_volcenginecc as volcenginecc
 
         example = volcenginecc.tidb.Instance("example",
-            display_name="ccapi-tidb-instance-full",
+            instance_name="ccapi-tidb-instance-full",
             auto_scaling={
                 "min_rcu": 2000,
                 "max_rcu": 4000,
@@ -671,7 +671,7 @@ class Instance(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import volcenginecc:tidb/instance:Instance example "cluster_id"
+        $ pulumi import volcenginecc:tidb/instance:Instance example "instance_id"
         ```
 
 
@@ -679,9 +679,9 @@ class Instance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['InstanceAutoScalingArgs', 'InstanceAutoScalingArgsDict']] auto_scaling: Auto Scaling
         :param pulumi.Input[Union['InstanceAutomatedBackupPolicyArgs', 'InstanceAutomatedBackupPolicyArgsDict']] automated_backup_policy: Automatic Backup Policy
-        :param pulumi.Input[_builtins.str] display_name: Cluster Display Name
         :param pulumi.Input[Union['InstanceEncryptionConfigArgs', 'InstanceEncryptionConfigArgsDict']] encryption_config: Data Encryption Configuration
         :param pulumi.Input[_builtins.str] high_availability_type: High Availability Type
+        :param pulumi.Input[_builtins.str] instance_name: Instance name
         :param pulumi.Input[_builtins.str] project_name: Volcano Engine Project Name
         :param pulumi.Input[_builtins.str] region_id: Deployment Region
         :param pulumi.Input[_builtins.str] service_plan: Service Plan
@@ -707,7 +707,7 @@ class Instance(pulumi.CustomResource):
         import pulumi_volcenginecc as volcenginecc
 
         example = volcenginecc.tidb.Instance("example",
-            display_name="ccapi-tidb-instance-full",
+            instance_name="ccapi-tidb-instance-full",
             auto_scaling={
                 "min_rcu": 2000,
                 "max_rcu": 4000,
@@ -743,7 +743,7 @@ class Instance(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import volcenginecc:tidb/instance:Instance example "cluster_id"
+        $ pulumi import volcenginecc:tidb/instance:Instance example "instance_id"
         ```
 
 
@@ -764,9 +764,9 @@ class Instance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling: pulumi.Input[Optional[Union['InstanceAutoScalingArgs', 'InstanceAutoScalingArgsDict']]] = None,
                  automated_backup_policy: pulumi.Input[Optional[Union['InstanceAutomatedBackupPolicyArgs', 'InstanceAutomatedBackupPolicyArgsDict']]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_config: pulumi.Input[Optional[Union['InstanceEncryptionConfigArgs', 'InstanceEncryptionConfigArgsDict']]] = None,
                  high_availability_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_plan: pulumi.Input[Optional[_builtins.str]] = None,
@@ -786,9 +786,9 @@ class Instance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'auto_scaling'")
             __props__.__dict__["auto_scaling"] = auto_scaling
             __props__.__dict__["automated_backup_policy"] = automated_backup_policy
-            __props__.__dict__["display_name"] = display_name
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["high_availability_type"] = high_availability_type
+            __props__.__dict__["instance_name"] = instance_name
             __props__.__dict__["project_name"] = project_name
             __props__.__dict__["region_id"] = region_id
             __props__.__dict__["service_plan"] = service_plan
@@ -799,14 +799,14 @@ class Instance(pulumi.CustomResource):
             if zones is None and not opts.urn:
                 raise TypeError("Missing required property 'zones'")
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["account_id"] = None
             __props__.__dict__["annotations"] = None
             __props__.__dict__["audit_log_config"] = None
             __props__.__dict__["backups"] = None
-            __props__.__dict__["cluster_id"] = None
             __props__.__dict__["create_time"] = None
             __props__.__dict__["endpoints"] = None
+            __props__.__dict__["instance_id"] = None
             __props__.__dict__["labels"] = None
-            __props__.__dict__["name"] = None
             __props__.__dict__["spending_limit"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["update_time"] = None
@@ -822,19 +822,19 @@ class Instance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
             annotations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAnnotationArgs', 'InstanceAnnotationArgsDict']]]]] = None,
             audit_log_config: pulumi.Input[Optional[Union['InstanceAuditLogConfigArgs', 'InstanceAuditLogConfigArgsDict']]] = None,
             auto_scaling: pulumi.Input[Optional[Union['InstanceAutoScalingArgs', 'InstanceAutoScalingArgsDict']]] = None,
             automated_backup_policy: pulumi.Input[Optional[Union['InstanceAutomatedBackupPolicyArgs', 'InstanceAutomatedBackupPolicyArgsDict']]] = None,
             backups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceBackupArgs', 'InstanceBackupArgsDict']]]]] = None,
-            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
             create_time: pulumi.Input[Optional[_builtins.str]] = None,
-            display_name: pulumi.Input[Optional[_builtins.str]] = None,
             encryption_config: pulumi.Input[Optional[Union['InstanceEncryptionConfigArgs', 'InstanceEncryptionConfigArgsDict']]] = None,
             endpoints: pulumi.Input[Optional[Union['InstanceEndpointsArgs', 'InstanceEndpointsArgsDict']]] = None,
             high_availability_type: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_name: pulumi.Input[Optional[_builtins.str]] = None,
             labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceLabelArgs', 'InstanceLabelArgsDict']]]]] = None,
-            name: pulumi.Input[Optional[_builtins.str]] = None,
             project_name: pulumi.Input[Optional[_builtins.str]] = None,
             region_id: pulumi.Input[Optional[_builtins.str]] = None,
             service_plan: pulumi.Input[Optional[_builtins.str]] = None,
@@ -853,27 +853,27 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] account_id: Account ID of the instance owner
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAnnotationArgs', 'InstanceAnnotationArgsDict']]]] annotations: Annotation
                Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
         :param pulumi.Input[Union['InstanceAuditLogConfigArgs', 'InstanceAuditLogConfigArgsDict']] audit_log_config: Audit Log Configuration
         :param pulumi.Input[Union['InstanceAutoScalingArgs', 'InstanceAutoScalingArgsDict']] auto_scaling: Auto Scaling
         :param pulumi.Input[Union['InstanceAutomatedBackupPolicyArgs', 'InstanceAutomatedBackupPolicyArgsDict']] automated_backup_policy: Automatic Backup Policy
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceBackupArgs', 'InstanceBackupArgsDict']]]] backups: Cluster Backup List
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceBackupArgs', 'InstanceBackupArgsDict']]]] backups: Instance backup list
                Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-        :param pulumi.Input[_builtins.str] cluster_id: Cluster ID
         :param pulumi.Input[_builtins.str] create_time: Creation Time (ISO8601)
-        :param pulumi.Input[_builtins.str] display_name: Cluster Display Name
         :param pulumi.Input[Union['InstanceEncryptionConfigArgs', 'InstanceEncryptionConfigArgsDict']] encryption_config: Data Encryption Configuration
         :param pulumi.Input[Union['InstanceEndpointsArgs', 'InstanceEndpointsArgsDict']] endpoints: Connection Endpoint
         :param pulumi.Input[_builtins.str] high_availability_type: High Availability Type
+        :param pulumi.Input[_builtins.str] instance_id: Instance ID
+        :param pulumi.Input[_builtins.str] instance_name: Instance name
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceLabelArgs', 'InstanceLabelArgsDict']]]] labels: Tags
                Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-        :param pulumi.Input[_builtins.str] name: Resource Name: clusters/{clusterId}
         :param pulumi.Input[_builtins.str] project_name: Volcano Engine Project Name
         :param pulumi.Input[_builtins.str] region_id: Deployment Region
         :param pulumi.Input[_builtins.str] service_plan: Service Plan
         :param pulumi.Input[Union['InstanceSpendingLimitArgs', 'InstanceSpendingLimitArgsDict']] spending_limit: Spending Limit Configuration
-        :param pulumi.Input[_builtins.str] state: Cluster Status
+        :param pulumi.Input[_builtins.str] state: Instance status
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceTagArgs', 'InstanceTagArgsDict']]]] tags: Instance Tags
                Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
         :param pulumi.Input[_builtins.str] update_time: Last Updated Time (ISO8601)
@@ -887,19 +887,19 @@ class Instance(pulumi.CustomResource):
 
         __props__ = _InstanceState.__new__(_InstanceState)
 
+        __props__.__dict__["account_id"] = account_id
         __props__.__dict__["annotations"] = annotations
         __props__.__dict__["audit_log_config"] = audit_log_config
         __props__.__dict__["auto_scaling"] = auto_scaling
         __props__.__dict__["automated_backup_policy"] = automated_backup_policy
         __props__.__dict__["backups"] = backups
-        __props__.__dict__["cluster_id"] = cluster_id
         __props__.__dict__["create_time"] = create_time
-        __props__.__dict__["display_name"] = display_name
         __props__.__dict__["encryption_config"] = encryption_config
         __props__.__dict__["endpoints"] = endpoints
         __props__.__dict__["high_availability_type"] = high_availability_type
+        __props__.__dict__["instance_id"] = instance_id
+        __props__.__dict__["instance_name"] = instance_name
         __props__.__dict__["labels"] = labels
-        __props__.__dict__["name"] = name
         __props__.__dict__["project_name"] = project_name
         __props__.__dict__["region_id"] = region_id
         __props__.__dict__["service_plan"] = service_plan
@@ -912,6 +912,14 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["vpc_id"] = vpc_id
         __props__.__dict__["zones"] = zones
         return Instance(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        Account ID of the instance owner
+        """
+        return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter
@@ -950,18 +958,10 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def backups(self) -> pulumi.Output[Sequence['outputs.InstanceBackup']]:
         """
-        Cluster Backup List
+        Instance backup list
         Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
         """
         return pulumi.get(self, "backups")
-
-    @_builtins.property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Cluster ID
-        """
-        return pulumi.get(self, "cluster_id")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
@@ -970,14 +970,6 @@ class Instance(pulumi.CustomResource):
         Creation Time (ISO8601)
         """
         return pulumi.get(self, "create_time")
-
-    @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Cluster Display Name
-        """
-        return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfig")
@@ -1004,6 +996,22 @@ class Instance(pulumi.CustomResource):
         return pulumi.get(self, "high_availability_type")
 
     @_builtins.property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        Instance ID
+        """
+        return pulumi.get(self, "instance_id")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> pulumi.Output[_builtins.str]:
+        """
+        Instance name
+        """
+        return pulumi.get(self, "instance_name")
+
+    @_builtins.property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Sequence['outputs.InstanceLabel']]:
         """
@@ -1011,14 +1019,6 @@ class Instance(pulumi.CustomResource):
         Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
         """
         return pulumi.get(self, "labels")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Resource Name: clusters/{clusterId}
-        """
-        return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -1056,7 +1056,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
         """
-        Cluster Status
+        Instance status
         """
         return pulumi.get(self, "state")
 

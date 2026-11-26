@@ -73,9 +73,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         /// </summary>
         public readonly string BranchId;
         /// <summary>
-        /// Cluster ID
+        /// Branch Name
         /// </summary>
-        public readonly string ClusterId;
+        public readonly string BranchName;
         /// <summary>
         /// Creation time
         /// </summary>
@@ -84,10 +84,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         /// Creator identifier
         /// </summary>
         public readonly string CreatedBy;
-        /// <summary>
-        /// Branch display name
-        /// </summary>
-        public readonly string DisplayName;
         /// <summary>
         /// Branch endpoint configuration
         /// </summary>
@@ -101,13 +97,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Branch resource name
+        /// Instance ID
         /// </summary>
-        public readonly string Name;
+        public readonly string InstanceId;
         /// <summary>
-        /// Parent branch display name
+        /// Parent Branch Name
         /// </summary>
-        public readonly string ParentDisplayName;
+        public readonly string ParentBranchName;
         /// <summary>
         /// Parent branch ID
         /// </summary>
@@ -151,13 +147,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
 
             string branchId,
 
-            string clusterId,
+            string branchName,
 
             string createTime,
 
             string createdBy,
-
-            string displayName,
 
             Outputs.GetBranchEndpointsResult endpoints,
 
@@ -165,9 +159,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
 
             string id,
 
-            string name,
+            string instanceId,
 
-            string parentDisplayName,
+            string parentBranchName,
 
             string parentId,
 
@@ -189,15 +183,14 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         {
             Annotations = annotations;
             BranchId = branchId;
-            ClusterId = clusterId;
+            BranchName = branchName;
             CreateTime = createTime;
             CreatedBy = createdBy;
-            DisplayName = displayName;
             Endpoints = endpoints;
             HasSetPwd = hasSetPwd;
             Id = id;
-            Name = name;
-            ParentDisplayName = parentDisplayName;
+            InstanceId = instanceId;
+            ParentBranchName = parentBranchName;
             ParentId = parentId;
             ParentTimestamp = parentTimestamp;
             Password = password;

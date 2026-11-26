@@ -34,24 +34,22 @@ type LookupBranchResult struct {
 	Annotations []GetBranchAnnotation `pulumi:"annotations"`
 	// Branch ID, assigned by the creation API
 	BranchId string `pulumi:"branchId"`
-	// Cluster ID
-	ClusterId string `pulumi:"clusterId"`
+	// Branch Name
+	BranchName string `pulumi:"branchName"`
 	// Creation time
 	CreateTime string `pulumi:"createTime"`
 	// Creator identifier
 	CreatedBy string `pulumi:"createdBy"`
-	// Branch display name
-	DisplayName string `pulumi:"displayName"`
 	// Branch endpoint configuration
 	Endpoints GetBranchEndpoints `pulumi:"endpoints"`
 	// Root password set
 	HasSetPwd bool `pulumi:"hasSetPwd"`
 	// Uniquely identifies the resource.
 	Id string `pulumi:"id"`
-	// Branch resource name
-	Name string `pulumi:"name"`
-	// Parent branch display name
-	ParentDisplayName string `pulumi:"parentDisplayName"`
+	// Instance ID
+	InstanceId string `pulumi:"instanceId"`
+	// Parent Branch Name
+	ParentBranchName string `pulumi:"parentBranchName"`
 	// Parent branch ID
 	ParentId string `pulumi:"parentId"`
 	// Timestamp of derivation from the parent branch
@@ -116,9 +114,9 @@ func (o LookupBranchResultOutput) BranchId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBranchResult) string { return v.BranchId }).(pulumi.StringOutput)
 }
 
-// Cluster ID
-func (o LookupBranchResultOutput) ClusterId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBranchResult) string { return v.ClusterId }).(pulumi.StringOutput)
+// Branch Name
+func (o LookupBranchResultOutput) BranchName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBranchResult) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
 // Creation time
@@ -129,11 +127,6 @@ func (o LookupBranchResultOutput) CreateTime() pulumi.StringOutput {
 // Creator identifier
 func (o LookupBranchResultOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBranchResult) string { return v.CreatedBy }).(pulumi.StringOutput)
-}
-
-// Branch display name
-func (o LookupBranchResultOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBranchResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
 // Branch endpoint configuration
@@ -151,14 +144,14 @@ func (o LookupBranchResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBranchResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Branch resource name
-func (o LookupBranchResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBranchResult) string { return v.Name }).(pulumi.StringOutput)
+// Instance ID
+func (o LookupBranchResultOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBranchResult) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Parent branch display name
-func (o LookupBranchResultOutput) ParentDisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBranchResult) string { return v.ParentDisplayName }).(pulumi.StringOutput)
+// Parent Branch Name
+func (o LookupBranchResultOutput) ParentBranchName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBranchResult) string { return v.ParentBranchName }).(pulumi.StringOutput)
 }
 
 // Parent branch ID

@@ -4,9 +4,7 @@
 package com.volcengine.volcenginecc.tidb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.volcengine.volcenginecc.tidb.outputs.BranchEndpointsPrivateEndpointAlicloud;
 import com.volcengine.volcenginecc.tidb.outputs.BranchEndpointsPrivateEndpointAuthorizedNetwork;
-import com.volcengine.volcenginecc.tidb.outputs.BranchEndpointsPrivateEndpointAws;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,21 +16,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BranchEndpointsPrivateEndpoint {
     /**
-     * @return Alicloud private endpoint
-     * 
-     */
-    private @Nullable BranchEndpointsPrivateEndpointAlicloud alicloud;
-    /**
      * @return Private endpoint authorized network list
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
      * 
      */
     private @Nullable List<BranchEndpointsPrivateEndpointAuthorizedNetwork> authorizedNetworks;
-    /**
-     * @return AWS private endpoint
-     * 
-     */
-    private @Nullable BranchEndpointsPrivateEndpointAws aws;
     /**
      * @return Disable private network access
      * 
@@ -71,26 +59,12 @@ public final class BranchEndpointsPrivateEndpoint {
 
     private BranchEndpointsPrivateEndpoint() {}
     /**
-     * @return Alicloud private endpoint
-     * 
-     */
-    public Optional<BranchEndpointsPrivateEndpointAlicloud> alicloud() {
-        return Optional.ofNullable(this.alicloud);
-    }
-    /**
      * @return Private endpoint authorized network list
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
      * 
      */
     public List<BranchEndpointsPrivateEndpointAuthorizedNetwork> authorizedNetworks() {
         return this.authorizedNetworks == null ? List.of() : this.authorizedNetworks;
-    }
-    /**
-     * @return AWS private endpoint
-     * 
-     */
-    public Optional<BranchEndpointsPrivateEndpointAws> aws() {
-        return Optional.ofNullable(this.aws);
     }
     /**
      * @return Disable private network access
@@ -151,9 +125,7 @@ public final class BranchEndpointsPrivateEndpoint {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable BranchEndpointsPrivateEndpointAlicloud alicloud;
         private @Nullable List<BranchEndpointsPrivateEndpointAuthorizedNetwork> authorizedNetworks;
-        private @Nullable BranchEndpointsPrivateEndpointAws aws;
         private @Nullable Boolean disabled;
         private @Nullable String host;
         private @Nullable Integer port;
@@ -164,9 +136,7 @@ public final class BranchEndpointsPrivateEndpoint {
         public Builder() {}
         public Builder(BranchEndpointsPrivateEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.alicloud = defaults.alicloud;
     	      this.authorizedNetworks = defaults.authorizedNetworks;
-    	      this.aws = defaults.aws;
     	      this.disabled = defaults.disabled;
     	      this.host = defaults.host;
     	      this.port = defaults.port;
@@ -177,12 +147,6 @@ public final class BranchEndpointsPrivateEndpoint {
         }
 
         @CustomType.Setter
-        public Builder alicloud(@Nullable BranchEndpointsPrivateEndpointAlicloud alicloud) {
-
-            this.alicloud = alicloud;
-            return this;
-        }
-        @CustomType.Setter
         public Builder authorizedNetworks(@Nullable List<BranchEndpointsPrivateEndpointAuthorizedNetwork> authorizedNetworks) {
 
             this.authorizedNetworks = authorizedNetworks;
@@ -190,12 +154,6 @@ public final class BranchEndpointsPrivateEndpoint {
         }
         public Builder authorizedNetworks(BranchEndpointsPrivateEndpointAuthorizedNetwork... authorizedNetworks) {
             return authorizedNetworks(List.of(authorizedNetworks));
-        }
-        @CustomType.Setter
-        public Builder aws(@Nullable BranchEndpointsPrivateEndpointAws aws) {
-
-            this.aws = aws;
-            return this;
         }
         @CustomType.Setter
         public Builder disabled(@Nullable Boolean disabled) {
@@ -241,9 +199,7 @@ public final class BranchEndpointsPrivateEndpoint {
         }
         public BranchEndpointsPrivateEndpoint build() {
             final var _resultValue = new BranchEndpointsPrivateEndpoint();
-            _resultValue.alicloud = alicloud;
             _resultValue.authorizedNetworks = authorizedNetworks;
-            _resultValue.aws = aws;
             _resultValue.disabled = disabled;
             _resultValue.host = host;
             _resultValue.port = port;

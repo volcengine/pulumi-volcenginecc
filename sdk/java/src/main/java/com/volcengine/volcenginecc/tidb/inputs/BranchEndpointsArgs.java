@@ -6,7 +6,6 @@ package com.volcengine.volcenginecc.tidb.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.volcengine.volcenginecc.tidb.inputs.BranchEndpointsPrivateEndpointArgs;
-import com.volcengine.volcenginecc.tidb.inputs.BranchEndpointsPublicEndpointArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -31,26 +30,10 @@ public final class BranchEndpointsArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.privateEndpoint);
     }
 
-    /**
-     * Public endpoint
-     * 
-     */
-    @Import(name="publicEndpoint")
-    private @Nullable Output<BranchEndpointsPublicEndpointArgs> publicEndpoint;
-
-    /**
-     * @return Public endpoint
-     * 
-     */
-    public Optional<Output<BranchEndpointsPublicEndpointArgs>> publicEndpoint() {
-        return Optional.ofNullable(this.publicEndpoint);
-    }
-
     private BranchEndpointsArgs() {}
 
     private BranchEndpointsArgs(BranchEndpointsArgs $) {
         this.privateEndpoint = $.privateEndpoint;
-        this.publicEndpoint = $.publicEndpoint;
     }
 
     public static Builder builder() {
@@ -90,27 +73,6 @@ public final class BranchEndpointsArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder privateEndpoint(BranchEndpointsPrivateEndpointArgs privateEndpoint) {
             return privateEndpoint(Output.of(privateEndpoint));
-        }
-
-        /**
-         * @param publicEndpoint Public endpoint
-         * 
-         * @return builder
-         * 
-         */
-        public Builder publicEndpoint(@Nullable Output<BranchEndpointsPublicEndpointArgs> publicEndpoint) {
-            $.publicEndpoint = publicEndpoint;
-            return this;
-        }
-
-        /**
-         * @param publicEndpoint Public endpoint
-         * 
-         * @return builder
-         * 
-         */
-        public Builder publicEndpoint(BranchEndpointsPublicEndpointArgs publicEndpoint) {
-            return publicEndpoint(Output.of(publicEndpoint));
         }
 
         public BranchEndpointsArgs build() {

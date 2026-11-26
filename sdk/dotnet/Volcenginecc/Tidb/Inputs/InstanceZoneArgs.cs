@@ -20,7 +20,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Inputs
         public Input<string>? SubnetId { get; set; }
 
         /// <summary>
-        /// Availability Zone ID
+        /// Availability zone ID
         /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }

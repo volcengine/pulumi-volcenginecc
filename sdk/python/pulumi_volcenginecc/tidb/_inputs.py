@@ -21,16 +21,8 @@ __all__ = [
     'BranchEndpointsArgsDict',
     'BranchEndpointsPrivateEndpointArgs',
     'BranchEndpointsPrivateEndpointArgsDict',
-    'BranchEndpointsPrivateEndpointAlicloudArgs',
-    'BranchEndpointsPrivateEndpointAlicloudArgsDict',
     'BranchEndpointsPrivateEndpointAuthorizedNetworkArgs',
     'BranchEndpointsPrivateEndpointAuthorizedNetworkArgsDict',
-    'BranchEndpointsPrivateEndpointAwsArgs',
-    'BranchEndpointsPrivateEndpointAwsArgsDict',
-    'BranchEndpointsPublicEndpointArgs',
-    'BranchEndpointsPublicEndpointArgsDict',
-    'BranchEndpointsPublicEndpointAuthorizedNetworkArgs',
-    'BranchEndpointsPublicEndpointAuthorizedNetworkArgsDict',
     'BranchUsagesArgs',
     'BranchUsagesArgsDict',
     'InstanceAnnotationArgs',
@@ -119,24 +111,16 @@ class BranchEndpointsArgsDict(TypedDict):
     """
     Private endpoint
     """
-    public_endpoint: NotRequired[pulumi.Input[Optional['BranchEndpointsPublicEndpointArgsDict']]]
-    """
-    Public endpoint
-    """
 
 @pulumi.input_type
 class BranchEndpointsArgs:
     def __init__(__self__, *,
-                 private_endpoint: pulumi.Input[Optional['BranchEndpointsPrivateEndpointArgs']] = None,
-                 public_endpoint: pulumi.Input[Optional['BranchEndpointsPublicEndpointArgs']] = None):
+                 private_endpoint: pulumi.Input[Optional['BranchEndpointsPrivateEndpointArgs']] = None):
         """
         :param pulumi.Input['BranchEndpointsPrivateEndpointArgs'] private_endpoint: Private endpoint
-        :param pulumi.Input['BranchEndpointsPublicEndpointArgs'] public_endpoint: Public endpoint
         """
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if public_endpoint is not None:
-            pulumi.set(__self__, "public_endpoint", public_endpoint)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
@@ -150,32 +134,12 @@ class BranchEndpointsArgs:
     def private_endpoint(self, value: pulumi.Input[Optional['BranchEndpointsPrivateEndpointArgs']]):
         pulumi.set(self, "private_endpoint", value)
 
-    @_builtins.property
-    @pulumi.getter(name="publicEndpoint")
-    def public_endpoint(self) -> pulumi.Input[Optional['BranchEndpointsPublicEndpointArgs']]:
-        """
-        Public endpoint
-        """
-        return pulumi.get(self, "public_endpoint")
-
-    @public_endpoint.setter
-    def public_endpoint(self, value: pulumi.Input[Optional['BranchEndpointsPublicEndpointArgs']]):
-        pulumi.set(self, "public_endpoint", value)
-
 
 class BranchEndpointsPrivateEndpointArgsDict(TypedDict):
-    alicloud: NotRequired[pulumi.Input[Optional['BranchEndpointsPrivateEndpointAlicloudArgsDict']]]
-    """
-    Alicloud private endpoint
-    """
     authorized_networks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BranchEndpointsPrivateEndpointAuthorizedNetworkArgsDict']]]]]
     """
     Private endpoint authorized network list
     Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-    """
-    aws: NotRequired[pulumi.Input[Optional['BranchEndpointsPrivateEndpointAwsArgsDict']]]
-    """
-    AWS private endpoint
     """
     disabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -209,9 +173,7 @@ class BranchEndpointsPrivateEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class BranchEndpointsPrivateEndpointArgs:
     def __init__(__self__, *,
-                 alicloud: pulumi.Input[Optional['BranchEndpointsPrivateEndpointAlicloudArgs']] = None,
                  authorized_networks: pulumi.Input[Optional[Sequence[pulumi.Input['BranchEndpointsPrivateEndpointAuthorizedNetworkArgs']]]] = None,
-                 aws: pulumi.Input[Optional['BranchEndpointsPrivateEndpointAwsArgs']] = None,
                  disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  host: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
@@ -220,10 +182,8 @@ class BranchEndpointsPrivateEndpointArgs:
                  vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['BranchEndpointsPrivateEndpointAlicloudArgs'] alicloud: Alicloud private endpoint
         :param pulumi.Input[Sequence[pulumi.Input['BranchEndpointsPrivateEndpointAuthorizedNetworkArgs']]] authorized_networks: Private endpoint authorized network list
                Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-        :param pulumi.Input['BranchEndpointsPrivateEndpointAwsArgs'] aws: AWS private endpoint
         :param pulumi.Input[_builtins.bool] disabled: Disable private network access
         :param pulumi.Input[_builtins.str] host: Private hostname
         :param pulumi.Input[_builtins.int] port: Private port
@@ -232,12 +192,8 @@ class BranchEndpointsPrivateEndpointArgs:
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: VPC endpoint ID
         :param pulumi.Input[_builtins.str] vpc_endpoint_name: VPC endpoint name
         """
-        if alicloud is not None:
-            pulumi.set(__self__, "alicloud", alicloud)
         if authorized_networks is not None:
             pulumi.set(__self__, "authorized_networks", authorized_networks)
-        if aws is not None:
-            pulumi.set(__self__, "aws", aws)
         if disabled is not None:
             pulumi.set(__self__, "disabled", disabled)
         if host is not None:
@@ -254,18 +210,6 @@ class BranchEndpointsPrivateEndpointArgs:
             pulumi.set(__self__, "vpc_endpoint_name", vpc_endpoint_name)
 
     @_builtins.property
-    @pulumi.getter
-    def alicloud(self) -> pulumi.Input[Optional['BranchEndpointsPrivateEndpointAlicloudArgs']]:
-        """
-        Alicloud private endpoint
-        """
-        return pulumi.get(self, "alicloud")
-
-    @alicloud.setter
-    def alicloud(self, value: pulumi.Input[Optional['BranchEndpointsPrivateEndpointAlicloudArgs']]):
-        pulumi.set(self, "alicloud", value)
-
-    @_builtins.property
     @pulumi.getter(name="authorizedNetworks")
     def authorized_networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BranchEndpointsPrivateEndpointAuthorizedNetworkArgs']]]]:
         """
@@ -277,18 +221,6 @@ class BranchEndpointsPrivateEndpointArgs:
     @authorized_networks.setter
     def authorized_networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BranchEndpointsPrivateEndpointAuthorizedNetworkArgs']]]]):
         pulumi.set(self, "authorized_networks", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def aws(self) -> pulumi.Input[Optional['BranchEndpointsPrivateEndpointAwsArgs']]:
-        """
-        AWS private endpoint
-        """
-        return pulumi.get(self, "aws")
-
-    @aws.setter
-    def aws(self, value: pulumi.Input[Optional['BranchEndpointsPrivateEndpointAwsArgs']]):
-        pulumi.set(self, "aws", value)
 
     @_builtins.property
     @pulumi.getter
@@ -375,59 +307,10 @@ class BranchEndpointsPrivateEndpointArgs:
         pulumi.set(self, "vpc_endpoint_name", value)
 
 
-class BranchEndpointsPrivateEndpointAlicloudArgsDict(TypedDict):
-    availability_zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    """
-    Availability zone list
-    """
-    service_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Private service name
-    """
-
-@pulumi.input_type
-class BranchEndpointsPrivateEndpointAlicloudArgs:
-    def __init__(__self__, *,
-                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: Availability zone list
-        :param pulumi.Input[_builtins.str] service_name: Private service name
-        """
-        if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
-        if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
-
-    @_builtins.property
-    @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Availability zone list
-        """
-        return pulumi.get(self, "availability_zones")
-
-    @availability_zones.setter
-    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "availability_zones", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Private service name
-        """
-        return pulumi.get(self, "service_name")
-
-    @service_name.setter
-    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "service_name", value)
-
-
 class BranchEndpointsPrivateEndpointAuthorizedNetworkArgsDict(TypedDict):
-    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    authorized_network_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Authorized network name
+    Authorized Network Name
     """
     security_group_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -445,18 +328,18 @@ class BranchEndpointsPrivateEndpointAuthorizedNetworkArgsDict(TypedDict):
 @pulumi.input_type
 class BranchEndpointsPrivateEndpointAuthorizedNetworkArgs:
     def __init__(__self__, *,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorized_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_count: pulumi.Input[Optional[_builtins.int]] = None,
                  vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] display_name: Authorized network name
+        :param pulumi.Input[_builtins.str] authorized_network_name: Authorized Network Name
         :param pulumi.Input[_builtins.int] security_group_count: Security group count
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: VPC endpoint ID
         :param pulumi.Input[_builtins.str] vpc_endpoint_name: VPC endpoint name
         """
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+        if authorized_network_name is not None:
+            pulumi.set(__self__, "authorized_network_name", authorized_network_name)
         if security_group_count is not None:
             pulumi.set(__self__, "security_group_count", security_group_count)
         if vpc_endpoint_id is not None:
@@ -465,16 +348,16 @@ class BranchEndpointsPrivateEndpointAuthorizedNetworkArgs:
             pulumi.set(__self__, "vpc_endpoint_name", vpc_endpoint_name)
 
     @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="authorizedNetworkName")
+    def authorized_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Authorized network name
+        Authorized Network Name
         """
-        return pulumi.get(self, "display_name")
+        return pulumi.get(self, "authorized_network_name")
 
-    @display_name.setter
-    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "display_name", value)
+    @authorized_network_name.setter
+    def authorized_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authorized_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupCount")
@@ -511,216 +394,6 @@ class BranchEndpointsPrivateEndpointAuthorizedNetworkArgs:
     @vpc_endpoint_name.setter
     def vpc_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_name", value)
-
-
-class BranchEndpointsPrivateEndpointAwsArgsDict(TypedDict):
-    availability_zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    """
-    Availability zone list
-    """
-    service_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    VPC endpoint service name
-    """
-
-@pulumi.input_type
-class BranchEndpointsPrivateEndpointAwsArgs:
-    def __init__(__self__, *,
-                 availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: Availability zone list
-        :param pulumi.Input[_builtins.str] service_name: VPC endpoint service name
-        """
-        if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
-        if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
-
-    @_builtins.property
-    @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Availability zone list
-        """
-        return pulumi.get(self, "availability_zones")
-
-    @availability_zones.setter
-    def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "availability_zones", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        VPC endpoint service name
-        """
-        return pulumi.get(self, "service_name")
-
-    @service_name.setter
-    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "service_name", value)
-
-
-class BranchEndpointsPublicEndpointArgsDict(TypedDict):
-    authorized_networks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BranchEndpointsPublicEndpointAuthorizedNetworkArgsDict']]]]]
-    """
-    IP Allowlist
-    Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-    """
-    disabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Disable public network access
-    """
-    host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Public hostname
-    """
-    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    Public port
-    """
-
-@pulumi.input_type
-class BranchEndpointsPublicEndpointArgs:
-    def __init__(__self__, *,
-                 authorized_networks: pulumi.Input[Optional[Sequence[pulumi.Input['BranchEndpointsPublicEndpointAuthorizedNetworkArgs']]]] = None,
-                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 host: pulumi.Input[Optional[_builtins.str]] = None,
-                 port: pulumi.Input[Optional[_builtins.int]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['BranchEndpointsPublicEndpointAuthorizedNetworkArgs']]] authorized_networks: IP Allowlist
-               Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-        :param pulumi.Input[_builtins.bool] disabled: Disable public network access
-        :param pulumi.Input[_builtins.str] host: Public hostname
-        :param pulumi.Input[_builtins.int] port: Public port
-        """
-        if authorized_networks is not None:
-            pulumi.set(__self__, "authorized_networks", authorized_networks)
-        if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
-        if host is not None:
-            pulumi.set(__self__, "host", host)
-        if port is not None:
-            pulumi.set(__self__, "port", port)
-
-    @_builtins.property
-    @pulumi.getter(name="authorizedNetworks")
-    def authorized_networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BranchEndpointsPublicEndpointAuthorizedNetworkArgs']]]]:
-        """
-        IP Allowlist
-        Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-        """
-        return pulumi.get(self, "authorized_networks")
-
-    @authorized_networks.setter
-    def authorized_networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BranchEndpointsPublicEndpointAuthorizedNetworkArgs']]]]):
-        pulumi.set(self, "authorized_networks", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Disable public network access
-        """
-        return pulumi.get(self, "disabled")
-
-    @disabled.setter
-    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "disabled", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Public hostname
-        """
-        return pulumi.get(self, "host")
-
-    @host.setter
-    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "host", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        Public port
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "port", value)
-
-
-class BranchEndpointsPublicEndpointAuthorizedNetworkArgsDict(TypedDict):
-    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Authorized network name
-    """
-    end_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    End IP
-    """
-    start_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Start IP
-    """
-
-@pulumi.input_type
-class BranchEndpointsPublicEndpointAuthorizedNetworkArgs:
-    def __init__(__self__, *,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] display_name: Authorized network name
-        :param pulumi.Input[_builtins.str] end_ip_address: End IP
-        :param pulumi.Input[_builtins.str] start_ip_address: Start IP
-        """
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if end_ip_address is not None:
-            pulumi.set(__self__, "end_ip_address", end_ip_address)
-        if start_ip_address is not None:
-            pulumi.set(__self__, "start_ip_address", start_ip_address)
-
-    @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Authorized network name
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "display_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        End IP
-        """
-        return pulumi.get(self, "end_ip_address")
-
-    @end_ip_address.setter
-    def end_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "end_ip_address", value)
-
-    @_builtins.property
-    @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Start IP
-        """
-        return pulumi.get(self, "start_ip_address")
-
-    @start_ip_address.setter
-    def start_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "start_ip_address", value)
 
 
 class BranchUsagesArgsDict(TypedDict):
@@ -993,13 +666,13 @@ class InstanceBackupArgsDict(TypedDict):
     """
     Backup ID
     """
+    backup_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Backup name
+    """
     backup_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Backup Time
-    """
-    cluster_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Cluster ID
     """
     create_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1009,13 +682,21 @@ class InstanceBackupArgsDict(TypedDict):
     """
     Expiration Time
     """
-    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    instance_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Backup Name
+    Instance ID
+    """
+    size_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Backup size (bytes)
     """
     state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Backup Status
+    """
+    trigger_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Backup trigger type
     """
     type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1026,37 +707,45 @@ class InstanceBackupArgsDict(TypedDict):
 class InstanceBackupArgs:
     def __init__(__self__, *,
                  backup_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
                  backup_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  create_time: pulumi.Input[Optional[_builtins.str]] = None,
                  expire_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_bytes: pulumi.Input[Optional[_builtins.int]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_type: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] backup_id: Backup ID
+        :param pulumi.Input[_builtins.str] backup_name: Backup name
         :param pulumi.Input[_builtins.str] backup_time: Backup Time
-        :param pulumi.Input[_builtins.str] cluster_id: Cluster ID
         :param pulumi.Input[_builtins.str] create_time: Creation Time
         :param pulumi.Input[_builtins.str] expire_time: Expiration Time
-        :param pulumi.Input[_builtins.str] name: Backup Name
+        :param pulumi.Input[_builtins.str] instance_id: Instance ID
+        :param pulumi.Input[_builtins.int] size_bytes: Backup size (bytes)
         :param pulumi.Input[_builtins.str] state: Backup Status
+        :param pulumi.Input[_builtins.str] trigger_type: Backup trigger type
         :param pulumi.Input[_builtins.str] type: Backup Type
         """
         if backup_id is not None:
             pulumi.set(__self__, "backup_id", backup_id)
+        if backup_name is not None:
+            pulumi.set(__self__, "backup_name", backup_name)
         if backup_time is not None:
             pulumi.set(__self__, "backup_time", backup_time)
-        if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
         if create_time is not None:
             pulumi.set(__self__, "create_time", create_time)
         if expire_time is not None:
             pulumi.set(__self__, "expire_time", expire_time)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if size_bytes is not None:
+            pulumi.set(__self__, "size_bytes", size_bytes)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if trigger_type is not None:
+            pulumi.set(__self__, "trigger_type", trigger_type)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -1073,6 +762,18 @@ class InstanceBackupArgs:
         pulumi.set(self, "backup_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="backupName")
+    def backup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Backup name
+        """
+        return pulumi.get(self, "backup_name")
+
+    @backup_name.setter
+    def backup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "backup_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="backupTime")
     def backup_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1083,18 +784,6 @@ class InstanceBackupArgs:
     @backup_time.setter
     def backup_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_time", value)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Cluster ID
-        """
-        return pulumi.get(self, "cluster_id")
-
-    @cluster_id.setter
-    def cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "cluster_id", value)
 
     @_builtins.property
     @pulumi.getter(name="createTime")
@@ -1121,16 +810,28 @@ class InstanceBackupArgs:
         pulumi.set(self, "expire_time", value)
 
     @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Backup Name
+        Instance ID
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "instance_id")
 
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
+    @instance_id.setter
+    def instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instance_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sizeBytes")
+    def size_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Backup size (bytes)
+        """
+        return pulumi.get(self, "size_bytes")
+
+    @size_bytes.setter
+    def size_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "size_bytes", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1143,6 +844,18 @@ class InstanceBackupArgs:
     @state.setter
     def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="triggerType")
+    def trigger_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Backup trigger type
+        """
+        return pulumi.get(self, "trigger_type")
+
+    @trigger_type.setter
+    def trigger_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "trigger_type", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1408,11 +1121,11 @@ class InstanceEndpointsPrivateEndpointArgs:
 
 
 class InstanceEndpointsPrivateEndpointAuthorizedNetworkArgsDict(TypedDict):
-    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    authorized_network_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Descriptive Name
+    Identifiable name
     """
-    security_group_count: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    security_group_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of Security Groups Associated with Endpoint (not returned if query fails)
     """
@@ -1428,18 +1141,18 @@ class InstanceEndpointsPrivateEndpointAuthorizedNetworkArgsDict(TypedDict):
 @pulumi.input_type
 class InstanceEndpointsPrivateEndpointAuthorizedNetworkArgs:
     def __init__(__self__, *,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_group_count: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorized_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_count: pulumi.Input[Optional[_builtins.int]] = None,
                  vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] display_name: Descriptive Name
-        :param pulumi.Input[_builtins.str] security_group_count: Number of Security Groups Associated with Endpoint (not returned if query fails)
+        :param pulumi.Input[_builtins.str] authorized_network_name: Identifiable name
+        :param pulumi.Input[_builtins.int] security_group_count: Number of Security Groups Associated with Endpoint (not returned if query fails)
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: VPC Endpoint ID。
         :param pulumi.Input[_builtins.str] vpc_endpoint_name: Cloud Real Name of VPC Endpoint (not returned if query fails)
         """
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+        if authorized_network_name is not None:
+            pulumi.set(__self__, "authorized_network_name", authorized_network_name)
         if security_group_count is not None:
             pulumi.set(__self__, "security_group_count", security_group_count)
         if vpc_endpoint_id is not None:
@@ -1448,27 +1161,27 @@ class InstanceEndpointsPrivateEndpointAuthorizedNetworkArgs:
             pulumi.set(__self__, "vpc_endpoint_name", vpc_endpoint_name)
 
     @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="authorizedNetworkName")
+    def authorized_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Descriptive Name
+        Identifiable name
         """
-        return pulumi.get(self, "display_name")
+        return pulumi.get(self, "authorized_network_name")
 
-    @display_name.setter
-    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "display_name", value)
+    @authorized_network_name.setter
+    def authorized_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authorized_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupCount")
-    def security_group_count(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def security_group_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of Security Groups Associated with Endpoint (not returned if query fails)
         """
         return pulumi.get(self, "security_group_count")
 
     @security_group_count.setter
-    def security_group_count(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def security_group_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "security_group_count", value)
 
     @_builtins.property
@@ -1589,9 +1302,9 @@ class InstanceEndpointsPublicEndpointArgs:
 
 
 class InstanceEndpointsPublicEndpointAuthorizedNetworkArgsDict(TypedDict):
-    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    authorized_network_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Authorized Network Name
+    Authorized network name
     """
     end_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1605,32 +1318,32 @@ class InstanceEndpointsPublicEndpointAuthorizedNetworkArgsDict(TypedDict):
 @pulumi.input_type
 class InstanceEndpointsPublicEndpointAuthorizedNetworkArgs:
     def __init__(__self__, *,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorized_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                  end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
                  start_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] display_name: Authorized Network Name
+        :param pulumi.Input[_builtins.str] authorized_network_name: Authorized network name
         :param pulumi.Input[_builtins.str] end_ip_address: End IP
         :param pulumi.Input[_builtins.str] start_ip_address: Start IP
         """
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+        if authorized_network_name is not None:
+            pulumi.set(__self__, "authorized_network_name", authorized_network_name)
         if end_ip_address is not None:
             pulumi.set(__self__, "end_ip_address", end_ip_address)
         if start_ip_address is not None:
             pulumi.set(__self__, "start_ip_address", start_ip_address)
 
     @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="authorizedNetworkName")
+    def authorized_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Authorized Network Name
+        Authorized network name
         """
-        return pulumi.get(self, "display_name")
+        return pulumi.get(self, "authorized_network_name")
 
-    @display_name.setter
-    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "display_name", value)
+    @authorized_network_name.setter
+    def authorized_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authorized_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="endIpAddress")
@@ -1791,7 +1504,7 @@ class InstanceZoneArgsDict(TypedDict):
     """
     zone_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Availability Zone ID
+    Availability zone ID
     """
 
 @pulumi.input_type
@@ -1801,7 +1514,7 @@ class InstanceZoneArgs:
                  zone_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID
-        :param pulumi.Input[_builtins.str] zone_id: Availability Zone ID
+        :param pulumi.Input[_builtins.str] zone_id: Availability zone ID
         """
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
@@ -1824,7 +1537,7 @@ class InstanceZoneArgs:
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Availability Zone ID
+        Availability zone ID
         """
         return pulumi.get(self, "zone_id")
 

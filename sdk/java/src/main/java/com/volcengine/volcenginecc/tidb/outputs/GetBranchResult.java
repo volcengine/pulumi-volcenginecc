@@ -26,10 +26,10 @@ public final class GetBranchResult {
      */
     private String branchId;
     /**
-     * @return Cluster ID
+     * @return Branch Name
      * 
      */
-    private String clusterId;
+    private String branchName;
     /**
      * @return Creation time
      * 
@@ -40,11 +40,6 @@ public final class GetBranchResult {
      * 
      */
     private String createdBy;
-    /**
-     * @return Branch display name
-     * 
-     */
-    private String displayName;
     /**
      * @return Branch endpoint configuration
      * 
@@ -61,15 +56,15 @@ public final class GetBranchResult {
      */
     private String id;
     /**
-     * @return Branch resource name
+     * @return Instance ID
      * 
      */
-    private String name;
+    private String instanceId;
     /**
-     * @return Parent branch display name
+     * @return Parent Branch Name
      * 
      */
-    private String parentDisplayName;
+    private String parentBranchName;
     /**
      * @return Parent branch ID
      * 
@@ -132,11 +127,11 @@ public final class GetBranchResult {
         return this.branchId;
     }
     /**
-     * @return Cluster ID
+     * @return Branch Name
      * 
      */
-    public String clusterId() {
-        return this.clusterId;
+    public String branchName() {
+        return this.branchName;
     }
     /**
      * @return Creation time
@@ -151,13 +146,6 @@ public final class GetBranchResult {
      */
     public String createdBy() {
         return this.createdBy;
-    }
-    /**
-     * @return Branch display name
-     * 
-     */
-    public String displayName() {
-        return this.displayName;
     }
     /**
      * @return Branch endpoint configuration
@@ -181,18 +169,18 @@ public final class GetBranchResult {
         return this.id;
     }
     /**
-     * @return Branch resource name
+     * @return Instance ID
      * 
      */
-    public String name() {
-        return this.name;
+    public String instanceId() {
+        return this.instanceId;
     }
     /**
-     * @return Parent branch display name
+     * @return Parent Branch Name
      * 
      */
-    public String parentDisplayName() {
-        return this.parentDisplayName;
+    public String parentBranchName() {
+        return this.parentBranchName;
     }
     /**
      * @return Parent branch ID
@@ -269,15 +257,14 @@ public final class GetBranchResult {
     public static final class Builder {
         private List<GetBranchAnnotation> annotations;
         private String branchId;
-        private String clusterId;
+        private String branchName;
         private String createTime;
         private String createdBy;
-        private String displayName;
         private GetBranchEndpoints endpoints;
         private Boolean hasSetPwd;
         private String id;
-        private String name;
-        private String parentDisplayName;
+        private String instanceId;
+        private String parentBranchName;
         private String parentId;
         private String parentTimestamp;
         private String password;
@@ -292,15 +279,14 @@ public final class GetBranchResult {
     	      Objects.requireNonNull(defaults);
     	      this.annotations = defaults.annotations;
     	      this.branchId = defaults.branchId;
-    	      this.clusterId = defaults.clusterId;
+    	      this.branchName = defaults.branchName;
     	      this.createTime = defaults.createTime;
     	      this.createdBy = defaults.createdBy;
-    	      this.displayName = defaults.displayName;
     	      this.endpoints = defaults.endpoints;
     	      this.hasSetPwd = defaults.hasSetPwd;
     	      this.id = defaults.id;
-    	      this.name = defaults.name;
-    	      this.parentDisplayName = defaults.parentDisplayName;
+    	      this.instanceId = defaults.instanceId;
+    	      this.parentBranchName = defaults.parentBranchName;
     	      this.parentId = defaults.parentId;
     	      this.parentTimestamp = defaults.parentTimestamp;
     	      this.password = defaults.password;
@@ -332,11 +318,11 @@ public final class GetBranchResult {
             return this;
         }
         @CustomType.Setter
-        public Builder clusterId(String clusterId) {
-            if (clusterId == null) {
-              throw new MissingRequiredPropertyException("GetBranchResult", "clusterId");
+        public Builder branchName(String branchName) {
+            if (branchName == null) {
+              throw new MissingRequiredPropertyException("GetBranchResult", "branchName");
             }
-            this.clusterId = clusterId;
+            this.branchName = branchName;
             return this;
         }
         @CustomType.Setter
@@ -353,14 +339,6 @@ public final class GetBranchResult {
               throw new MissingRequiredPropertyException("GetBranchResult", "createdBy");
             }
             this.createdBy = createdBy;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder displayName(String displayName) {
-            if (displayName == null) {
-              throw new MissingRequiredPropertyException("GetBranchResult", "displayName");
-            }
-            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
@@ -388,19 +366,19 @@ public final class GetBranchResult {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetBranchResult", "name");
+        public Builder instanceId(String instanceId) {
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetBranchResult", "instanceId");
             }
-            this.name = name;
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
-        public Builder parentDisplayName(String parentDisplayName) {
-            if (parentDisplayName == null) {
-              throw new MissingRequiredPropertyException("GetBranchResult", "parentDisplayName");
+        public Builder parentBranchName(String parentBranchName) {
+            if (parentBranchName == null) {
+              throw new MissingRequiredPropertyException("GetBranchResult", "parentBranchName");
             }
-            this.parentDisplayName = parentDisplayName;
+            this.parentBranchName = parentBranchName;
             return this;
         }
         @CustomType.Setter
@@ -479,15 +457,14 @@ public final class GetBranchResult {
             final var _resultValue = new GetBranchResult();
             _resultValue.annotations = annotations;
             _resultValue.branchId = branchId;
-            _resultValue.clusterId = clusterId;
+            _resultValue.branchName = branchName;
             _resultValue.createTime = createTime;
             _resultValue.createdBy = createdBy;
-            _resultValue.displayName = displayName;
             _resultValue.endpoints = endpoints;
             _resultValue.hasSetPwd = hasSetPwd;
             _resultValue.id = id;
-            _resultValue.name = name;
-            _resultValue.parentDisplayName = parentDisplayName;
+            _resultValue.instanceId = instanceId;
+            _resultValue.parentBranchName = parentBranchName;
             _resultValue.parentId = parentId;
             _resultValue.parentTimestamp = parentTimestamp;
             _resultValue.password = password;

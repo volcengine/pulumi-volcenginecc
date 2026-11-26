@@ -12,10 +12,10 @@ import java.util.Objects;
 @CustomType
 public final class GetBranchEndpointsPrivateEndpointAuthorizedNetwork {
     /**
-     * @return Authorized network name
+     * @return Authorized Network Name
      * 
      */
-    private String displayName;
+    private String authorizedNetworkName;
     /**
      * @return Security group count
      * 
@@ -34,11 +34,11 @@ public final class GetBranchEndpointsPrivateEndpointAuthorizedNetwork {
 
     private GetBranchEndpointsPrivateEndpointAuthorizedNetwork() {}
     /**
-     * @return Authorized network name
+     * @return Authorized Network Name
      * 
      */
-    public String displayName() {
-        return this.displayName;
+    public String authorizedNetworkName() {
+        return this.authorizedNetworkName;
     }
     /**
      * @return Security group count
@@ -71,25 +71,25 @@ public final class GetBranchEndpointsPrivateEndpointAuthorizedNetwork {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String displayName;
+        private String authorizedNetworkName;
         private Integer securityGroupCount;
         private String vpcEndpointId;
         private String vpcEndpointName;
         public Builder() {}
         public Builder(GetBranchEndpointsPrivateEndpointAuthorizedNetwork defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.displayName = defaults.displayName;
+    	      this.authorizedNetworkName = defaults.authorizedNetworkName;
     	      this.securityGroupCount = defaults.securityGroupCount;
     	      this.vpcEndpointId = defaults.vpcEndpointId;
     	      this.vpcEndpointName = defaults.vpcEndpointName;
         }
 
         @CustomType.Setter
-        public Builder displayName(String displayName) {
-            if (displayName == null) {
-              throw new MissingRequiredPropertyException("GetBranchEndpointsPrivateEndpointAuthorizedNetwork", "displayName");
+        public Builder authorizedNetworkName(String authorizedNetworkName) {
+            if (authorizedNetworkName == null) {
+              throw new MissingRequiredPropertyException("GetBranchEndpointsPrivateEndpointAuthorizedNetwork", "authorizedNetworkName");
             }
-            this.displayName = displayName;
+            this.authorizedNetworkName = authorizedNetworkName;
             return this;
         }
         @CustomType.Setter
@@ -118,7 +118,7 @@ public final class GetBranchEndpointsPrivateEndpointAuthorizedNetwork {
         }
         public GetBranchEndpointsPrivateEndpointAuthorizedNetwork build() {
             final var _resultValue = new GetBranchEndpointsPrivateEndpointAuthorizedNetwork();
-            _resultValue.displayName = displayName;
+            _resultValue.authorizedNetworkName = authorizedNetworkName;
             _resultValue.securityGroupCount = securityGroupCount;
             _resultValue.vpcEndpointId = vpcEndpointId;
             _resultValue.vpcEndpointName = vpcEndpointName;

@@ -18,33 +18,33 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
     public static final BranchArgs Empty = new BranchArgs();
 
     /**
-     * Cluster ID
+     * Branch Name
      * 
      */
-    @Import(name="clusterId", required=true)
-    private Output<String> clusterId;
+    @Import(name="branchName", required=true)
+    private Output<String> branchName;
 
     /**
-     * @return Cluster ID
+     * @return Branch Name
      * 
      */
-    public Output<String> clusterId() {
-        return this.clusterId;
+    public Output<String> branchName() {
+        return this.branchName;
     }
 
     /**
-     * Branch display name
+     * Instance ID
      * 
      */
-    @Import(name="displayName", required=true)
-    private Output<String> displayName;
+    @Import(name="instanceId", required=true)
+    private Output<String> instanceId;
 
     /**
-     * @return Branch display name
+     * @return Instance ID
      * 
      */
-    public Output<String> displayName() {
-        return this.displayName;
+    public Output<String> instanceId() {
+        return this.instanceId;
     }
 
     /**
@@ -110,8 +110,8 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
     private BranchArgs() {}
 
     private BranchArgs(BranchArgs $) {
-        this.clusterId = $.clusterId;
-        this.displayName = $.displayName;
+        this.branchName = $.branchName;
+        this.instanceId = $.instanceId;
         this.parentId = $.parentId;
         this.parentTimestamp = $.parentTimestamp;
         this.password = $.password;
@@ -137,45 +137,45 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterId Cluster ID
+         * @param branchName Branch Name
          * 
          * @return builder
          * 
          */
-        public Builder clusterId(Output<String> clusterId) {
-            $.clusterId = clusterId;
+        public Builder branchName(Output<String> branchName) {
+            $.branchName = branchName;
             return this;
         }
 
         /**
-         * @param clusterId Cluster ID
+         * @param branchName Branch Name
          * 
          * @return builder
          * 
          */
-        public Builder clusterId(String clusterId) {
-            return clusterId(Output.of(clusterId));
+        public Builder branchName(String branchName) {
+            return branchName(Output.of(branchName));
         }
 
         /**
-         * @param displayName Branch display name
+         * @param instanceId Instance ID
          * 
          * @return builder
          * 
          */
-        public Builder displayName(Output<String> displayName) {
-            $.displayName = displayName;
+        public Builder instanceId(Output<String> instanceId) {
+            $.instanceId = instanceId;
             return this;
         }
 
         /**
-         * @param displayName Branch display name
+         * @param instanceId Instance ID
          * 
          * @return builder
          * 
          */
-        public Builder displayName(String displayName) {
-            return displayName(Output.of(displayName));
+        public Builder instanceId(String instanceId) {
+            return instanceId(Output.of(instanceId));
         }
 
         /**
@@ -263,11 +263,11 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BranchArgs build() {
-            if ($.clusterId == null) {
-                throw new MissingRequiredPropertyException("BranchArgs", "clusterId");
+            if ($.branchName == null) {
+                throw new MissingRequiredPropertyException("BranchArgs", "branchName");
             }
-            if ($.displayName == null) {
-                throw new MissingRequiredPropertyException("BranchArgs", "displayName");
+            if ($.instanceId == null) {
+                throw new MissingRequiredPropertyException("BranchArgs", "instanceId");
             }
             return $;
         }

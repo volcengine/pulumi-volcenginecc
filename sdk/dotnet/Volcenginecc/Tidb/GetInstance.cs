@@ -65,6 +65,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
     public sealed class GetInstanceResult
     {
         /// <summary>
+        /// Account ID of the instance owner
+        /// </summary>
+        public readonly string AccountId;
+        /// <summary>
         /// Annotation
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceAnnotationResult> Annotations;
@@ -81,21 +85,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         /// </summary>
         public readonly Outputs.GetInstanceAutomatedBackupPolicyResult AutomatedBackupPolicy;
         /// <summary>
-        /// Cluster Backup List
+        /// Instance backup list
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceBackupResult> Backups;
-        /// <summary>
-        /// Cluster ID
-        /// </summary>
-        public readonly string ClusterId;
         /// <summary>
         /// Creation Time (ISO8601)
         /// </summary>
         public readonly string CreateTime;
-        /// <summary>
-        /// Cluster Display Name
-        /// </summary>
-        public readonly string DisplayName;
         /// <summary>
         /// Data Encryption Configuration
         /// </summary>
@@ -113,13 +109,17 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Instance ID
+        /// </summary>
+        public readonly string InstanceId;
+        /// <summary>
+        /// Instance name
+        /// </summary>
+        public readonly string InstanceName;
+        /// <summary>
         /// Tags
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceLabelResult> Labels;
-        /// <summary>
-        /// Resource Name: clusters/{clusterId}
-        /// </summary>
-        public readonly string Name;
         /// <summary>
         /// Volcano Engine Project Name
         /// </summary>
@@ -137,7 +137,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         /// </summary>
         public readonly Outputs.GetInstanceSpendingLimitResult SpendingLimit;
         /// <summary>
-        /// Cluster Status
+        /// Instance status
         /// </summary>
         public readonly string State;
         /// <summary>
@@ -167,6 +167,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
 
         [OutputConstructor]
         private GetInstanceResult(
+            string accountId,
+
             ImmutableArray<Outputs.GetInstanceAnnotationResult> annotations,
 
             Outputs.GetInstanceAuditLogConfigResult auditLogConfig,
@@ -177,11 +179,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
 
             ImmutableArray<Outputs.GetInstanceBackupResult> backups,
 
-            string clusterId,
-
             string createTime,
-
-            string displayName,
 
             Outputs.GetInstanceEncryptionConfigResult encryptionConfig,
 
@@ -191,9 +189,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
 
             string id,
 
-            ImmutableArray<Outputs.GetInstanceLabelResult> labels,
+            string instanceId,
 
-            string name,
+            string instanceName,
+
+            ImmutableArray<Outputs.GetInstanceLabelResult> labels,
 
             string projectName,
 
@@ -217,20 +217,20 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
 
             ImmutableArray<Outputs.GetInstanceZoneResult> zones)
         {
+            AccountId = accountId;
             Annotations = annotations;
             AuditLogConfig = auditLogConfig;
             AutoScaling = autoScaling;
             AutomatedBackupPolicy = automatedBackupPolicy;
             Backups = backups;
-            ClusterId = clusterId;
             CreateTime = createTime;
-            DisplayName = displayName;
             EncryptionConfig = encryptionConfig;
             Endpoints = endpoints;
             HighAvailabilityType = highAvailabilityType;
             Id = id;
+            InstanceId = instanceId;
+            InstanceName = instanceName;
             Labels = labels;
-            Name = name;
             ProjectName = projectName;
             RegionId = regionId;
             ServicePlan = servicePlan;

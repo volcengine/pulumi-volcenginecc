@@ -4,6 +4,7 @@
 package com.volcengine.volcenginecc.tidb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,15 +18,15 @@ public final class InstanceBackup {
      */
     private @Nullable String backupId;
     /**
+     * @return Backup name
+     * 
+     */
+    private @Nullable String backupName;
+    /**
      * @return Backup Time
      * 
      */
     private @Nullable String backupTime;
-    /**
-     * @return Cluster ID
-     * 
-     */
-    private @Nullable String clusterId;
     /**
      * @return Creation Time
      * 
@@ -37,15 +38,25 @@ public final class InstanceBackup {
      */
     private @Nullable String expireTime;
     /**
-     * @return Backup Name
+     * @return Instance ID
      * 
      */
-    private @Nullable String name;
+    private @Nullable String instanceId;
+    /**
+     * @return Backup size (bytes)
+     * 
+     */
+    private @Nullable Integer sizeBytes;
     /**
      * @return Backup Status
      * 
      */
     private @Nullable String state;
+    /**
+     * @return Backup trigger type
+     * 
+     */
+    private @Nullable String triggerType;
     /**
      * @return Backup Type
      * 
@@ -61,18 +72,18 @@ public final class InstanceBackup {
         return Optional.ofNullable(this.backupId);
     }
     /**
+     * @return Backup name
+     * 
+     */
+    public Optional<String> backupName() {
+        return Optional.ofNullable(this.backupName);
+    }
+    /**
      * @return Backup Time
      * 
      */
     public Optional<String> backupTime() {
         return Optional.ofNullable(this.backupTime);
-    }
-    /**
-     * @return Cluster ID
-     * 
-     */
-    public Optional<String> clusterId() {
-        return Optional.ofNullable(this.clusterId);
     }
     /**
      * @return Creation Time
@@ -89,11 +100,18 @@ public final class InstanceBackup {
         return Optional.ofNullable(this.expireTime);
     }
     /**
-     * @return Backup Name
+     * @return Instance ID
      * 
      */
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
+    public Optional<String> instanceId() {
+        return Optional.ofNullable(this.instanceId);
+    }
+    /**
+     * @return Backup size (bytes)
+     * 
+     */
+    public Optional<Integer> sizeBytes() {
+        return Optional.ofNullable(this.sizeBytes);
     }
     /**
      * @return Backup Status
@@ -101,6 +119,13 @@ public final class InstanceBackup {
      */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
+    }
+    /**
+     * @return Backup trigger type
+     * 
+     */
+    public Optional<String> triggerType() {
+        return Optional.ofNullable(this.triggerType);
     }
     /**
      * @return Backup Type
@@ -120,23 +145,27 @@ public final class InstanceBackup {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String backupId;
+        private @Nullable String backupName;
         private @Nullable String backupTime;
-        private @Nullable String clusterId;
         private @Nullable String createTime;
         private @Nullable String expireTime;
-        private @Nullable String name;
+        private @Nullable String instanceId;
+        private @Nullable Integer sizeBytes;
         private @Nullable String state;
+        private @Nullable String triggerType;
         private @Nullable String type;
         public Builder() {}
         public Builder(InstanceBackup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backupId = defaults.backupId;
+    	      this.backupName = defaults.backupName;
     	      this.backupTime = defaults.backupTime;
-    	      this.clusterId = defaults.clusterId;
     	      this.createTime = defaults.createTime;
     	      this.expireTime = defaults.expireTime;
-    	      this.name = defaults.name;
+    	      this.instanceId = defaults.instanceId;
+    	      this.sizeBytes = defaults.sizeBytes;
     	      this.state = defaults.state;
+    	      this.triggerType = defaults.triggerType;
     	      this.type = defaults.type;
         }
 
@@ -147,15 +176,15 @@ public final class InstanceBackup {
             return this;
         }
         @CustomType.Setter
-        public Builder backupTime(@Nullable String backupTime) {
+        public Builder backupName(@Nullable String backupName) {
 
-            this.backupTime = backupTime;
+            this.backupName = backupName;
             return this;
         }
         @CustomType.Setter
-        public Builder clusterId(@Nullable String clusterId) {
+        public Builder backupTime(@Nullable String backupTime) {
 
-            this.clusterId = clusterId;
+            this.backupTime = backupTime;
             return this;
         }
         @CustomType.Setter
@@ -171,15 +200,27 @@ public final class InstanceBackup {
             return this;
         }
         @CustomType.Setter
-        public Builder name(@Nullable String name) {
+        public Builder instanceId(@Nullable String instanceId) {
 
-            this.name = name;
+            this.instanceId = instanceId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sizeBytes(@Nullable Integer sizeBytes) {
+
+            this.sizeBytes = sizeBytes;
             return this;
         }
         @CustomType.Setter
         public Builder state(@Nullable String state) {
 
             this.state = state;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder triggerType(@Nullable String triggerType) {
+
+            this.triggerType = triggerType;
             return this;
         }
         @CustomType.Setter
@@ -191,12 +232,14 @@ public final class InstanceBackup {
         public InstanceBackup build() {
             final var _resultValue = new InstanceBackup();
             _resultValue.backupId = backupId;
+            _resultValue.backupName = backupName;
             _resultValue.backupTime = backupTime;
-            _resultValue.clusterId = clusterId;
             _resultValue.createTime = createTime;
             _resultValue.expireTime = expireTime;
-            _resultValue.name = name;
+            _resultValue.instanceId = instanceId;
+            _resultValue.sizeBytes = sizeBytes;
             _resultValue.state = state;
+            _resultValue.triggerType = triggerType;
             _resultValue.type = type;
             return _resultValue;
         }

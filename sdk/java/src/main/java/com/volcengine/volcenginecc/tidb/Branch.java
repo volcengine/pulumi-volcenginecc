@@ -47,8 +47,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var example = new Branch("example", BranchArgs.builder()
- *             .clusterId("cluster_id-xxx")
- *             .displayName("ccapi-tidb-branch-full")
+ *             .instanceId("替换为 TiDB 实例 ID")
+ *             .branchName("ccapi-tidb-branch-full")
  *             .parentId("parent_id")
  *             .parentTimestamp("YYYY-MM-DD'T'hh:mm:ss'Z'")
  *             .password("Example}{@literal @}{@code Test1234")
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import volcenginecc:tidb/branch:Branch example &#34;cluster_id|branch_id&#34;
+ * $ pulumi import volcenginecc:tidb/branch:Branch example &#34;instance_id|branch_id&#34;
  * ```
  * 
  */
@@ -100,18 +100,18 @@ public class Branch extends com.pulumi.resources.CustomResource {
         return this.branchId;
     }
     /**
-     * Cluster ID
+     * Branch Name
      * 
      */
-    @Export(name="clusterId", refs={String.class}, tree="[0]")
-    private Output<String> clusterId;
+    @Export(name="branchName", refs={String.class}, tree="[0]")
+    private Output<String> branchName;
 
     /**
-     * @return Cluster ID
+     * @return Branch Name
      * 
      */
-    public Output<String> clusterId() {
-        return this.clusterId;
+    public Output<String> branchName() {
+        return this.branchName;
     }
     /**
      * Creation time
@@ -142,20 +142,6 @@ public class Branch extends com.pulumi.resources.CustomResource {
         return this.createdBy;
     }
     /**
-     * Branch display name
-     * 
-     */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
-    private Output<String> displayName;
-
-    /**
-     * @return Branch display name
-     * 
-     */
-    public Output<String> displayName() {
-        return this.displayName;
-    }
-    /**
      * Branch endpoint configuration
      * 
      */
@@ -184,32 +170,32 @@ public class Branch extends com.pulumi.resources.CustomResource {
         return this.hasSetPwd;
     }
     /**
-     * Branch resource name
+     * Instance ID
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
+    @Export(name="instanceId", refs={String.class}, tree="[0]")
+    private Output<String> instanceId;
 
     /**
-     * @return Branch resource name
+     * @return Instance ID
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Output<String> instanceId() {
+        return this.instanceId;
     }
     /**
-     * Parent branch display name
+     * Parent Branch Name
      * 
      */
-    @Export(name="parentDisplayName", refs={String.class}, tree="[0]")
-    private Output<String> parentDisplayName;
+    @Export(name="parentBranchName", refs={String.class}, tree="[0]")
+    private Output<String> parentBranchName;
 
     /**
-     * @return Parent branch display name
+     * @return Parent Branch Name
      * 
      */
-    public Output<String> parentDisplayName() {
-        return this.parentDisplayName;
+    public Output<String> parentBranchName() {
+        return this.parentBranchName;
     }
     /**
      * Parent branch ID

@@ -618,6 +618,14 @@ _utilities.register(
  },
  {
   "pkg": "volcenginecc",
+  "mod": "cloudmonitor/aggregationPolicy",
+  "fqn": "pulumi_volcenginecc.cloudmonitor",
+  "classes": {
+   "volcenginecc:cloudmonitor/aggregationPolicy:AggregationPolicy": "AggregationPolicy"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
   "mod": "cloudmonitor/alertTemplate",
   "fqn": "pulumi_volcenginecc.cloudmonitor",
   "classes": {
@@ -1830,6 +1838,14 @@ _utilities.register(
   "fqn": "pulumi_volcenginecc.storageebs",
   "classes": {
    "volcenginecc:storageebs/volume:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "volcenginecc",
+  "mod": "tidb/allowlist",
+  "fqn": "pulumi_volcenginecc.tidb",
+  "classes": {
+   "volcenginecc:tidb/allowlist:Allowlist": "Allowlist"
   }
  },
  {

@@ -14,16 +14,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Inputs
     public sealed class InstanceEndpointsPrivateEndpointAuthorizedNetworkGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Descriptive Name
+        /// Identifiable name
         /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
+        [Input("authorizedNetworkName")]
+        public Input<string>? AuthorizedNetworkName { get; set; }
 
         /// <summary>
         /// Number of Security Groups Associated with Endpoint (not returned if query fails)
         /// </summary>
         [Input("securityGroupCount")]
-        public Input<string>? SecurityGroupCount { get; set; }
+        public Input<int>? SecurityGroupCount { get; set; }
 
         /// <summary>
         /// VPC Endpoint ID。

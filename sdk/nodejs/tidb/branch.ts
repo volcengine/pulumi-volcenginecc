@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as volcenginecc from "@volcengine/pulumi-volcenginecc";
  *
  * const example = new volcenginecc.tidb.Branch("example", {
- *     clusterId: "cluster_id-xxx",
- *     displayName: "ccapi-tidb-branch-full",
+ *     instanceId: "替换为 TiDB 实例 ID",
+ *     branchName: "ccapi-tidb-branch-full",
  *     parentId: "parent_id",
  *     parentTimestamp: "YYYY-MM-DD'T'hh:mm:ss'Z'",
  *     password: "Example@Test1234",
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import volcenginecc:tidb/branch:Branch example "cluster_id|branch_id"
+ * $ pulumi import volcenginecc:tidb/branch:Branch example "instance_id|branch_id"
  * ```
  */
 export class Branch extends pulumi.CustomResource {
@@ -68,9 +68,9 @@ export class Branch extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly branchId: pulumi.Output<string>;
     /**
-     * Cluster ID
+     * Branch Name
      */
-    declare public readonly clusterId: pulumi.Output<string>;
+    declare public readonly branchName: pulumi.Output<string>;
     /**
      * Creation time
      */
@@ -80,10 +80,6 @@ export class Branch extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
-     * Branch display name
-     */
-    declare public readonly displayName: pulumi.Output<string>;
-    /**
      * Branch endpoint configuration
      */
     declare public /*out*/ readonly endpoints: pulumi.Output<outputs.tidb.BranchEndpoints>;
@@ -92,13 +88,13 @@ export class Branch extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly hasSetPwd: pulumi.Output<boolean>;
     /**
-     * Branch resource name
+     * Instance ID
      */
-    declare public /*out*/ readonly name: pulumi.Output<string>;
+    declare public readonly instanceId: pulumi.Output<string>;
     /**
-     * Parent branch display name
+     * Parent Branch Name
      */
-    declare public /*out*/ readonly parentDisplayName: pulumi.Output<string>;
+    declare public /*out*/ readonly parentBranchName: pulumi.Output<string>;
     /**
      * Parent branch ID
      */
@@ -151,14 +147,13 @@ export class Branch extends pulumi.CustomResource {
             const state = argsOrState as BranchState | undefined;
             resourceInputs["annotations"] = state?.annotations;
             resourceInputs["branchId"] = state?.branchId;
-            resourceInputs["clusterId"] = state?.clusterId;
+            resourceInputs["branchName"] = state?.branchName;
             resourceInputs["createTime"] = state?.createTime;
             resourceInputs["createdBy"] = state?.createdBy;
-            resourceInputs["displayName"] = state?.displayName;
             resourceInputs["endpoints"] = state?.endpoints;
             resourceInputs["hasSetPwd"] = state?.hasSetPwd;
-            resourceInputs["name"] = state?.name;
-            resourceInputs["parentDisplayName"] = state?.parentDisplayName;
+            resourceInputs["instanceId"] = state?.instanceId;
+            resourceInputs["parentBranchName"] = state?.parentBranchName;
             resourceInputs["parentId"] = state?.parentId;
             resourceInputs["parentTimestamp"] = state?.parentTimestamp;
             resourceInputs["password"] = state?.password;
@@ -170,14 +165,14 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["userPrefix"] = state?.userPrefix;
         } else {
             const args = argsOrState as BranchArgs | undefined;
-            if (args?.clusterId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'clusterId'");
+            if (args?.branchName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'branchName'");
             }
-            if (args?.displayName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'displayName'");
+            if (args?.instanceId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'instanceId'");
             }
-            resourceInputs["clusterId"] = args?.clusterId;
-            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["branchName"] = args?.branchName;
+            resourceInputs["instanceId"] = args?.instanceId;
             resourceInputs["parentId"] = args?.parentId;
             resourceInputs["parentTimestamp"] = args?.parentTimestamp;
             resourceInputs["password"] = args?.password;
@@ -188,8 +183,7 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["hasSetPwd"] = undefined /*out*/;
-            resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["parentDisplayName"] = undefined /*out*/;
+            resourceInputs["parentBranchName"] = undefined /*out*/;
             resourceInputs["projectName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["updateTime"] = undefined /*out*/;
@@ -215,9 +209,9 @@ export interface BranchState {
      */
     branchId?: pulumi.Input<string | undefined>;
     /**
-     * Cluster ID
+     * Branch Name
      */
-    clusterId?: pulumi.Input<string | undefined>;
+    branchName?: pulumi.Input<string | undefined>;
     /**
      * Creation time
      */
@@ -227,10 +221,6 @@ export interface BranchState {
      */
     createdBy?: pulumi.Input<string | undefined>;
     /**
-     * Branch display name
-     */
-    displayName?: pulumi.Input<string | undefined>;
-    /**
      * Branch endpoint configuration
      */
     endpoints?: pulumi.Input<inputs.tidb.BranchEndpoints | undefined>;
@@ -239,13 +229,13 @@ export interface BranchState {
      */
     hasSetPwd?: pulumi.Input<boolean | undefined>;
     /**
-     * Branch resource name
+     * Instance ID
      */
-    name?: pulumi.Input<string | undefined>;
+    instanceId?: pulumi.Input<string | undefined>;
     /**
-     * Parent branch display name
+     * Parent Branch Name
      */
-    parentDisplayName?: pulumi.Input<string | undefined>;
+    parentBranchName?: pulumi.Input<string | undefined>;
     /**
      * Parent branch ID
      */
@@ -289,13 +279,13 @@ export interface BranchState {
  */
 export interface BranchArgs {
     /**
-     * Cluster ID
+     * Branch Name
      */
-    clusterId: pulumi.Input<string>;
+    branchName: pulumi.Input<string>;
     /**
-     * Branch display name
+     * Instance ID
      */
-    displayName: pulumi.Input<string>;
+    instanceId: pulumi.Input<string>;
     /**
      * Parent branch ID
      */

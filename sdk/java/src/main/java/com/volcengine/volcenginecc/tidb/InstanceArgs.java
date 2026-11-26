@@ -53,21 +53,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Cluster Display Name
-     * 
-     */
-    @Import(name="displayName")
-    private @Nullable Output<String> displayName;
-
-    /**
-     * @return Cluster Display Name
-     * 
-     */
-    public Optional<Output<String>> displayName() {
-        return Optional.ofNullable(this.displayName);
-    }
-
-    /**
      * Data Encryption Configuration
      * 
      */
@@ -95,6 +80,21 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> highAvailabilityType() {
         return Optional.ofNullable(this.highAvailabilityType);
+    }
+
+    /**
+     * Instance name
+     * 
+     */
+    @Import(name="instanceName")
+    private @Nullable Output<String> instanceName;
+
+    /**
+     * @return Instance name
+     * 
+     */
+    public Optional<Output<String>> instanceName() {
+        return Optional.ofNullable(this.instanceName);
     }
 
     /**
@@ -196,9 +196,9 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     private InstanceArgs(InstanceArgs $) {
         this.autoScaling = $.autoScaling;
         this.automatedBackupPolicy = $.automatedBackupPolicy;
-        this.displayName = $.displayName;
         this.encryptionConfig = $.encryptionConfig;
         this.highAvailabilityType = $.highAvailabilityType;
+        this.instanceName = $.instanceName;
         this.projectName = $.projectName;
         this.regionId = $.regionId;
         this.servicePlan = $.servicePlan;
@@ -268,27 +268,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Cluster Display Name
-         * 
-         * @return builder
-         * 
-         */
-        public Builder displayName(@Nullable Output<String> displayName) {
-            $.displayName = displayName;
-            return this;
-        }
-
-        /**
-         * @param displayName Cluster Display Name
-         * 
-         * @return builder
-         * 
-         */
-        public Builder displayName(String displayName) {
-            return displayName(Output.of(displayName));
-        }
-
-        /**
          * @param encryptionConfig Data Encryption Configuration
          * 
          * @return builder
@@ -328,6 +307,27 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder highAvailabilityType(String highAvailabilityType) {
             return highAvailabilityType(Output.of(highAvailabilityType));
+        }
+
+        /**
+         * @param instanceName Instance name
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceName(@Nullable Output<String> instanceName) {
+            $.instanceName = instanceName;
+            return this;
+        }
+
+        /**
+         * @param instanceName Instance name
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceName(String instanceName) {
+            return instanceName(Output.of(instanceName));
         }
 
         /**

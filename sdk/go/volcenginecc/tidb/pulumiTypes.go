@@ -122,8 +122,6 @@ func (o BranchAnnotationArrayOutput) Index(i pulumi.IntInput) BranchAnnotationOu
 type BranchEndpoints struct {
 	// Private endpoint
 	PrivateEndpoint *BranchEndpointsPrivateEndpoint `pulumi:"privateEndpoint"`
-	// Public endpoint
-	PublicEndpoint *BranchEndpointsPublicEndpoint `pulumi:"publicEndpoint"`
 }
 
 // BranchEndpointsInput is an input type that accepts BranchEndpointsArgs and BranchEndpointsOutput values.
@@ -140,8 +138,6 @@ type BranchEndpointsInput interface {
 type BranchEndpointsArgs struct {
 	// Private endpoint
 	PrivateEndpoint BranchEndpointsPrivateEndpointPtrInput `pulumi:"privateEndpoint"`
-	// Public endpoint
-	PublicEndpoint BranchEndpointsPublicEndpointPtrInput `pulumi:"publicEndpoint"`
 }
 
 func (BranchEndpointsArgs) ElementType() reflect.Type {
@@ -226,11 +222,6 @@ func (o BranchEndpointsOutput) PrivateEndpoint() BranchEndpointsPrivateEndpointP
 	return o.ApplyT(func(v BranchEndpoints) *BranchEndpointsPrivateEndpoint { return v.PrivateEndpoint }).(BranchEndpointsPrivateEndpointPtrOutput)
 }
 
-// Public endpoint
-func (o BranchEndpointsOutput) PublicEndpoint() BranchEndpointsPublicEndpointPtrOutput {
-	return o.ApplyT(func(v BranchEndpoints) *BranchEndpointsPublicEndpoint { return v.PublicEndpoint }).(BranchEndpointsPublicEndpointPtrOutput)
-}
-
 type BranchEndpointsPtrOutput struct{ *pulumi.OutputState }
 
 func (BranchEndpointsPtrOutput) ElementType() reflect.Type {
@@ -265,24 +256,10 @@ func (o BranchEndpointsPtrOutput) PrivateEndpoint() BranchEndpointsPrivateEndpoi
 	}).(BranchEndpointsPrivateEndpointPtrOutput)
 }
 
-// Public endpoint
-func (o BranchEndpointsPtrOutput) PublicEndpoint() BranchEndpointsPublicEndpointPtrOutput {
-	return o.ApplyT(func(v *BranchEndpoints) *BranchEndpointsPublicEndpoint {
-		if v == nil {
-			return nil
-		}
-		return v.PublicEndpoint
-	}).(BranchEndpointsPublicEndpointPtrOutput)
-}
-
 type BranchEndpointsPrivateEndpoint struct {
-	// Alicloud private endpoint
-	Alicloud *BranchEndpointsPrivateEndpointAlicloud `pulumi:"alicloud"`
 	// Private endpoint authorized network list
 	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 	AuthorizedNetworks []BranchEndpointsPrivateEndpointAuthorizedNetwork `pulumi:"authorizedNetworks"`
-	// AWS private endpoint
-	Aws *BranchEndpointsPrivateEndpointAws `pulumi:"aws"`
 	// Disable private network access
 	Disabled *bool `pulumi:"disabled"`
 	// Private hostname
@@ -311,13 +288,9 @@ type BranchEndpointsPrivateEndpointInput interface {
 }
 
 type BranchEndpointsPrivateEndpointArgs struct {
-	// Alicloud private endpoint
-	Alicloud BranchEndpointsPrivateEndpointAlicloudPtrInput `pulumi:"alicloud"`
 	// Private endpoint authorized network list
 	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 	AuthorizedNetworks BranchEndpointsPrivateEndpointAuthorizedNetworkArrayInput `pulumi:"authorizedNetworks"`
-	// AWS private endpoint
-	Aws BranchEndpointsPrivateEndpointAwsPtrInput `pulumi:"aws"`
 	// Disable private network access
 	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
 	// Private hostname
@@ -411,22 +384,12 @@ func (o BranchEndpointsPrivateEndpointOutput) ToBranchEndpointsPrivateEndpointPt
 	}).(BranchEndpointsPrivateEndpointPtrOutput)
 }
 
-// Alicloud private endpoint
-func (o BranchEndpointsPrivateEndpointOutput) Alicloud() BranchEndpointsPrivateEndpointAlicloudPtrOutput {
-	return o.ApplyT(func(v BranchEndpointsPrivateEndpoint) *BranchEndpointsPrivateEndpointAlicloud { return v.Alicloud }).(BranchEndpointsPrivateEndpointAlicloudPtrOutput)
-}
-
 // Private endpoint authorized network list
 // Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 func (o BranchEndpointsPrivateEndpointOutput) AuthorizedNetworks() BranchEndpointsPrivateEndpointAuthorizedNetworkArrayOutput {
 	return o.ApplyT(func(v BranchEndpointsPrivateEndpoint) []BranchEndpointsPrivateEndpointAuthorizedNetwork {
 		return v.AuthorizedNetworks
 	}).(BranchEndpointsPrivateEndpointAuthorizedNetworkArrayOutput)
-}
-
-// AWS private endpoint
-func (o BranchEndpointsPrivateEndpointOutput) Aws() BranchEndpointsPrivateEndpointAwsPtrOutput {
-	return o.ApplyT(func(v BranchEndpointsPrivateEndpoint) *BranchEndpointsPrivateEndpointAws { return v.Aws }).(BranchEndpointsPrivateEndpointAwsPtrOutput)
 }
 
 // Disable private network access
@@ -488,16 +451,6 @@ func (o BranchEndpointsPrivateEndpointPtrOutput) Elem() BranchEndpointsPrivateEn
 	}).(BranchEndpointsPrivateEndpointOutput)
 }
 
-// Alicloud private endpoint
-func (o BranchEndpointsPrivateEndpointPtrOutput) Alicloud() BranchEndpointsPrivateEndpointAlicloudPtrOutput {
-	return o.ApplyT(func(v *BranchEndpointsPrivateEndpoint) *BranchEndpointsPrivateEndpointAlicloud {
-		if v == nil {
-			return nil
-		}
-		return v.Alicloud
-	}).(BranchEndpointsPrivateEndpointAlicloudPtrOutput)
-}
-
 // Private endpoint authorized network list
 // Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 func (o BranchEndpointsPrivateEndpointPtrOutput) AuthorizedNetworks() BranchEndpointsPrivateEndpointAuthorizedNetworkArrayOutput {
@@ -507,16 +460,6 @@ func (o BranchEndpointsPrivateEndpointPtrOutput) AuthorizedNetworks() BranchEndp
 		}
 		return v.AuthorizedNetworks
 	}).(BranchEndpointsPrivateEndpointAuthorizedNetworkArrayOutput)
-}
-
-// AWS private endpoint
-func (o BranchEndpointsPrivateEndpointPtrOutput) Aws() BranchEndpointsPrivateEndpointAwsPtrOutput {
-	return o.ApplyT(func(v *BranchEndpointsPrivateEndpoint) *BranchEndpointsPrivateEndpointAws {
-		if v == nil {
-			return nil
-		}
-		return v.Aws
-	}).(BranchEndpointsPrivateEndpointAwsPtrOutput)
 }
 
 // Disable private network access
@@ -589,165 +532,9 @@ func (o BranchEndpointsPrivateEndpointPtrOutput) VpcEndpointName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-type BranchEndpointsPrivateEndpointAlicloud struct {
-	// Availability zone list
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Private service name
-	ServiceName *string `pulumi:"serviceName"`
-}
-
-// BranchEndpointsPrivateEndpointAlicloudInput is an input type that accepts BranchEndpointsPrivateEndpointAlicloudArgs and BranchEndpointsPrivateEndpointAlicloudOutput values.
-// You can construct a concrete instance of `BranchEndpointsPrivateEndpointAlicloudInput` via:
-//
-//	BranchEndpointsPrivateEndpointAlicloudArgs{...}
-type BranchEndpointsPrivateEndpointAlicloudInput interface {
-	pulumi.Input
-
-	ToBranchEndpointsPrivateEndpointAlicloudOutput() BranchEndpointsPrivateEndpointAlicloudOutput
-	ToBranchEndpointsPrivateEndpointAlicloudOutputWithContext(context.Context) BranchEndpointsPrivateEndpointAlicloudOutput
-}
-
-type BranchEndpointsPrivateEndpointAlicloudArgs struct {
-	// Availability zone list
-	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// Private service name
-	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
-}
-
-func (BranchEndpointsPrivateEndpointAlicloudArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchEndpointsPrivateEndpointAlicloud)(nil)).Elem()
-}
-
-func (i BranchEndpointsPrivateEndpointAlicloudArgs) ToBranchEndpointsPrivateEndpointAlicloudOutput() BranchEndpointsPrivateEndpointAlicloudOutput {
-	return i.ToBranchEndpointsPrivateEndpointAlicloudOutputWithContext(context.Background())
-}
-
-func (i BranchEndpointsPrivateEndpointAlicloudArgs) ToBranchEndpointsPrivateEndpointAlicloudOutputWithContext(ctx context.Context) BranchEndpointsPrivateEndpointAlicloudOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchEndpointsPrivateEndpointAlicloudOutput)
-}
-
-func (i BranchEndpointsPrivateEndpointAlicloudArgs) ToBranchEndpointsPrivateEndpointAlicloudPtrOutput() BranchEndpointsPrivateEndpointAlicloudPtrOutput {
-	return i.ToBranchEndpointsPrivateEndpointAlicloudPtrOutputWithContext(context.Background())
-}
-
-func (i BranchEndpointsPrivateEndpointAlicloudArgs) ToBranchEndpointsPrivateEndpointAlicloudPtrOutputWithContext(ctx context.Context) BranchEndpointsPrivateEndpointAlicloudPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchEndpointsPrivateEndpointAlicloudOutput).ToBranchEndpointsPrivateEndpointAlicloudPtrOutputWithContext(ctx)
-}
-
-// BranchEndpointsPrivateEndpointAlicloudPtrInput is an input type that accepts BranchEndpointsPrivateEndpointAlicloudArgs, BranchEndpointsPrivateEndpointAlicloudPtr and BranchEndpointsPrivateEndpointAlicloudPtrOutput values.
-// You can construct a concrete instance of `BranchEndpointsPrivateEndpointAlicloudPtrInput` via:
-//
-//	        BranchEndpointsPrivateEndpointAlicloudArgs{...}
-//
-//	or:
-//
-//	        nil
-type BranchEndpointsPrivateEndpointAlicloudPtrInput interface {
-	pulumi.Input
-
-	ToBranchEndpointsPrivateEndpointAlicloudPtrOutput() BranchEndpointsPrivateEndpointAlicloudPtrOutput
-	ToBranchEndpointsPrivateEndpointAlicloudPtrOutputWithContext(context.Context) BranchEndpointsPrivateEndpointAlicloudPtrOutput
-}
-
-type branchEndpointsPrivateEndpointAlicloudPtrType BranchEndpointsPrivateEndpointAlicloudArgs
-
-func BranchEndpointsPrivateEndpointAlicloudPtr(v *BranchEndpointsPrivateEndpointAlicloudArgs) BranchEndpointsPrivateEndpointAlicloudPtrInput {
-	return (*branchEndpointsPrivateEndpointAlicloudPtrType)(v)
-}
-
-func (*branchEndpointsPrivateEndpointAlicloudPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchEndpointsPrivateEndpointAlicloud)(nil)).Elem()
-}
-
-func (i *branchEndpointsPrivateEndpointAlicloudPtrType) ToBranchEndpointsPrivateEndpointAlicloudPtrOutput() BranchEndpointsPrivateEndpointAlicloudPtrOutput {
-	return i.ToBranchEndpointsPrivateEndpointAlicloudPtrOutputWithContext(context.Background())
-}
-
-func (i *branchEndpointsPrivateEndpointAlicloudPtrType) ToBranchEndpointsPrivateEndpointAlicloudPtrOutputWithContext(ctx context.Context) BranchEndpointsPrivateEndpointAlicloudPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchEndpointsPrivateEndpointAlicloudPtrOutput)
-}
-
-type BranchEndpointsPrivateEndpointAlicloudOutput struct{ *pulumi.OutputState }
-
-func (BranchEndpointsPrivateEndpointAlicloudOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchEndpointsPrivateEndpointAlicloud)(nil)).Elem()
-}
-
-func (o BranchEndpointsPrivateEndpointAlicloudOutput) ToBranchEndpointsPrivateEndpointAlicloudOutput() BranchEndpointsPrivateEndpointAlicloudOutput {
-	return o
-}
-
-func (o BranchEndpointsPrivateEndpointAlicloudOutput) ToBranchEndpointsPrivateEndpointAlicloudOutputWithContext(ctx context.Context) BranchEndpointsPrivateEndpointAlicloudOutput {
-	return o
-}
-
-func (o BranchEndpointsPrivateEndpointAlicloudOutput) ToBranchEndpointsPrivateEndpointAlicloudPtrOutput() BranchEndpointsPrivateEndpointAlicloudPtrOutput {
-	return o.ToBranchEndpointsPrivateEndpointAlicloudPtrOutputWithContext(context.Background())
-}
-
-func (o BranchEndpointsPrivateEndpointAlicloudOutput) ToBranchEndpointsPrivateEndpointAlicloudPtrOutputWithContext(ctx context.Context) BranchEndpointsPrivateEndpointAlicloudPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchEndpointsPrivateEndpointAlicloud) *BranchEndpointsPrivateEndpointAlicloud {
-		return &v
-	}).(BranchEndpointsPrivateEndpointAlicloudPtrOutput)
-}
-
-// Availability zone list
-func (o BranchEndpointsPrivateEndpointAlicloudOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BranchEndpointsPrivateEndpointAlicloud) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
-}
-
-// Private service name
-func (o BranchEndpointsPrivateEndpointAlicloudOutput) ServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BranchEndpointsPrivateEndpointAlicloud) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
-}
-
-type BranchEndpointsPrivateEndpointAlicloudPtrOutput struct{ *pulumi.OutputState }
-
-func (BranchEndpointsPrivateEndpointAlicloudPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchEndpointsPrivateEndpointAlicloud)(nil)).Elem()
-}
-
-func (o BranchEndpointsPrivateEndpointAlicloudPtrOutput) ToBranchEndpointsPrivateEndpointAlicloudPtrOutput() BranchEndpointsPrivateEndpointAlicloudPtrOutput {
-	return o
-}
-
-func (o BranchEndpointsPrivateEndpointAlicloudPtrOutput) ToBranchEndpointsPrivateEndpointAlicloudPtrOutputWithContext(ctx context.Context) BranchEndpointsPrivateEndpointAlicloudPtrOutput {
-	return o
-}
-
-func (o BranchEndpointsPrivateEndpointAlicloudPtrOutput) Elem() BranchEndpointsPrivateEndpointAlicloudOutput {
-	return o.ApplyT(func(v *BranchEndpointsPrivateEndpointAlicloud) BranchEndpointsPrivateEndpointAlicloud {
-		if v != nil {
-			return *v
-		}
-		var ret BranchEndpointsPrivateEndpointAlicloud
-		return ret
-	}).(BranchEndpointsPrivateEndpointAlicloudOutput)
-}
-
-// Availability zone list
-func (o BranchEndpointsPrivateEndpointAlicloudPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BranchEndpointsPrivateEndpointAlicloud) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AvailabilityZones
-	}).(pulumi.StringArrayOutput)
-}
-
-// Private service name
-func (o BranchEndpointsPrivateEndpointAlicloudPtrOutput) ServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BranchEndpointsPrivateEndpointAlicloud) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceName
-	}).(pulumi.StringPtrOutput)
-}
-
 type BranchEndpointsPrivateEndpointAuthorizedNetwork struct {
-	// Authorized network name
-	DisplayName *string `pulumi:"displayName"`
+	// Authorized Network Name
+	AuthorizedNetworkName *string `pulumi:"authorizedNetworkName"`
 	// Security group count
 	SecurityGroupCount *int `pulumi:"securityGroupCount"`
 	// VPC endpoint ID
@@ -768,8 +555,8 @@ type BranchEndpointsPrivateEndpointAuthorizedNetworkInput interface {
 }
 
 type BranchEndpointsPrivateEndpointAuthorizedNetworkArgs struct {
-	// Authorized network name
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Authorized Network Name
+	AuthorizedNetworkName pulumi.StringPtrInput `pulumi:"authorizedNetworkName"`
 	// Security group count
 	SecurityGroupCount pulumi.IntPtrInput `pulumi:"securityGroupCount"`
 	// VPC endpoint ID
@@ -829,9 +616,9 @@ func (o BranchEndpointsPrivateEndpointAuthorizedNetworkOutput) ToBranchEndpoints
 	return o
 }
 
-// Authorized network name
-func (o BranchEndpointsPrivateEndpointAuthorizedNetworkOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BranchEndpointsPrivateEndpointAuthorizedNetwork) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+// Authorized Network Name
+func (o BranchEndpointsPrivateEndpointAuthorizedNetworkOutput) AuthorizedNetworkName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchEndpointsPrivateEndpointAuthorizedNetwork) *string { return v.AuthorizedNetworkName }).(pulumi.StringPtrOutput)
 }
 
 // Security group count
@@ -867,477 +654,6 @@ func (o BranchEndpointsPrivateEndpointAuthorizedNetworkArrayOutput) Index(i pulu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchEndpointsPrivateEndpointAuthorizedNetwork {
 		return vs[0].([]BranchEndpointsPrivateEndpointAuthorizedNetwork)[vs[1].(int)]
 	}).(BranchEndpointsPrivateEndpointAuthorizedNetworkOutput)
-}
-
-type BranchEndpointsPrivateEndpointAws struct {
-	// Availability zone list
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// VPC endpoint service name
-	ServiceName *string `pulumi:"serviceName"`
-}
-
-// BranchEndpointsPrivateEndpointAwsInput is an input type that accepts BranchEndpointsPrivateEndpointAwsArgs and BranchEndpointsPrivateEndpointAwsOutput values.
-// You can construct a concrete instance of `BranchEndpointsPrivateEndpointAwsInput` via:
-//
-//	BranchEndpointsPrivateEndpointAwsArgs{...}
-type BranchEndpointsPrivateEndpointAwsInput interface {
-	pulumi.Input
-
-	ToBranchEndpointsPrivateEndpointAwsOutput() BranchEndpointsPrivateEndpointAwsOutput
-	ToBranchEndpointsPrivateEndpointAwsOutputWithContext(context.Context) BranchEndpointsPrivateEndpointAwsOutput
-}
-
-type BranchEndpointsPrivateEndpointAwsArgs struct {
-	// Availability zone list
-	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// VPC endpoint service name
-	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
-}
-
-func (BranchEndpointsPrivateEndpointAwsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchEndpointsPrivateEndpointAws)(nil)).Elem()
-}
-
-func (i BranchEndpointsPrivateEndpointAwsArgs) ToBranchEndpointsPrivateEndpointAwsOutput() BranchEndpointsPrivateEndpointAwsOutput {
-	return i.ToBranchEndpointsPrivateEndpointAwsOutputWithContext(context.Background())
-}
-
-func (i BranchEndpointsPrivateEndpointAwsArgs) ToBranchEndpointsPrivateEndpointAwsOutputWithContext(ctx context.Context) BranchEndpointsPrivateEndpointAwsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchEndpointsPrivateEndpointAwsOutput)
-}
-
-func (i BranchEndpointsPrivateEndpointAwsArgs) ToBranchEndpointsPrivateEndpointAwsPtrOutput() BranchEndpointsPrivateEndpointAwsPtrOutput {
-	return i.ToBranchEndpointsPrivateEndpointAwsPtrOutputWithContext(context.Background())
-}
-
-func (i BranchEndpointsPrivateEndpointAwsArgs) ToBranchEndpointsPrivateEndpointAwsPtrOutputWithContext(ctx context.Context) BranchEndpointsPrivateEndpointAwsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchEndpointsPrivateEndpointAwsOutput).ToBranchEndpointsPrivateEndpointAwsPtrOutputWithContext(ctx)
-}
-
-// BranchEndpointsPrivateEndpointAwsPtrInput is an input type that accepts BranchEndpointsPrivateEndpointAwsArgs, BranchEndpointsPrivateEndpointAwsPtr and BranchEndpointsPrivateEndpointAwsPtrOutput values.
-// You can construct a concrete instance of `BranchEndpointsPrivateEndpointAwsPtrInput` via:
-//
-//	        BranchEndpointsPrivateEndpointAwsArgs{...}
-//
-//	or:
-//
-//	        nil
-type BranchEndpointsPrivateEndpointAwsPtrInput interface {
-	pulumi.Input
-
-	ToBranchEndpointsPrivateEndpointAwsPtrOutput() BranchEndpointsPrivateEndpointAwsPtrOutput
-	ToBranchEndpointsPrivateEndpointAwsPtrOutputWithContext(context.Context) BranchEndpointsPrivateEndpointAwsPtrOutput
-}
-
-type branchEndpointsPrivateEndpointAwsPtrType BranchEndpointsPrivateEndpointAwsArgs
-
-func BranchEndpointsPrivateEndpointAwsPtr(v *BranchEndpointsPrivateEndpointAwsArgs) BranchEndpointsPrivateEndpointAwsPtrInput {
-	return (*branchEndpointsPrivateEndpointAwsPtrType)(v)
-}
-
-func (*branchEndpointsPrivateEndpointAwsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchEndpointsPrivateEndpointAws)(nil)).Elem()
-}
-
-func (i *branchEndpointsPrivateEndpointAwsPtrType) ToBranchEndpointsPrivateEndpointAwsPtrOutput() BranchEndpointsPrivateEndpointAwsPtrOutput {
-	return i.ToBranchEndpointsPrivateEndpointAwsPtrOutputWithContext(context.Background())
-}
-
-func (i *branchEndpointsPrivateEndpointAwsPtrType) ToBranchEndpointsPrivateEndpointAwsPtrOutputWithContext(ctx context.Context) BranchEndpointsPrivateEndpointAwsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchEndpointsPrivateEndpointAwsPtrOutput)
-}
-
-type BranchEndpointsPrivateEndpointAwsOutput struct{ *pulumi.OutputState }
-
-func (BranchEndpointsPrivateEndpointAwsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchEndpointsPrivateEndpointAws)(nil)).Elem()
-}
-
-func (o BranchEndpointsPrivateEndpointAwsOutput) ToBranchEndpointsPrivateEndpointAwsOutput() BranchEndpointsPrivateEndpointAwsOutput {
-	return o
-}
-
-func (o BranchEndpointsPrivateEndpointAwsOutput) ToBranchEndpointsPrivateEndpointAwsOutputWithContext(ctx context.Context) BranchEndpointsPrivateEndpointAwsOutput {
-	return o
-}
-
-func (o BranchEndpointsPrivateEndpointAwsOutput) ToBranchEndpointsPrivateEndpointAwsPtrOutput() BranchEndpointsPrivateEndpointAwsPtrOutput {
-	return o.ToBranchEndpointsPrivateEndpointAwsPtrOutputWithContext(context.Background())
-}
-
-func (o BranchEndpointsPrivateEndpointAwsOutput) ToBranchEndpointsPrivateEndpointAwsPtrOutputWithContext(ctx context.Context) BranchEndpointsPrivateEndpointAwsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchEndpointsPrivateEndpointAws) *BranchEndpointsPrivateEndpointAws {
-		return &v
-	}).(BranchEndpointsPrivateEndpointAwsPtrOutput)
-}
-
-// Availability zone list
-func (o BranchEndpointsPrivateEndpointAwsOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BranchEndpointsPrivateEndpointAws) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
-}
-
-// VPC endpoint service name
-func (o BranchEndpointsPrivateEndpointAwsOutput) ServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BranchEndpointsPrivateEndpointAws) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
-}
-
-type BranchEndpointsPrivateEndpointAwsPtrOutput struct{ *pulumi.OutputState }
-
-func (BranchEndpointsPrivateEndpointAwsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchEndpointsPrivateEndpointAws)(nil)).Elem()
-}
-
-func (o BranchEndpointsPrivateEndpointAwsPtrOutput) ToBranchEndpointsPrivateEndpointAwsPtrOutput() BranchEndpointsPrivateEndpointAwsPtrOutput {
-	return o
-}
-
-func (o BranchEndpointsPrivateEndpointAwsPtrOutput) ToBranchEndpointsPrivateEndpointAwsPtrOutputWithContext(ctx context.Context) BranchEndpointsPrivateEndpointAwsPtrOutput {
-	return o
-}
-
-func (o BranchEndpointsPrivateEndpointAwsPtrOutput) Elem() BranchEndpointsPrivateEndpointAwsOutput {
-	return o.ApplyT(func(v *BranchEndpointsPrivateEndpointAws) BranchEndpointsPrivateEndpointAws {
-		if v != nil {
-			return *v
-		}
-		var ret BranchEndpointsPrivateEndpointAws
-		return ret
-	}).(BranchEndpointsPrivateEndpointAwsOutput)
-}
-
-// Availability zone list
-func (o BranchEndpointsPrivateEndpointAwsPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BranchEndpointsPrivateEndpointAws) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AvailabilityZones
-	}).(pulumi.StringArrayOutput)
-}
-
-// VPC endpoint service name
-func (o BranchEndpointsPrivateEndpointAwsPtrOutput) ServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BranchEndpointsPrivateEndpointAws) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceName
-	}).(pulumi.StringPtrOutput)
-}
-
-type BranchEndpointsPublicEndpoint struct {
-	// IP Allowlist
-	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-	AuthorizedNetworks []BranchEndpointsPublicEndpointAuthorizedNetwork `pulumi:"authorizedNetworks"`
-	// Disable public network access
-	Disabled *bool `pulumi:"disabled"`
-	// Public hostname
-	Host *string `pulumi:"host"`
-	// Public port
-	Port *int `pulumi:"port"`
-}
-
-// BranchEndpointsPublicEndpointInput is an input type that accepts BranchEndpointsPublicEndpointArgs and BranchEndpointsPublicEndpointOutput values.
-// You can construct a concrete instance of `BranchEndpointsPublicEndpointInput` via:
-//
-//	BranchEndpointsPublicEndpointArgs{...}
-type BranchEndpointsPublicEndpointInput interface {
-	pulumi.Input
-
-	ToBranchEndpointsPublicEndpointOutput() BranchEndpointsPublicEndpointOutput
-	ToBranchEndpointsPublicEndpointOutputWithContext(context.Context) BranchEndpointsPublicEndpointOutput
-}
-
-type BranchEndpointsPublicEndpointArgs struct {
-	// IP Allowlist
-	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-	AuthorizedNetworks BranchEndpointsPublicEndpointAuthorizedNetworkArrayInput `pulumi:"authorizedNetworks"`
-	// Disable public network access
-	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
-	// Public hostname
-	Host pulumi.StringPtrInput `pulumi:"host"`
-	// Public port
-	Port pulumi.IntPtrInput `pulumi:"port"`
-}
-
-func (BranchEndpointsPublicEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchEndpointsPublicEndpoint)(nil)).Elem()
-}
-
-func (i BranchEndpointsPublicEndpointArgs) ToBranchEndpointsPublicEndpointOutput() BranchEndpointsPublicEndpointOutput {
-	return i.ToBranchEndpointsPublicEndpointOutputWithContext(context.Background())
-}
-
-func (i BranchEndpointsPublicEndpointArgs) ToBranchEndpointsPublicEndpointOutputWithContext(ctx context.Context) BranchEndpointsPublicEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchEndpointsPublicEndpointOutput)
-}
-
-func (i BranchEndpointsPublicEndpointArgs) ToBranchEndpointsPublicEndpointPtrOutput() BranchEndpointsPublicEndpointPtrOutput {
-	return i.ToBranchEndpointsPublicEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i BranchEndpointsPublicEndpointArgs) ToBranchEndpointsPublicEndpointPtrOutputWithContext(ctx context.Context) BranchEndpointsPublicEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchEndpointsPublicEndpointOutput).ToBranchEndpointsPublicEndpointPtrOutputWithContext(ctx)
-}
-
-// BranchEndpointsPublicEndpointPtrInput is an input type that accepts BranchEndpointsPublicEndpointArgs, BranchEndpointsPublicEndpointPtr and BranchEndpointsPublicEndpointPtrOutput values.
-// You can construct a concrete instance of `BranchEndpointsPublicEndpointPtrInput` via:
-//
-//	        BranchEndpointsPublicEndpointArgs{...}
-//
-//	or:
-//
-//	        nil
-type BranchEndpointsPublicEndpointPtrInput interface {
-	pulumi.Input
-
-	ToBranchEndpointsPublicEndpointPtrOutput() BranchEndpointsPublicEndpointPtrOutput
-	ToBranchEndpointsPublicEndpointPtrOutputWithContext(context.Context) BranchEndpointsPublicEndpointPtrOutput
-}
-
-type branchEndpointsPublicEndpointPtrType BranchEndpointsPublicEndpointArgs
-
-func BranchEndpointsPublicEndpointPtr(v *BranchEndpointsPublicEndpointArgs) BranchEndpointsPublicEndpointPtrInput {
-	return (*branchEndpointsPublicEndpointPtrType)(v)
-}
-
-func (*branchEndpointsPublicEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchEndpointsPublicEndpoint)(nil)).Elem()
-}
-
-func (i *branchEndpointsPublicEndpointPtrType) ToBranchEndpointsPublicEndpointPtrOutput() BranchEndpointsPublicEndpointPtrOutput {
-	return i.ToBranchEndpointsPublicEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *branchEndpointsPublicEndpointPtrType) ToBranchEndpointsPublicEndpointPtrOutputWithContext(ctx context.Context) BranchEndpointsPublicEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchEndpointsPublicEndpointPtrOutput)
-}
-
-type BranchEndpointsPublicEndpointOutput struct{ *pulumi.OutputState }
-
-func (BranchEndpointsPublicEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchEndpointsPublicEndpoint)(nil)).Elem()
-}
-
-func (o BranchEndpointsPublicEndpointOutput) ToBranchEndpointsPublicEndpointOutput() BranchEndpointsPublicEndpointOutput {
-	return o
-}
-
-func (o BranchEndpointsPublicEndpointOutput) ToBranchEndpointsPublicEndpointOutputWithContext(ctx context.Context) BranchEndpointsPublicEndpointOutput {
-	return o
-}
-
-func (o BranchEndpointsPublicEndpointOutput) ToBranchEndpointsPublicEndpointPtrOutput() BranchEndpointsPublicEndpointPtrOutput {
-	return o.ToBranchEndpointsPublicEndpointPtrOutputWithContext(context.Background())
-}
-
-func (o BranchEndpointsPublicEndpointOutput) ToBranchEndpointsPublicEndpointPtrOutputWithContext(ctx context.Context) BranchEndpointsPublicEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchEndpointsPublicEndpoint) *BranchEndpointsPublicEndpoint {
-		return &v
-	}).(BranchEndpointsPublicEndpointPtrOutput)
-}
-
-// IP Allowlist
-// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-func (o BranchEndpointsPublicEndpointOutput) AuthorizedNetworks() BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput {
-	return o.ApplyT(func(v BranchEndpointsPublicEndpoint) []BranchEndpointsPublicEndpointAuthorizedNetwork {
-		return v.AuthorizedNetworks
-	}).(BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput)
-}
-
-// Disable public network access
-func (o BranchEndpointsPublicEndpointOutput) Disabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BranchEndpointsPublicEndpoint) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
-}
-
-// Public hostname
-func (o BranchEndpointsPublicEndpointOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BranchEndpointsPublicEndpoint) *string { return v.Host }).(pulumi.StringPtrOutput)
-}
-
-// Public port
-func (o BranchEndpointsPublicEndpointOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v BranchEndpointsPublicEndpoint) *int { return v.Port }).(pulumi.IntPtrOutput)
-}
-
-type BranchEndpointsPublicEndpointPtrOutput struct{ *pulumi.OutputState }
-
-func (BranchEndpointsPublicEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchEndpointsPublicEndpoint)(nil)).Elem()
-}
-
-func (o BranchEndpointsPublicEndpointPtrOutput) ToBranchEndpointsPublicEndpointPtrOutput() BranchEndpointsPublicEndpointPtrOutput {
-	return o
-}
-
-func (o BranchEndpointsPublicEndpointPtrOutput) ToBranchEndpointsPublicEndpointPtrOutputWithContext(ctx context.Context) BranchEndpointsPublicEndpointPtrOutput {
-	return o
-}
-
-func (o BranchEndpointsPublicEndpointPtrOutput) Elem() BranchEndpointsPublicEndpointOutput {
-	return o.ApplyT(func(v *BranchEndpointsPublicEndpoint) BranchEndpointsPublicEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret BranchEndpointsPublicEndpoint
-		return ret
-	}).(BranchEndpointsPublicEndpointOutput)
-}
-
-// IP Allowlist
-// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-func (o BranchEndpointsPublicEndpointPtrOutput) AuthorizedNetworks() BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput {
-	return o.ApplyT(func(v *BranchEndpointsPublicEndpoint) []BranchEndpointsPublicEndpointAuthorizedNetwork {
-		if v == nil {
-			return nil
-		}
-		return v.AuthorizedNetworks
-	}).(BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput)
-}
-
-// Disable public network access
-func (o BranchEndpointsPublicEndpointPtrOutput) Disabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BranchEndpointsPublicEndpoint) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Disabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Public hostname
-func (o BranchEndpointsPublicEndpointPtrOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BranchEndpointsPublicEndpoint) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Host
-	}).(pulumi.StringPtrOutput)
-}
-
-// Public port
-func (o BranchEndpointsPublicEndpointPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BranchEndpointsPublicEndpoint) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-type BranchEndpointsPublicEndpointAuthorizedNetwork struct {
-	// Authorized network name
-	DisplayName *string `pulumi:"displayName"`
-	// End IP
-	EndIpAddress *string `pulumi:"endIpAddress"`
-	// Start IP
-	StartIpAddress *string `pulumi:"startIpAddress"`
-}
-
-// BranchEndpointsPublicEndpointAuthorizedNetworkInput is an input type that accepts BranchEndpointsPublicEndpointAuthorizedNetworkArgs and BranchEndpointsPublicEndpointAuthorizedNetworkOutput values.
-// You can construct a concrete instance of `BranchEndpointsPublicEndpointAuthorizedNetworkInput` via:
-//
-//	BranchEndpointsPublicEndpointAuthorizedNetworkArgs{...}
-type BranchEndpointsPublicEndpointAuthorizedNetworkInput interface {
-	pulumi.Input
-
-	ToBranchEndpointsPublicEndpointAuthorizedNetworkOutput() BranchEndpointsPublicEndpointAuthorizedNetworkOutput
-	ToBranchEndpointsPublicEndpointAuthorizedNetworkOutputWithContext(context.Context) BranchEndpointsPublicEndpointAuthorizedNetworkOutput
-}
-
-type BranchEndpointsPublicEndpointAuthorizedNetworkArgs struct {
-	// Authorized network name
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// End IP
-	EndIpAddress pulumi.StringPtrInput `pulumi:"endIpAddress"`
-	// Start IP
-	StartIpAddress pulumi.StringPtrInput `pulumi:"startIpAddress"`
-}
-
-func (BranchEndpointsPublicEndpointAuthorizedNetworkArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchEndpointsPublicEndpointAuthorizedNetwork)(nil)).Elem()
-}
-
-func (i BranchEndpointsPublicEndpointAuthorizedNetworkArgs) ToBranchEndpointsPublicEndpointAuthorizedNetworkOutput() BranchEndpointsPublicEndpointAuthorizedNetworkOutput {
-	return i.ToBranchEndpointsPublicEndpointAuthorizedNetworkOutputWithContext(context.Background())
-}
-
-func (i BranchEndpointsPublicEndpointAuthorizedNetworkArgs) ToBranchEndpointsPublicEndpointAuthorizedNetworkOutputWithContext(ctx context.Context) BranchEndpointsPublicEndpointAuthorizedNetworkOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchEndpointsPublicEndpointAuthorizedNetworkOutput)
-}
-
-// BranchEndpointsPublicEndpointAuthorizedNetworkArrayInput is an input type that accepts BranchEndpointsPublicEndpointAuthorizedNetworkArray and BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput values.
-// You can construct a concrete instance of `BranchEndpointsPublicEndpointAuthorizedNetworkArrayInput` via:
-//
-//	BranchEndpointsPublicEndpointAuthorizedNetworkArray{ BranchEndpointsPublicEndpointAuthorizedNetworkArgs{...} }
-type BranchEndpointsPublicEndpointAuthorizedNetworkArrayInput interface {
-	pulumi.Input
-
-	ToBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput() BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput
-	ToBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutputWithContext(context.Context) BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput
-}
-
-type BranchEndpointsPublicEndpointAuthorizedNetworkArray []BranchEndpointsPublicEndpointAuthorizedNetworkInput
-
-func (BranchEndpointsPublicEndpointAuthorizedNetworkArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BranchEndpointsPublicEndpointAuthorizedNetwork)(nil)).Elem()
-}
-
-func (i BranchEndpointsPublicEndpointAuthorizedNetworkArray) ToBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput() BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput {
-	return i.ToBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutputWithContext(context.Background())
-}
-
-func (i BranchEndpointsPublicEndpointAuthorizedNetworkArray) ToBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutputWithContext(ctx context.Context) BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput)
-}
-
-type BranchEndpointsPublicEndpointAuthorizedNetworkOutput struct{ *pulumi.OutputState }
-
-func (BranchEndpointsPublicEndpointAuthorizedNetworkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchEndpointsPublicEndpointAuthorizedNetwork)(nil)).Elem()
-}
-
-func (o BranchEndpointsPublicEndpointAuthorizedNetworkOutput) ToBranchEndpointsPublicEndpointAuthorizedNetworkOutput() BranchEndpointsPublicEndpointAuthorizedNetworkOutput {
-	return o
-}
-
-func (o BranchEndpointsPublicEndpointAuthorizedNetworkOutput) ToBranchEndpointsPublicEndpointAuthorizedNetworkOutputWithContext(ctx context.Context) BranchEndpointsPublicEndpointAuthorizedNetworkOutput {
-	return o
-}
-
-// Authorized network name
-func (o BranchEndpointsPublicEndpointAuthorizedNetworkOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BranchEndpointsPublicEndpointAuthorizedNetwork) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// End IP
-func (o BranchEndpointsPublicEndpointAuthorizedNetworkOutput) EndIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BranchEndpointsPublicEndpointAuthorizedNetwork) *string { return v.EndIpAddress }).(pulumi.StringPtrOutput)
-}
-
-// Start IP
-func (o BranchEndpointsPublicEndpointAuthorizedNetworkOutput) StartIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BranchEndpointsPublicEndpointAuthorizedNetwork) *string { return v.StartIpAddress }).(pulumi.StringPtrOutput)
-}
-
-type BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput struct{ *pulumi.OutputState }
-
-func (BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BranchEndpointsPublicEndpointAuthorizedNetwork)(nil)).Elem()
-}
-
-func (o BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput) ToBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput() BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput {
-	return o
-}
-
-func (o BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput) ToBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutputWithContext(ctx context.Context) BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput {
-	return o
-}
-
-func (o BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput) Index(i pulumi.IntInput) BranchEndpointsPublicEndpointAuthorizedNetworkOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchEndpointsPublicEndpointAuthorizedNetwork {
-		return vs[0].([]BranchEndpointsPublicEndpointAuthorizedNetwork)[vs[1].(int)]
-	}).(BranchEndpointsPublicEndpointAuthorizedNetworkOutput)
 }
 
 type BranchUsages struct {
@@ -2092,18 +1408,22 @@ func (o InstanceAutomatedBackupPolicyPtrOutput) StartTime() pulumi.StringPtrOutp
 type InstanceBackup struct {
 	// Backup ID
 	BackupId *string `pulumi:"backupId"`
+	// Backup name
+	BackupName *string `pulumi:"backupName"`
 	// Backup Time
 	BackupTime *string `pulumi:"backupTime"`
-	// Cluster ID
-	ClusterId *string `pulumi:"clusterId"`
 	// Creation Time
 	CreateTime *string `pulumi:"createTime"`
 	// Expiration Time
 	ExpireTime *string `pulumi:"expireTime"`
-	// Backup Name
-	Name *string `pulumi:"name"`
+	// Instance ID
+	InstanceId *string `pulumi:"instanceId"`
+	// Backup size (bytes)
+	SizeBytes *int `pulumi:"sizeBytes"`
 	// Backup Status
 	State *string `pulumi:"state"`
+	// Backup trigger type
+	TriggerType *string `pulumi:"triggerType"`
 	// Backup Type
 	Type *string `pulumi:"type"`
 }
@@ -2122,18 +1442,22 @@ type InstanceBackupInput interface {
 type InstanceBackupArgs struct {
 	// Backup ID
 	BackupId pulumi.StringPtrInput `pulumi:"backupId"`
+	// Backup name
+	BackupName pulumi.StringPtrInput `pulumi:"backupName"`
 	// Backup Time
 	BackupTime pulumi.StringPtrInput `pulumi:"backupTime"`
-	// Cluster ID
-	ClusterId pulumi.StringPtrInput `pulumi:"clusterId"`
 	// Creation Time
 	CreateTime pulumi.StringPtrInput `pulumi:"createTime"`
 	// Expiration Time
 	ExpireTime pulumi.StringPtrInput `pulumi:"expireTime"`
-	// Backup Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Instance ID
+	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
+	// Backup size (bytes)
+	SizeBytes pulumi.IntPtrInput `pulumi:"sizeBytes"`
 	// Backup Status
 	State pulumi.StringPtrInput `pulumi:"state"`
+	// Backup trigger type
+	TriggerType pulumi.StringPtrInput `pulumi:"triggerType"`
 	// Backup Type
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -2194,14 +1518,14 @@ func (o InstanceBackupOutput) BackupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceBackup) *string { return v.BackupId }).(pulumi.StringPtrOutput)
 }
 
+// Backup name
+func (o InstanceBackupOutput) BackupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceBackup) *string { return v.BackupName }).(pulumi.StringPtrOutput)
+}
+
 // Backup Time
 func (o InstanceBackupOutput) BackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceBackup) *string { return v.BackupTime }).(pulumi.StringPtrOutput)
-}
-
-// Cluster ID
-func (o InstanceBackupOutput) ClusterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceBackup) *string { return v.ClusterId }).(pulumi.StringPtrOutput)
 }
 
 // Creation Time
@@ -2214,14 +1538,24 @@ func (o InstanceBackupOutput) ExpireTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceBackup) *string { return v.ExpireTime }).(pulumi.StringPtrOutput)
 }
 
-// Backup Name
-func (o InstanceBackupOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceBackup) *string { return v.Name }).(pulumi.StringPtrOutput)
+// Instance ID
+func (o InstanceBackupOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceBackup) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+// Backup size (bytes)
+func (o InstanceBackupOutput) SizeBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceBackup) *int { return v.SizeBytes }).(pulumi.IntPtrOutput)
 }
 
 // Backup Status
 func (o InstanceBackupOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceBackup) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Backup trigger type
+func (o InstanceBackupOutput) TriggerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceBackup) *string { return v.TriggerType }).(pulumi.StringPtrOutput)
 }
 
 // Backup Type
@@ -2819,10 +2153,10 @@ func (o InstanceEndpointsPrivateEndpointPtrOutput) VpcEndpointName() pulumi.Stri
 }
 
 type InstanceEndpointsPrivateEndpointAuthorizedNetwork struct {
-	// Descriptive Name
-	DisplayName *string `pulumi:"displayName"`
+	// Identifiable name
+	AuthorizedNetworkName *string `pulumi:"authorizedNetworkName"`
 	// Number of Security Groups Associated with Endpoint (not returned if query fails)
-	SecurityGroupCount *string `pulumi:"securityGroupCount"`
+	SecurityGroupCount *int `pulumi:"securityGroupCount"`
 	// VPC Endpoint ID。
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 	// Cloud Real Name of VPC Endpoint (not returned if query fails)
@@ -2841,10 +2175,10 @@ type InstanceEndpointsPrivateEndpointAuthorizedNetworkInput interface {
 }
 
 type InstanceEndpointsPrivateEndpointAuthorizedNetworkArgs struct {
-	// Descriptive Name
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Identifiable name
+	AuthorizedNetworkName pulumi.StringPtrInput `pulumi:"authorizedNetworkName"`
 	// Number of Security Groups Associated with Endpoint (not returned if query fails)
-	SecurityGroupCount pulumi.StringPtrInput `pulumi:"securityGroupCount"`
+	SecurityGroupCount pulumi.IntPtrInput `pulumi:"securityGroupCount"`
 	// VPC Endpoint ID。
 	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
 	// Cloud Real Name of VPC Endpoint (not returned if query fails)
@@ -2902,14 +2236,14 @@ func (o InstanceEndpointsPrivateEndpointAuthorizedNetworkOutput) ToInstanceEndpo
 	return o
 }
 
-// Descriptive Name
-func (o InstanceEndpointsPrivateEndpointAuthorizedNetworkOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceEndpointsPrivateEndpointAuthorizedNetwork) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+// Identifiable name
+func (o InstanceEndpointsPrivateEndpointAuthorizedNetworkOutput) AuthorizedNetworkName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceEndpointsPrivateEndpointAuthorizedNetwork) *string { return v.AuthorizedNetworkName }).(pulumi.StringPtrOutput)
 }
 
 // Number of Security Groups Associated with Endpoint (not returned if query fails)
-func (o InstanceEndpointsPrivateEndpointAuthorizedNetworkOutput) SecurityGroupCount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceEndpointsPrivateEndpointAuthorizedNetwork) *string { return v.SecurityGroupCount }).(pulumi.StringPtrOutput)
+func (o InstanceEndpointsPrivateEndpointAuthorizedNetworkOutput) SecurityGroupCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceEndpointsPrivateEndpointAuthorizedNetwork) *int { return v.SecurityGroupCount }).(pulumi.IntPtrOutput)
 }
 
 // VPC Endpoint ID。
@@ -3143,8 +2477,8 @@ func (o InstanceEndpointsPublicEndpointPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type InstanceEndpointsPublicEndpointAuthorizedNetwork struct {
-	// Authorized Network Name
-	DisplayName *string `pulumi:"displayName"`
+	// Authorized network name
+	AuthorizedNetworkName *string `pulumi:"authorizedNetworkName"`
 	// End IP
 	EndIpAddress *string `pulumi:"endIpAddress"`
 	// Start IP
@@ -3163,8 +2497,8 @@ type InstanceEndpointsPublicEndpointAuthorizedNetworkInput interface {
 }
 
 type InstanceEndpointsPublicEndpointAuthorizedNetworkArgs struct {
-	// Authorized Network Name
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Authorized network name
+	AuthorizedNetworkName pulumi.StringPtrInput `pulumi:"authorizedNetworkName"`
 	// End IP
 	EndIpAddress pulumi.StringPtrInput `pulumi:"endIpAddress"`
 	// Start IP
@@ -3222,9 +2556,9 @@ func (o InstanceEndpointsPublicEndpointAuthorizedNetworkOutput) ToInstanceEndpoi
 	return o
 }
 
-// Authorized Network Name
-func (o InstanceEndpointsPublicEndpointAuthorizedNetworkOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceEndpointsPublicEndpointAuthorizedNetwork) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+// Authorized network name
+func (o InstanceEndpointsPublicEndpointAuthorizedNetworkOutput) AuthorizedNetworkName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceEndpointsPublicEndpointAuthorizedNetwork) *string { return v.AuthorizedNetworkName }).(pulumi.StringPtrOutput)
 }
 
 // End IP
@@ -3609,7 +2943,7 @@ func (o InstanceTagArrayOutput) Index(i pulumi.IntInput) InstanceTagOutput {
 type InstanceZone struct {
 	// Subnet ID
 	SubnetId *string `pulumi:"subnetId"`
-	// Availability Zone ID
+	// Availability zone ID
 	ZoneId *string `pulumi:"zoneId"`
 }
 
@@ -3627,7 +2961,7 @@ type InstanceZoneInput interface {
 type InstanceZoneArgs struct {
 	// Subnet ID
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// Availability Zone ID
+	// Availability zone ID
 	ZoneId pulumi.StringPtrInput `pulumi:"zoneId"`
 }
 
@@ -3687,7 +3021,7 @@ func (o InstanceZoneOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceZone) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Availability Zone ID
+// Availability zone ID
 func (o InstanceZoneOutput) ZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceZone) *string { return v.ZoneId }).(pulumi.StringPtrOutput)
 }
@@ -3821,8 +3155,6 @@ func (o GetBranchAnnotationArrayOutput) Index(i pulumi.IntInput) GetBranchAnnota
 type GetBranchEndpoints struct {
 	// Private endpoint
 	PrivateEndpoint GetBranchEndpointsPrivateEndpoint `pulumi:"privateEndpoint"`
-	// Public endpoint
-	PublicEndpoint GetBranchEndpointsPublicEndpoint `pulumi:"publicEndpoint"`
 }
 
 // GetBranchEndpointsInput is an input type that accepts GetBranchEndpointsArgs and GetBranchEndpointsOutput values.
@@ -3839,8 +3171,6 @@ type GetBranchEndpointsInput interface {
 type GetBranchEndpointsArgs struct {
 	// Private endpoint
 	PrivateEndpoint GetBranchEndpointsPrivateEndpointInput `pulumi:"privateEndpoint"`
-	// Public endpoint
-	PublicEndpoint GetBranchEndpointsPublicEndpointInput `pulumi:"publicEndpoint"`
 }
 
 func (GetBranchEndpointsArgs) ElementType() reflect.Type {
@@ -3874,18 +3204,9 @@ func (o GetBranchEndpointsOutput) PrivateEndpoint() GetBranchEndpointsPrivateEnd
 	return o.ApplyT(func(v GetBranchEndpoints) GetBranchEndpointsPrivateEndpoint { return v.PrivateEndpoint }).(GetBranchEndpointsPrivateEndpointOutput)
 }
 
-// Public endpoint
-func (o GetBranchEndpointsOutput) PublicEndpoint() GetBranchEndpointsPublicEndpointOutput {
-	return o.ApplyT(func(v GetBranchEndpoints) GetBranchEndpointsPublicEndpoint { return v.PublicEndpoint }).(GetBranchEndpointsPublicEndpointOutput)
-}
-
 type GetBranchEndpointsPrivateEndpoint struct {
-	// Alicloud private endpoint
-	Alicloud GetBranchEndpointsPrivateEndpointAlicloud `pulumi:"alicloud"`
 	// Private endpoint authorized network list
 	AuthorizedNetworks []GetBranchEndpointsPrivateEndpointAuthorizedNetwork `pulumi:"authorizedNetworks"`
-	// AWS private endpoint
-	Aws GetBranchEndpointsPrivateEndpointAws `pulumi:"aws"`
 	// Disable private network access
 	Disabled bool `pulumi:"disabled"`
 	// Private hostname
@@ -3914,12 +3235,8 @@ type GetBranchEndpointsPrivateEndpointInput interface {
 }
 
 type GetBranchEndpointsPrivateEndpointArgs struct {
-	// Alicloud private endpoint
-	Alicloud GetBranchEndpointsPrivateEndpointAlicloudInput `pulumi:"alicloud"`
 	// Private endpoint authorized network list
 	AuthorizedNetworks GetBranchEndpointsPrivateEndpointAuthorizedNetworkArrayInput `pulumi:"authorizedNetworks"`
-	// AWS private endpoint
-	Aws GetBranchEndpointsPrivateEndpointAwsInput `pulumi:"aws"`
 	// Disable private network access
 	Disabled pulumi.BoolInput `pulumi:"disabled"`
 	// Private hostname
@@ -3962,21 +3279,11 @@ func (o GetBranchEndpointsPrivateEndpointOutput) ToGetBranchEndpointsPrivateEndp
 	return o
 }
 
-// Alicloud private endpoint
-func (o GetBranchEndpointsPrivateEndpointOutput) Alicloud() GetBranchEndpointsPrivateEndpointAlicloudOutput {
-	return o.ApplyT(func(v GetBranchEndpointsPrivateEndpoint) GetBranchEndpointsPrivateEndpointAlicloud { return v.Alicloud }).(GetBranchEndpointsPrivateEndpointAlicloudOutput)
-}
-
 // Private endpoint authorized network list
 func (o GetBranchEndpointsPrivateEndpointOutput) AuthorizedNetworks() GetBranchEndpointsPrivateEndpointAuthorizedNetworkArrayOutput {
 	return o.ApplyT(func(v GetBranchEndpointsPrivateEndpoint) []GetBranchEndpointsPrivateEndpointAuthorizedNetwork {
 		return v.AuthorizedNetworks
 	}).(GetBranchEndpointsPrivateEndpointAuthorizedNetworkArrayOutput)
-}
-
-// AWS private endpoint
-func (o GetBranchEndpointsPrivateEndpointOutput) Aws() GetBranchEndpointsPrivateEndpointAwsOutput {
-	return o.ApplyT(func(v GetBranchEndpointsPrivateEndpoint) GetBranchEndpointsPrivateEndpointAws { return v.Aws }).(GetBranchEndpointsPrivateEndpointAwsOutput)
 }
 
 // Disable private network access
@@ -4014,70 +3321,9 @@ func (o GetBranchEndpointsPrivateEndpointOutput) VpcEndpointName() pulumi.String
 	return o.ApplyT(func(v GetBranchEndpointsPrivateEndpoint) string { return v.VpcEndpointName }).(pulumi.StringOutput)
 }
 
-type GetBranchEndpointsPrivateEndpointAlicloud struct {
-	// Availability zone list
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Private service name
-	ServiceName string `pulumi:"serviceName"`
-}
-
-// GetBranchEndpointsPrivateEndpointAlicloudInput is an input type that accepts GetBranchEndpointsPrivateEndpointAlicloudArgs and GetBranchEndpointsPrivateEndpointAlicloudOutput values.
-// You can construct a concrete instance of `GetBranchEndpointsPrivateEndpointAlicloudInput` via:
-//
-//	GetBranchEndpointsPrivateEndpointAlicloudArgs{...}
-type GetBranchEndpointsPrivateEndpointAlicloudInput interface {
-	pulumi.Input
-
-	ToGetBranchEndpointsPrivateEndpointAlicloudOutput() GetBranchEndpointsPrivateEndpointAlicloudOutput
-	ToGetBranchEndpointsPrivateEndpointAlicloudOutputWithContext(context.Context) GetBranchEndpointsPrivateEndpointAlicloudOutput
-}
-
-type GetBranchEndpointsPrivateEndpointAlicloudArgs struct {
-	// Availability zone list
-	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// Private service name
-	ServiceName pulumi.StringInput `pulumi:"serviceName"`
-}
-
-func (GetBranchEndpointsPrivateEndpointAlicloudArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBranchEndpointsPrivateEndpointAlicloud)(nil)).Elem()
-}
-
-func (i GetBranchEndpointsPrivateEndpointAlicloudArgs) ToGetBranchEndpointsPrivateEndpointAlicloudOutput() GetBranchEndpointsPrivateEndpointAlicloudOutput {
-	return i.ToGetBranchEndpointsPrivateEndpointAlicloudOutputWithContext(context.Background())
-}
-
-func (i GetBranchEndpointsPrivateEndpointAlicloudArgs) ToGetBranchEndpointsPrivateEndpointAlicloudOutputWithContext(ctx context.Context) GetBranchEndpointsPrivateEndpointAlicloudOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBranchEndpointsPrivateEndpointAlicloudOutput)
-}
-
-type GetBranchEndpointsPrivateEndpointAlicloudOutput struct{ *pulumi.OutputState }
-
-func (GetBranchEndpointsPrivateEndpointAlicloudOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBranchEndpointsPrivateEndpointAlicloud)(nil)).Elem()
-}
-
-func (o GetBranchEndpointsPrivateEndpointAlicloudOutput) ToGetBranchEndpointsPrivateEndpointAlicloudOutput() GetBranchEndpointsPrivateEndpointAlicloudOutput {
-	return o
-}
-
-func (o GetBranchEndpointsPrivateEndpointAlicloudOutput) ToGetBranchEndpointsPrivateEndpointAlicloudOutputWithContext(ctx context.Context) GetBranchEndpointsPrivateEndpointAlicloudOutput {
-	return o
-}
-
-// Availability zone list
-func (o GetBranchEndpointsPrivateEndpointAlicloudOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetBranchEndpointsPrivateEndpointAlicloud) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
-}
-
-// Private service name
-func (o GetBranchEndpointsPrivateEndpointAlicloudOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBranchEndpointsPrivateEndpointAlicloud) string { return v.ServiceName }).(pulumi.StringOutput)
-}
-
 type GetBranchEndpointsPrivateEndpointAuthorizedNetwork struct {
-	// Authorized network name
-	DisplayName string `pulumi:"displayName"`
+	// Authorized Network Name
+	AuthorizedNetworkName string `pulumi:"authorizedNetworkName"`
 	// Security group count
 	SecurityGroupCount int `pulumi:"securityGroupCount"`
 	// VPC endpoint ID
@@ -4098,8 +3344,8 @@ type GetBranchEndpointsPrivateEndpointAuthorizedNetworkInput interface {
 }
 
 type GetBranchEndpointsPrivateEndpointAuthorizedNetworkArgs struct {
-	// Authorized network name
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Authorized Network Name
+	AuthorizedNetworkName pulumi.StringInput `pulumi:"authorizedNetworkName"`
 	// Security group count
 	SecurityGroupCount pulumi.IntInput `pulumi:"securityGroupCount"`
 	// VPC endpoint ID
@@ -4159,9 +3405,9 @@ func (o GetBranchEndpointsPrivateEndpointAuthorizedNetworkOutput) ToGetBranchEnd
 	return o
 }
 
-// Authorized network name
-func (o GetBranchEndpointsPrivateEndpointAuthorizedNetworkOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBranchEndpointsPrivateEndpointAuthorizedNetwork) string { return v.DisplayName }).(pulumi.StringOutput)
+// Authorized Network Name
+func (o GetBranchEndpointsPrivateEndpointAuthorizedNetworkOutput) AuthorizedNetworkName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBranchEndpointsPrivateEndpointAuthorizedNetwork) string { return v.AuthorizedNetworkName }).(pulumi.StringOutput)
 }
 
 // Security group count
@@ -4197,263 +3443,6 @@ func (o GetBranchEndpointsPrivateEndpointAuthorizedNetworkArrayOutput) Index(i p
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBranchEndpointsPrivateEndpointAuthorizedNetwork {
 		return vs[0].([]GetBranchEndpointsPrivateEndpointAuthorizedNetwork)[vs[1].(int)]
 	}).(GetBranchEndpointsPrivateEndpointAuthorizedNetworkOutput)
-}
-
-type GetBranchEndpointsPrivateEndpointAws struct {
-	// Availability zone list
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// VPC endpoint service name
-	ServiceName string `pulumi:"serviceName"`
-}
-
-// GetBranchEndpointsPrivateEndpointAwsInput is an input type that accepts GetBranchEndpointsPrivateEndpointAwsArgs and GetBranchEndpointsPrivateEndpointAwsOutput values.
-// You can construct a concrete instance of `GetBranchEndpointsPrivateEndpointAwsInput` via:
-//
-//	GetBranchEndpointsPrivateEndpointAwsArgs{...}
-type GetBranchEndpointsPrivateEndpointAwsInput interface {
-	pulumi.Input
-
-	ToGetBranchEndpointsPrivateEndpointAwsOutput() GetBranchEndpointsPrivateEndpointAwsOutput
-	ToGetBranchEndpointsPrivateEndpointAwsOutputWithContext(context.Context) GetBranchEndpointsPrivateEndpointAwsOutput
-}
-
-type GetBranchEndpointsPrivateEndpointAwsArgs struct {
-	// Availability zone list
-	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// VPC endpoint service name
-	ServiceName pulumi.StringInput `pulumi:"serviceName"`
-}
-
-func (GetBranchEndpointsPrivateEndpointAwsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBranchEndpointsPrivateEndpointAws)(nil)).Elem()
-}
-
-func (i GetBranchEndpointsPrivateEndpointAwsArgs) ToGetBranchEndpointsPrivateEndpointAwsOutput() GetBranchEndpointsPrivateEndpointAwsOutput {
-	return i.ToGetBranchEndpointsPrivateEndpointAwsOutputWithContext(context.Background())
-}
-
-func (i GetBranchEndpointsPrivateEndpointAwsArgs) ToGetBranchEndpointsPrivateEndpointAwsOutputWithContext(ctx context.Context) GetBranchEndpointsPrivateEndpointAwsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBranchEndpointsPrivateEndpointAwsOutput)
-}
-
-type GetBranchEndpointsPrivateEndpointAwsOutput struct{ *pulumi.OutputState }
-
-func (GetBranchEndpointsPrivateEndpointAwsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBranchEndpointsPrivateEndpointAws)(nil)).Elem()
-}
-
-func (o GetBranchEndpointsPrivateEndpointAwsOutput) ToGetBranchEndpointsPrivateEndpointAwsOutput() GetBranchEndpointsPrivateEndpointAwsOutput {
-	return o
-}
-
-func (o GetBranchEndpointsPrivateEndpointAwsOutput) ToGetBranchEndpointsPrivateEndpointAwsOutputWithContext(ctx context.Context) GetBranchEndpointsPrivateEndpointAwsOutput {
-	return o
-}
-
-// Availability zone list
-func (o GetBranchEndpointsPrivateEndpointAwsOutput) AvailabilityZones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetBranchEndpointsPrivateEndpointAws) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
-}
-
-// VPC endpoint service name
-func (o GetBranchEndpointsPrivateEndpointAwsOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBranchEndpointsPrivateEndpointAws) string { return v.ServiceName }).(pulumi.StringOutput)
-}
-
-type GetBranchEndpointsPublicEndpoint struct {
-	// IP Allowlist
-	AuthorizedNetworks []GetBranchEndpointsPublicEndpointAuthorizedNetwork `pulumi:"authorizedNetworks"`
-	// Disable public network access
-	Disabled bool `pulumi:"disabled"`
-	// Public hostname
-	Host string `pulumi:"host"`
-	// Public port
-	Port int `pulumi:"port"`
-}
-
-// GetBranchEndpointsPublicEndpointInput is an input type that accepts GetBranchEndpointsPublicEndpointArgs and GetBranchEndpointsPublicEndpointOutput values.
-// You can construct a concrete instance of `GetBranchEndpointsPublicEndpointInput` via:
-//
-//	GetBranchEndpointsPublicEndpointArgs{...}
-type GetBranchEndpointsPublicEndpointInput interface {
-	pulumi.Input
-
-	ToGetBranchEndpointsPublicEndpointOutput() GetBranchEndpointsPublicEndpointOutput
-	ToGetBranchEndpointsPublicEndpointOutputWithContext(context.Context) GetBranchEndpointsPublicEndpointOutput
-}
-
-type GetBranchEndpointsPublicEndpointArgs struct {
-	// IP Allowlist
-	AuthorizedNetworks GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayInput `pulumi:"authorizedNetworks"`
-	// Disable public network access
-	Disabled pulumi.BoolInput `pulumi:"disabled"`
-	// Public hostname
-	Host pulumi.StringInput `pulumi:"host"`
-	// Public port
-	Port pulumi.IntInput `pulumi:"port"`
-}
-
-func (GetBranchEndpointsPublicEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBranchEndpointsPublicEndpoint)(nil)).Elem()
-}
-
-func (i GetBranchEndpointsPublicEndpointArgs) ToGetBranchEndpointsPublicEndpointOutput() GetBranchEndpointsPublicEndpointOutput {
-	return i.ToGetBranchEndpointsPublicEndpointOutputWithContext(context.Background())
-}
-
-func (i GetBranchEndpointsPublicEndpointArgs) ToGetBranchEndpointsPublicEndpointOutputWithContext(ctx context.Context) GetBranchEndpointsPublicEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBranchEndpointsPublicEndpointOutput)
-}
-
-type GetBranchEndpointsPublicEndpointOutput struct{ *pulumi.OutputState }
-
-func (GetBranchEndpointsPublicEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBranchEndpointsPublicEndpoint)(nil)).Elem()
-}
-
-func (o GetBranchEndpointsPublicEndpointOutput) ToGetBranchEndpointsPublicEndpointOutput() GetBranchEndpointsPublicEndpointOutput {
-	return o
-}
-
-func (o GetBranchEndpointsPublicEndpointOutput) ToGetBranchEndpointsPublicEndpointOutputWithContext(ctx context.Context) GetBranchEndpointsPublicEndpointOutput {
-	return o
-}
-
-// IP Allowlist
-func (o GetBranchEndpointsPublicEndpointOutput) AuthorizedNetworks() GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput {
-	return o.ApplyT(func(v GetBranchEndpointsPublicEndpoint) []GetBranchEndpointsPublicEndpointAuthorizedNetwork {
-		return v.AuthorizedNetworks
-	}).(GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput)
-}
-
-// Disable public network access
-func (o GetBranchEndpointsPublicEndpointOutput) Disabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetBranchEndpointsPublicEndpoint) bool { return v.Disabled }).(pulumi.BoolOutput)
-}
-
-// Public hostname
-func (o GetBranchEndpointsPublicEndpointOutput) Host() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBranchEndpointsPublicEndpoint) string { return v.Host }).(pulumi.StringOutput)
-}
-
-// Public port
-func (o GetBranchEndpointsPublicEndpointOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v GetBranchEndpointsPublicEndpoint) int { return v.Port }).(pulumi.IntOutput)
-}
-
-type GetBranchEndpointsPublicEndpointAuthorizedNetwork struct {
-	// Authorized network name
-	DisplayName string `pulumi:"displayName"`
-	// End IP
-	EndIpAddress string `pulumi:"endIpAddress"`
-	// Start IP
-	StartIpAddress string `pulumi:"startIpAddress"`
-}
-
-// GetBranchEndpointsPublicEndpointAuthorizedNetworkInput is an input type that accepts GetBranchEndpointsPublicEndpointAuthorizedNetworkArgs and GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput values.
-// You can construct a concrete instance of `GetBranchEndpointsPublicEndpointAuthorizedNetworkInput` via:
-//
-//	GetBranchEndpointsPublicEndpointAuthorizedNetworkArgs{...}
-type GetBranchEndpointsPublicEndpointAuthorizedNetworkInput interface {
-	pulumi.Input
-
-	ToGetBranchEndpointsPublicEndpointAuthorizedNetworkOutput() GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput
-	ToGetBranchEndpointsPublicEndpointAuthorizedNetworkOutputWithContext(context.Context) GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput
-}
-
-type GetBranchEndpointsPublicEndpointAuthorizedNetworkArgs struct {
-	// Authorized network name
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// End IP
-	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
-	// Start IP
-	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
-}
-
-func (GetBranchEndpointsPublicEndpointAuthorizedNetworkArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBranchEndpointsPublicEndpointAuthorizedNetwork)(nil)).Elem()
-}
-
-func (i GetBranchEndpointsPublicEndpointAuthorizedNetworkArgs) ToGetBranchEndpointsPublicEndpointAuthorizedNetworkOutput() GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput {
-	return i.ToGetBranchEndpointsPublicEndpointAuthorizedNetworkOutputWithContext(context.Background())
-}
-
-func (i GetBranchEndpointsPublicEndpointAuthorizedNetworkArgs) ToGetBranchEndpointsPublicEndpointAuthorizedNetworkOutputWithContext(ctx context.Context) GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput)
-}
-
-// GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayInput is an input type that accepts GetBranchEndpointsPublicEndpointAuthorizedNetworkArray and GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput values.
-// You can construct a concrete instance of `GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayInput` via:
-//
-//	GetBranchEndpointsPublicEndpointAuthorizedNetworkArray{ GetBranchEndpointsPublicEndpointAuthorizedNetworkArgs{...} }
-type GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayInput interface {
-	pulumi.Input
-
-	ToGetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput() GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput
-	ToGetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutputWithContext(context.Context) GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput
-}
-
-type GetBranchEndpointsPublicEndpointAuthorizedNetworkArray []GetBranchEndpointsPublicEndpointAuthorizedNetworkInput
-
-func (GetBranchEndpointsPublicEndpointAuthorizedNetworkArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetBranchEndpointsPublicEndpointAuthorizedNetwork)(nil)).Elem()
-}
-
-func (i GetBranchEndpointsPublicEndpointAuthorizedNetworkArray) ToGetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput() GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput {
-	return i.ToGetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutputWithContext(context.Background())
-}
-
-func (i GetBranchEndpointsPublicEndpointAuthorizedNetworkArray) ToGetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutputWithContext(ctx context.Context) GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput)
-}
-
-type GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput struct{ *pulumi.OutputState }
-
-func (GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBranchEndpointsPublicEndpointAuthorizedNetwork)(nil)).Elem()
-}
-
-func (o GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput) ToGetBranchEndpointsPublicEndpointAuthorizedNetworkOutput() GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput {
-	return o
-}
-
-func (o GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput) ToGetBranchEndpointsPublicEndpointAuthorizedNetworkOutputWithContext(ctx context.Context) GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput {
-	return o
-}
-
-// Authorized network name
-func (o GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBranchEndpointsPublicEndpointAuthorizedNetwork) string { return v.DisplayName }).(pulumi.StringOutput)
-}
-
-// End IP
-func (o GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput) EndIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBranchEndpointsPublicEndpointAuthorizedNetwork) string { return v.EndIpAddress }).(pulumi.StringOutput)
-}
-
-// Start IP
-func (o GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput) StartIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBranchEndpointsPublicEndpointAuthorizedNetwork) string { return v.StartIpAddress }).(pulumi.StringOutput)
-}
-
-type GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput struct{ *pulumi.OutputState }
-
-func (GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetBranchEndpointsPublicEndpointAuthorizedNetwork)(nil)).Elem()
-}
-
-func (o GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput) ToGetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput() GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput {
-	return o
-}
-
-func (o GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput) ToGetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutputWithContext(ctx context.Context) GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput {
-	return o
-}
-
-func (o GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput) Index(i pulumi.IntInput) GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBranchEndpointsPublicEndpointAuthorizedNetwork {
-		return vs[0].([]GetBranchEndpointsPublicEndpointAuthorizedNetwork)[vs[1].(int)]
-	}).(GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput)
 }
 
 type GetBranchUsages struct {
@@ -4818,18 +3807,22 @@ func (o GetInstanceAutomatedBackupPolicyOutput) StartTime() pulumi.StringOutput 
 type GetInstanceBackup struct {
 	// Backup ID
 	BackupId string `pulumi:"backupId"`
+	// Backup name
+	BackupName string `pulumi:"backupName"`
 	// Backup Time
 	BackupTime string `pulumi:"backupTime"`
-	// Cluster ID
-	ClusterId string `pulumi:"clusterId"`
 	// Creation Time
 	CreateTime string `pulumi:"createTime"`
 	// Expiration Time
 	ExpireTime string `pulumi:"expireTime"`
-	// Backup Name
-	Name string `pulumi:"name"`
+	// Instance ID
+	InstanceId string `pulumi:"instanceId"`
+	// Backup size (bytes)
+	SizeBytes int `pulumi:"sizeBytes"`
 	// Backup Status
 	State string `pulumi:"state"`
+	// Backup trigger type
+	TriggerType string `pulumi:"triggerType"`
 	// Backup Type
 	Type string `pulumi:"type"`
 }
@@ -4848,18 +3841,22 @@ type GetInstanceBackupInput interface {
 type GetInstanceBackupArgs struct {
 	// Backup ID
 	BackupId pulumi.StringInput `pulumi:"backupId"`
+	// Backup name
+	BackupName pulumi.StringInput `pulumi:"backupName"`
 	// Backup Time
 	BackupTime pulumi.StringInput `pulumi:"backupTime"`
-	// Cluster ID
-	ClusterId pulumi.StringInput `pulumi:"clusterId"`
 	// Creation Time
 	CreateTime pulumi.StringInput `pulumi:"createTime"`
 	// Expiration Time
 	ExpireTime pulumi.StringInput `pulumi:"expireTime"`
-	// Backup Name
-	Name pulumi.StringInput `pulumi:"name"`
+	// Instance ID
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	// Backup size (bytes)
+	SizeBytes pulumi.IntInput `pulumi:"sizeBytes"`
 	// Backup Status
 	State pulumi.StringInput `pulumi:"state"`
+	// Backup trigger type
+	TriggerType pulumi.StringInput `pulumi:"triggerType"`
 	// Backup Type
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -4920,14 +3917,14 @@ func (o GetInstanceBackupOutput) BackupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceBackup) string { return v.BackupId }).(pulumi.StringOutput)
 }
 
+// Backup name
+func (o GetInstanceBackupOutput) BackupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceBackup) string { return v.BackupName }).(pulumi.StringOutput)
+}
+
 // Backup Time
 func (o GetInstanceBackupOutput) BackupTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceBackup) string { return v.BackupTime }).(pulumi.StringOutput)
-}
-
-// Cluster ID
-func (o GetInstanceBackupOutput) ClusterId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceBackup) string { return v.ClusterId }).(pulumi.StringOutput)
 }
 
 // Creation Time
@@ -4940,14 +3937,24 @@ func (o GetInstanceBackupOutput) ExpireTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceBackup) string { return v.ExpireTime }).(pulumi.StringOutput)
 }
 
-// Backup Name
-func (o GetInstanceBackupOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceBackup) string { return v.Name }).(pulumi.StringOutput)
+// Instance ID
+func (o GetInstanceBackupOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceBackup) string { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+// Backup size (bytes)
+func (o GetInstanceBackupOutput) SizeBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceBackup) int { return v.SizeBytes }).(pulumi.IntOutput)
 }
 
 // Backup Status
 func (o GetInstanceBackupOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceBackup) string { return v.State }).(pulumi.StringOutput)
+}
+
+// Backup trigger type
+func (o GetInstanceBackupOutput) TriggerType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceBackup) string { return v.TriggerType }).(pulumi.StringOutput)
 }
 
 // Backup Type
@@ -5206,10 +4213,10 @@ func (o GetInstanceEndpointsPrivateEndpointOutput) VpcEndpointName() pulumi.Stri
 }
 
 type GetInstanceEndpointsPrivateEndpointAuthorizedNetwork struct {
-	// Descriptive Name
-	DisplayName string `pulumi:"displayName"`
+	// Identifiable name
+	AuthorizedNetworkName string `pulumi:"authorizedNetworkName"`
 	// Number of Security Groups Associated with Endpoint (not returned if query fails)
-	SecurityGroupCount string `pulumi:"securityGroupCount"`
+	SecurityGroupCount int `pulumi:"securityGroupCount"`
 	// VPC Endpoint ID。
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
 	// Cloud Real Name of VPC Endpoint (not returned if query fails)
@@ -5228,10 +4235,10 @@ type GetInstanceEndpointsPrivateEndpointAuthorizedNetworkInput interface {
 }
 
 type GetInstanceEndpointsPrivateEndpointAuthorizedNetworkArgs struct {
-	// Descriptive Name
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Identifiable name
+	AuthorizedNetworkName pulumi.StringInput `pulumi:"authorizedNetworkName"`
 	// Number of Security Groups Associated with Endpoint (not returned if query fails)
-	SecurityGroupCount pulumi.StringInput `pulumi:"securityGroupCount"`
+	SecurityGroupCount pulumi.IntInput `pulumi:"securityGroupCount"`
 	// VPC Endpoint ID。
 	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
 	// Cloud Real Name of VPC Endpoint (not returned if query fails)
@@ -5289,14 +4296,14 @@ func (o GetInstanceEndpointsPrivateEndpointAuthorizedNetworkOutput) ToGetInstanc
 	return o
 }
 
-// Descriptive Name
-func (o GetInstanceEndpointsPrivateEndpointAuthorizedNetworkOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceEndpointsPrivateEndpointAuthorizedNetwork) string { return v.DisplayName }).(pulumi.StringOutput)
+// Identifiable name
+func (o GetInstanceEndpointsPrivateEndpointAuthorizedNetworkOutput) AuthorizedNetworkName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceEndpointsPrivateEndpointAuthorizedNetwork) string { return v.AuthorizedNetworkName }).(pulumi.StringOutput)
 }
 
 // Number of Security Groups Associated with Endpoint (not returned if query fails)
-func (o GetInstanceEndpointsPrivateEndpointAuthorizedNetworkOutput) SecurityGroupCount() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceEndpointsPrivateEndpointAuthorizedNetwork) string { return v.SecurityGroupCount }).(pulumi.StringOutput)
+func (o GetInstanceEndpointsPrivateEndpointAuthorizedNetworkOutput) SecurityGroupCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInstanceEndpointsPrivateEndpointAuthorizedNetwork) int { return v.SecurityGroupCount }).(pulumi.IntOutput)
 }
 
 // VPC Endpoint ID。
@@ -5411,8 +4418,8 @@ func (o GetInstanceEndpointsPublicEndpointOutput) Port() pulumi.IntOutput {
 }
 
 type GetInstanceEndpointsPublicEndpointAuthorizedNetwork struct {
-	// Authorized Network Name
-	DisplayName string `pulumi:"displayName"`
+	// Authorized network name
+	AuthorizedNetworkName string `pulumi:"authorizedNetworkName"`
 	// End IP
 	EndIpAddress string `pulumi:"endIpAddress"`
 	// Start IP
@@ -5431,8 +4438,8 @@ type GetInstanceEndpointsPublicEndpointAuthorizedNetworkInput interface {
 }
 
 type GetInstanceEndpointsPublicEndpointAuthorizedNetworkArgs struct {
-	// Authorized Network Name
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Authorized network name
+	AuthorizedNetworkName pulumi.StringInput `pulumi:"authorizedNetworkName"`
 	// End IP
 	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
 	// Start IP
@@ -5490,9 +4497,9 @@ func (o GetInstanceEndpointsPublicEndpointAuthorizedNetworkOutput) ToGetInstance
 	return o
 }
 
-// Authorized Network Name
-func (o GetInstanceEndpointsPublicEndpointAuthorizedNetworkOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInstanceEndpointsPublicEndpointAuthorizedNetwork) string { return v.DisplayName }).(pulumi.StringOutput)
+// Authorized network name
+func (o GetInstanceEndpointsPublicEndpointAuthorizedNetworkOutput) AuthorizedNetworkName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceEndpointsPublicEndpointAuthorizedNetwork) string { return v.AuthorizedNetworkName }).(pulumi.StringOutput)
 }
 
 // End IP
@@ -5792,7 +4799,7 @@ func (o GetInstanceTagArrayOutput) Index(i pulumi.IntInput) GetInstanceTagOutput
 type GetInstanceZone struct {
 	// Subnet ID
 	SubnetId string `pulumi:"subnetId"`
-	// Availability Zone ID
+	// Availability zone ID
 	ZoneId string `pulumi:"zoneId"`
 }
 
@@ -5810,7 +4817,7 @@ type GetInstanceZoneInput interface {
 type GetInstanceZoneArgs struct {
 	// Subnet ID
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
-	// Availability Zone ID
+	// Availability zone ID
 	ZoneId pulumi.StringInput `pulumi:"zoneId"`
 }
 
@@ -5870,7 +4877,7 @@ func (o GetInstanceZoneOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceZone) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// Availability Zone ID
+// Availability zone ID
 func (o GetInstanceZoneOutput) ZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceZone) string { return v.ZoneId }).(pulumi.StringOutput)
 }
@@ -5902,16 +4909,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchEndpointsPtrInput)(nil)).Elem(), BranchEndpointsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchEndpointsPrivateEndpointInput)(nil)).Elem(), BranchEndpointsPrivateEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchEndpointsPrivateEndpointPtrInput)(nil)).Elem(), BranchEndpointsPrivateEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BranchEndpointsPrivateEndpointAlicloudInput)(nil)).Elem(), BranchEndpointsPrivateEndpointAlicloudArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BranchEndpointsPrivateEndpointAlicloudPtrInput)(nil)).Elem(), BranchEndpointsPrivateEndpointAlicloudArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchEndpointsPrivateEndpointAuthorizedNetworkInput)(nil)).Elem(), BranchEndpointsPrivateEndpointAuthorizedNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchEndpointsPrivateEndpointAuthorizedNetworkArrayInput)(nil)).Elem(), BranchEndpointsPrivateEndpointAuthorizedNetworkArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BranchEndpointsPrivateEndpointAwsInput)(nil)).Elem(), BranchEndpointsPrivateEndpointAwsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BranchEndpointsPrivateEndpointAwsPtrInput)(nil)).Elem(), BranchEndpointsPrivateEndpointAwsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BranchEndpointsPublicEndpointInput)(nil)).Elem(), BranchEndpointsPublicEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BranchEndpointsPublicEndpointPtrInput)(nil)).Elem(), BranchEndpointsPublicEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BranchEndpointsPublicEndpointAuthorizedNetworkInput)(nil)).Elem(), BranchEndpointsPublicEndpointAuthorizedNetworkArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BranchEndpointsPublicEndpointAuthorizedNetworkArrayInput)(nil)).Elem(), BranchEndpointsPublicEndpointAuthorizedNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchUsagesInput)(nil)).Elem(), BranchUsagesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchUsagesPtrInput)(nil)).Elem(), BranchUsagesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAnnotationInput)(nil)).Elem(), InstanceAnnotationArgs{})
@@ -5948,13 +4947,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBranchAnnotationArrayInput)(nil)).Elem(), GetBranchAnnotationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBranchEndpointsInput)(nil)).Elem(), GetBranchEndpointsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBranchEndpointsPrivateEndpointInput)(nil)).Elem(), GetBranchEndpointsPrivateEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBranchEndpointsPrivateEndpointAlicloudInput)(nil)).Elem(), GetBranchEndpointsPrivateEndpointAlicloudArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBranchEndpointsPrivateEndpointAuthorizedNetworkInput)(nil)).Elem(), GetBranchEndpointsPrivateEndpointAuthorizedNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBranchEndpointsPrivateEndpointAuthorizedNetworkArrayInput)(nil)).Elem(), GetBranchEndpointsPrivateEndpointAuthorizedNetworkArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBranchEndpointsPrivateEndpointAwsInput)(nil)).Elem(), GetBranchEndpointsPrivateEndpointAwsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBranchEndpointsPublicEndpointInput)(nil)).Elem(), GetBranchEndpointsPublicEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBranchEndpointsPublicEndpointAuthorizedNetworkInput)(nil)).Elem(), GetBranchEndpointsPublicEndpointAuthorizedNetworkArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayInput)(nil)).Elem(), GetBranchEndpointsPublicEndpointAuthorizedNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBranchUsagesInput)(nil)).Elem(), GetBranchUsagesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceAnnotationInput)(nil)).Elem(), GetInstanceAnnotationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceAnnotationArrayInput)(nil)).Elem(), GetInstanceAnnotationArray{})
@@ -5984,16 +4978,8 @@ func init() {
 	pulumi.RegisterOutputType(BranchEndpointsPtrOutput{})
 	pulumi.RegisterOutputType(BranchEndpointsPrivateEndpointOutput{})
 	pulumi.RegisterOutputType(BranchEndpointsPrivateEndpointPtrOutput{})
-	pulumi.RegisterOutputType(BranchEndpointsPrivateEndpointAlicloudOutput{})
-	pulumi.RegisterOutputType(BranchEndpointsPrivateEndpointAlicloudPtrOutput{})
 	pulumi.RegisterOutputType(BranchEndpointsPrivateEndpointAuthorizedNetworkOutput{})
 	pulumi.RegisterOutputType(BranchEndpointsPrivateEndpointAuthorizedNetworkArrayOutput{})
-	pulumi.RegisterOutputType(BranchEndpointsPrivateEndpointAwsOutput{})
-	pulumi.RegisterOutputType(BranchEndpointsPrivateEndpointAwsPtrOutput{})
-	pulumi.RegisterOutputType(BranchEndpointsPublicEndpointOutput{})
-	pulumi.RegisterOutputType(BranchEndpointsPublicEndpointPtrOutput{})
-	pulumi.RegisterOutputType(BranchEndpointsPublicEndpointAuthorizedNetworkOutput{})
-	pulumi.RegisterOutputType(BranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput{})
 	pulumi.RegisterOutputType(BranchUsagesOutput{})
 	pulumi.RegisterOutputType(BranchUsagesPtrOutput{})
 	pulumi.RegisterOutputType(InstanceAnnotationOutput{})
@@ -6030,13 +5016,8 @@ func init() {
 	pulumi.RegisterOutputType(GetBranchAnnotationArrayOutput{})
 	pulumi.RegisterOutputType(GetBranchEndpointsOutput{})
 	pulumi.RegisterOutputType(GetBranchEndpointsPrivateEndpointOutput{})
-	pulumi.RegisterOutputType(GetBranchEndpointsPrivateEndpointAlicloudOutput{})
 	pulumi.RegisterOutputType(GetBranchEndpointsPrivateEndpointAuthorizedNetworkOutput{})
 	pulumi.RegisterOutputType(GetBranchEndpointsPrivateEndpointAuthorizedNetworkArrayOutput{})
-	pulumi.RegisterOutputType(GetBranchEndpointsPrivateEndpointAwsOutput{})
-	pulumi.RegisterOutputType(GetBranchEndpointsPublicEndpointOutput{})
-	pulumi.RegisterOutputType(GetBranchEndpointsPublicEndpointAuthorizedNetworkOutput{})
-	pulumi.RegisterOutputType(GetBranchEndpointsPublicEndpointAuthorizedNetworkArrayOutput{})
 	pulumi.RegisterOutputType(GetBranchUsagesOutput{})
 	pulumi.RegisterOutputType(GetInstanceAnnotationOutput{})
 	pulumi.RegisterOutputType(GetInstanceAnnotationArrayOutput{})

@@ -1305,6 +1305,31 @@
             "volcenginecc_cloudidentity_user_provisioning": {
                 "current": "volcenginecc:cloudidentity/userProvisioning:UserProvisioning"
             },
+            "volcenginecc_cloudmonitor_aggregation_policy": {
+                "current": "volcenginecc:cloudmonitor/aggregationPolicy:AggregationPolicy",
+                "fields": {
+                    "aggregations": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "group_by": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "associated_attributes": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "volcenginecc_cloudmonitor_alert_template": {
                 "current": "volcenginecc:cloudmonitor/alertTemplate:AlertTemplate",
                 "fields": {
@@ -3755,6 +3780,9 @@
                     }
                 }
             },
+            "volcenginecc_tidb_allowlist": {
+                "current": "volcenginecc:tidb/allowlist:Allowlist"
+            },
             "volcenginecc_tidb_branch": {
                 "current": "volcenginecc:tidb/branch:Branch",
                 "fields": {
@@ -3764,27 +3792,6 @@
                     "endpoints": {
                         "fields": {
                             "private_endpoint": {
-                                "fields": {
-                                    "alicloud": {
-                                        "fields": {
-                                            "availability_zone": {
-                                                "maxItemsOne": false
-                                            }
-                                        }
-                                    },
-                                    "authorized_networks": {
-                                        "maxItemsOne": false
-                                    },
-                                    "aws": {
-                                        "fields": {
-                                            "availability_zone": {
-                                                "maxItemsOne": false
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "public_endpoint": {
                                 "fields": {
                                     "authorized_networks": {
                                         "maxItemsOne": false
@@ -7397,6 +7404,39 @@
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_cloudmonitor_aggregation_policies": {
+                "current": "volcenginecc:cloudmonitor/getAggregationPolicies:getAggregationPolicies",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "volcenginecc_cloudmonitor_aggregation_policy": {
+                "current": "volcenginecc:cloudmonitor/getAggregationPolicy:getAggregationPolicy",
+                "fields": {
+                    "aggregations": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "group_by": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "associated_attributes": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -11090,6 +11130,17 @@
                     }
                 }
             },
+            "volcenginecc_tidb_allowlist": {
+                "current": "volcenginecc:tidb/getAllowlist:getAllowlist"
+            },
+            "volcenginecc_tidb_allowlists": {
+                "current": "volcenginecc:tidb/getAllowlists:getAllowlists",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "volcenginecc_tidb_branch": {
                 "current": "volcenginecc:tidb/getBranch:getBranch",
                 "fields": {
@@ -11099,27 +11150,6 @@
                     "endpoints": {
                         "fields": {
                             "private_endpoint": {
-                                "fields": {
-                                    "alicloud": {
-                                        "fields": {
-                                            "availability_zone": {
-                                                "maxItemsOne": false
-                                            }
-                                        }
-                                    },
-                                    "authorized_networks": {
-                                        "maxItemsOne": false
-                                    },
-                                    "aws": {
-                                        "fields": {
-                                            "availability_zone": {
-                                                "maxItemsOne": false
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "public_endpoint": {
                                 "fields": {
                                     "authorized_networks": {
                                         "maxItemsOne": false
@@ -14053,6 +14083,7 @@
             "volcenginecc_cloudidentity_permission_set_provisioning": {},
             "volcenginecc_cloudidentity_user": {},
             "volcenginecc_cloudidentity_user_provisioning": {},
+            "volcenginecc_cloudmonitor_aggregation_policy": {},
             "volcenginecc_cloudmonitor_alert_template": {},
             "volcenginecc_cloudmonitor_contact": {},
             "volcenginecc_cloudmonitor_contact_group": {},
@@ -14205,6 +14236,7 @@
             "volcenginecc_storageebs_snapshot_group": {},
             "volcenginecc_storageebs_snapshot_policy": {},
             "volcenginecc_storageebs_volume": {},
+            "volcenginecc_tidb_allowlist": {},
             "volcenginecc_tidb_branch": {},
             "volcenginecc_tidb_instance": {},
             "volcenginecc_tls_alarm": {},

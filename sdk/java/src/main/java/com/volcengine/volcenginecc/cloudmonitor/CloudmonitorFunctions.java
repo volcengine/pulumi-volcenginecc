@@ -10,6 +10,8 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.cloudmonitor.inputs.GetAggregationPolicyArgs;
+import com.volcengine.volcenginecc.cloudmonitor.inputs.GetAggregationPolicyPlainArgs;
 import com.volcengine.volcenginecc.cloudmonitor.inputs.GetAlertTemplateArgs;
 import com.volcengine.volcenginecc.cloudmonitor.inputs.GetAlertTemplatePlainArgs;
 import com.volcengine.volcenginecc.cloudmonitor.inputs.GetContactArgs;
@@ -22,6 +24,8 @@ import com.volcengine.volcenginecc.cloudmonitor.inputs.GetObjectGroupArgs;
 import com.volcengine.volcenginecc.cloudmonitor.inputs.GetObjectGroupPlainArgs;
 import com.volcengine.volcenginecc.cloudmonitor.inputs.GetRuleArgs;
 import com.volcengine.volcenginecc.cloudmonitor.inputs.GetRulePlainArgs;
+import com.volcengine.volcenginecc.cloudmonitor.outputs.GetAggregationPoliciesResult;
+import com.volcengine.volcenginecc.cloudmonitor.outputs.GetAggregationPolicyResult;
 import com.volcengine.volcenginecc.cloudmonitor.outputs.GetAlertTemplateResult;
 import com.volcengine.volcenginecc.cloudmonitor.outputs.GetAlertTemplatesResult;
 import com.volcengine.volcenginecc.cloudmonitor.outputs.GetContactGroupResult;
@@ -37,6 +41,90 @@ import com.volcengine.volcenginecc.cloudmonitor.outputs.GetRulesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class CloudmonitorFunctions {
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::AggregationPolicy
+     * 
+     */
+    public static Output<GetAggregationPoliciesResult> getAggregationPolicies() {
+        return getAggregationPolicies(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::AggregationPolicy
+     * 
+     */
+    public static CompletableFuture<GetAggregationPoliciesResult> getAggregationPoliciesPlain() {
+        return getAggregationPoliciesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::AggregationPolicy
+     * 
+     */
+    public static Output<GetAggregationPoliciesResult> getAggregationPolicies(InvokeArgs args) {
+        return getAggregationPolicies(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::AggregationPolicy
+     * 
+     */
+    public static CompletableFuture<GetAggregationPoliciesResult> getAggregationPoliciesPlain(InvokeArgs args) {
+        return getAggregationPoliciesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::AggregationPolicy
+     * 
+     */
+    public static Output<GetAggregationPoliciesResult> getAggregationPolicies(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudmonitor/getAggregationPolicies:getAggregationPolicies", TypeShape.of(GetAggregationPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::AggregationPolicy
+     * 
+     */
+    public static Output<GetAggregationPoliciesResult> getAggregationPolicies(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudmonitor/getAggregationPolicies:getAggregationPolicies", TypeShape.of(GetAggregationPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::CloudMonitor::AggregationPolicy
+     * 
+     */
+    public static CompletableFuture<GetAggregationPoliciesResult> getAggregationPoliciesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudmonitor/getAggregationPolicies:getAggregationPolicies", TypeShape.of(GetAggregationPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudMonitor::AggregationPolicy
+     * 
+     */
+    public static Output<GetAggregationPolicyResult> getAggregationPolicy(GetAggregationPolicyArgs args) {
+        return getAggregationPolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudMonitor::AggregationPolicy
+     * 
+     */
+    public static CompletableFuture<GetAggregationPolicyResult> getAggregationPolicyPlain(GetAggregationPolicyPlainArgs args) {
+        return getAggregationPolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::CloudMonitor::AggregationPolicy
+     * 
+     */
+    public static Output<GetAggregationPolicyResult> getAggregationPolicy(GetAggregationPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudmonitor/getAggregationPolicy:getAggregationPolicy", TypeShape.of(GetAggregationPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudMonitor::AggregationPolicy
+     * 
+     */
+    public static Output<GetAggregationPolicyResult> getAggregationPolicy(GetAggregationPolicyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:cloudmonitor/getAggregationPolicy:getAggregationPolicy", TypeShape.of(GetAggregationPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::CloudMonitor::AggregationPolicy
+     * 
+     */
+    public static CompletableFuture<GetAggregationPolicyResult> getAggregationPolicyPlain(GetAggregationPolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:cloudmonitor/getAggregationPolicy:getAggregationPolicy", TypeShape.of(GetAggregationPolicyResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::CloudMonitor::AlertTemplate
      * 

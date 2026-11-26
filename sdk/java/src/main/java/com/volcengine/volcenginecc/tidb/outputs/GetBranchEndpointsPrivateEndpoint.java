@@ -5,9 +5,7 @@ package com.volcengine.volcenginecc.tidb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import com.volcengine.volcenginecc.tidb.outputs.GetBranchEndpointsPrivateEndpointAlicloud;
 import com.volcengine.volcenginecc.tidb.outputs.GetBranchEndpointsPrivateEndpointAuthorizedNetwork;
-import com.volcengine.volcenginecc.tidb.outputs.GetBranchEndpointsPrivateEndpointAws;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,20 +15,10 @@ import java.util.Objects;
 @CustomType
 public final class GetBranchEndpointsPrivateEndpoint {
     /**
-     * @return Alicloud private endpoint
-     * 
-     */
-    private GetBranchEndpointsPrivateEndpointAlicloud alicloud;
-    /**
      * @return Private endpoint authorized network list
      * 
      */
     private List<GetBranchEndpointsPrivateEndpointAuthorizedNetwork> authorizedNetworks;
-    /**
-     * @return AWS private endpoint
-     * 
-     */
-    private GetBranchEndpointsPrivateEndpointAws aws;
     /**
      * @return Disable private network access
      * 
@@ -69,25 +57,11 @@ public final class GetBranchEndpointsPrivateEndpoint {
 
     private GetBranchEndpointsPrivateEndpoint() {}
     /**
-     * @return Alicloud private endpoint
-     * 
-     */
-    public GetBranchEndpointsPrivateEndpointAlicloud alicloud() {
-        return this.alicloud;
-    }
-    /**
      * @return Private endpoint authorized network list
      * 
      */
     public List<GetBranchEndpointsPrivateEndpointAuthorizedNetwork> authorizedNetworks() {
         return this.authorizedNetworks;
-    }
-    /**
-     * @return AWS private endpoint
-     * 
-     */
-    public GetBranchEndpointsPrivateEndpointAws aws() {
-        return this.aws;
     }
     /**
      * @return Disable private network access
@@ -148,9 +122,7 @@ public final class GetBranchEndpointsPrivateEndpoint {
     }
     @CustomType.Builder
     public static final class Builder {
-        private GetBranchEndpointsPrivateEndpointAlicloud alicloud;
         private List<GetBranchEndpointsPrivateEndpointAuthorizedNetwork> authorizedNetworks;
-        private GetBranchEndpointsPrivateEndpointAws aws;
         private Boolean disabled;
         private String host;
         private Integer port;
@@ -161,9 +133,7 @@ public final class GetBranchEndpointsPrivateEndpoint {
         public Builder() {}
         public Builder(GetBranchEndpointsPrivateEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.alicloud = defaults.alicloud;
     	      this.authorizedNetworks = defaults.authorizedNetworks;
-    	      this.aws = defaults.aws;
     	      this.disabled = defaults.disabled;
     	      this.host = defaults.host;
     	      this.port = defaults.port;
@@ -174,14 +144,6 @@ public final class GetBranchEndpointsPrivateEndpoint {
         }
 
         @CustomType.Setter
-        public Builder alicloud(GetBranchEndpointsPrivateEndpointAlicloud alicloud) {
-            if (alicloud == null) {
-              throw new MissingRequiredPropertyException("GetBranchEndpointsPrivateEndpoint", "alicloud");
-            }
-            this.alicloud = alicloud;
-            return this;
-        }
-        @CustomType.Setter
         public Builder authorizedNetworks(List<GetBranchEndpointsPrivateEndpointAuthorizedNetwork> authorizedNetworks) {
             if (authorizedNetworks == null) {
               throw new MissingRequiredPropertyException("GetBranchEndpointsPrivateEndpoint", "authorizedNetworks");
@@ -191,14 +153,6 @@ public final class GetBranchEndpointsPrivateEndpoint {
         }
         public Builder authorizedNetworks(GetBranchEndpointsPrivateEndpointAuthorizedNetwork... authorizedNetworks) {
             return authorizedNetworks(List.of(authorizedNetworks));
-        }
-        @CustomType.Setter
-        public Builder aws(GetBranchEndpointsPrivateEndpointAws aws) {
-            if (aws == null) {
-              throw new MissingRequiredPropertyException("GetBranchEndpointsPrivateEndpoint", "aws");
-            }
-            this.aws = aws;
-            return this;
         }
         @CustomType.Setter
         public Builder disabled(Boolean disabled) {
@@ -258,9 +212,7 @@ public final class GetBranchEndpointsPrivateEndpoint {
         }
         public GetBranchEndpointsPrivateEndpoint build() {
             final var _resultValue = new GetBranchEndpointsPrivateEndpoint();
-            _resultValue.alicloud = alicloud;
             _resultValue.authorizedNetworks = authorizedNetworks;
-            _resultValue.aws = aws;
             _resultValue.disabled = disabled;
             _resultValue.host = host;
             _resultValue.port = port;

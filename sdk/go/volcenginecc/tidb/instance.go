@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := tidb.NewInstance(ctx, "example", &tidb.InstanceArgs{
-//				DisplayName: pulumi.String("ccapi-tidb-instance-full"),
+//				InstanceName: pulumi.String("ccapi-tidb-instance-full"),
 //				AutoScaling: &tidb.InstanceAutoScalingArgs{
 //					Min_rcu: 2000,
 //					Max_rcu: 4000,
@@ -75,11 +75,13 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import volcenginecc:tidb/instance:Instance example "cluster_id"
+// $ pulumi import volcenginecc:tidb/instance:Instance example "instance_id"
 // ```
 type Instance struct {
 	pulumi.CustomResourceState
 
+	// Account ID of the instance owner
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Annotation
 	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 	Annotations InstanceAnnotationArrayOutput `pulumi:"annotations"`
@@ -89,26 +91,24 @@ type Instance struct {
 	AutoScaling InstanceAutoScalingOutput `pulumi:"autoScaling"`
 	// Automatic Backup Policy
 	AutomatedBackupPolicy InstanceAutomatedBackupPolicyOutput `pulumi:"automatedBackupPolicy"`
-	// Cluster Backup List
+	// Instance backup list
 	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 	Backups InstanceBackupArrayOutput `pulumi:"backups"`
-	// Cluster ID
-	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// Creation Time (ISO8601)
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
-	// Cluster Display Name
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Data Encryption Configuration
 	EncryptionConfig InstanceEncryptionConfigOutput `pulumi:"encryptionConfig"`
 	// Connection Endpoint
 	Endpoints InstanceEndpointsOutput `pulumi:"endpoints"`
 	// High Availability Type
 	HighAvailabilityType pulumi.StringOutput `pulumi:"highAvailabilityType"`
+	// Instance ID
+	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+	// Instance name
+	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
 	// Tags
 	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 	Labels InstanceLabelArrayOutput `pulumi:"labels"`
-	// Resource Name: clusters/{clusterId}
-	Name pulumi.StringOutput `pulumi:"name"`
 	// Volcano Engine Project Name
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
 	// Deployment Region
@@ -117,7 +117,7 @@ type Instance struct {
 	ServicePlan pulumi.StringOutput `pulumi:"servicePlan"`
 	// Spending Limit Configuration
 	SpendingLimit InstanceSpendingLimitOutput `pulumi:"spendingLimit"`
-	// Cluster Status
+	// Instance status
 	State pulumi.StringOutput `pulumi:"state"`
 	// Instance Tags
 	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
@@ -174,6 +174,8 @@ func GetInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Instance resources.
 type instanceState struct {
+	// Account ID of the instance owner
+	AccountId *string `pulumi:"accountId"`
 	// Annotation
 	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 	Annotations []InstanceAnnotation `pulumi:"annotations"`
@@ -183,26 +185,24 @@ type instanceState struct {
 	AutoScaling *InstanceAutoScaling `pulumi:"autoScaling"`
 	// Automatic Backup Policy
 	AutomatedBackupPolicy *InstanceAutomatedBackupPolicy `pulumi:"automatedBackupPolicy"`
-	// Cluster Backup List
+	// Instance backup list
 	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 	Backups []InstanceBackup `pulumi:"backups"`
-	// Cluster ID
-	ClusterId *string `pulumi:"clusterId"`
 	// Creation Time (ISO8601)
 	CreateTime *string `pulumi:"createTime"`
-	// Cluster Display Name
-	DisplayName *string `pulumi:"displayName"`
 	// Data Encryption Configuration
 	EncryptionConfig *InstanceEncryptionConfig `pulumi:"encryptionConfig"`
 	// Connection Endpoint
 	Endpoints *InstanceEndpoints `pulumi:"endpoints"`
 	// High Availability Type
 	HighAvailabilityType *string `pulumi:"highAvailabilityType"`
+	// Instance ID
+	InstanceId *string `pulumi:"instanceId"`
+	// Instance name
+	InstanceName *string `pulumi:"instanceName"`
 	// Tags
 	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 	Labels []InstanceLabel `pulumi:"labels"`
-	// Resource Name: clusters/{clusterId}
-	Name *string `pulumi:"name"`
 	// Volcano Engine Project Name
 	ProjectName *string `pulumi:"projectName"`
 	// Deployment Region
@@ -211,7 +211,7 @@ type instanceState struct {
 	ServicePlan *string `pulumi:"servicePlan"`
 	// Spending Limit Configuration
 	SpendingLimit *InstanceSpendingLimit `pulumi:"spendingLimit"`
-	// Cluster Status
+	// Instance status
 	State *string `pulumi:"state"`
 	// Instance Tags
 	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
@@ -230,6 +230,8 @@ type instanceState struct {
 }
 
 type InstanceState struct {
+	// Account ID of the instance owner
+	AccountId pulumi.StringPtrInput
 	// Annotation
 	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 	Annotations InstanceAnnotationArrayInput
@@ -239,26 +241,24 @@ type InstanceState struct {
 	AutoScaling InstanceAutoScalingPtrInput
 	// Automatic Backup Policy
 	AutomatedBackupPolicy InstanceAutomatedBackupPolicyPtrInput
-	// Cluster Backup List
+	// Instance backup list
 	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 	Backups InstanceBackupArrayInput
-	// Cluster ID
-	ClusterId pulumi.StringPtrInput
 	// Creation Time (ISO8601)
 	CreateTime pulumi.StringPtrInput
-	// Cluster Display Name
-	DisplayName pulumi.StringPtrInput
 	// Data Encryption Configuration
 	EncryptionConfig InstanceEncryptionConfigPtrInput
 	// Connection Endpoint
 	Endpoints InstanceEndpointsPtrInput
 	// High Availability Type
 	HighAvailabilityType pulumi.StringPtrInput
+	// Instance ID
+	InstanceId pulumi.StringPtrInput
+	// Instance name
+	InstanceName pulumi.StringPtrInput
 	// Tags
 	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 	Labels InstanceLabelArrayInput
-	// Resource Name: clusters/{clusterId}
-	Name pulumi.StringPtrInput
 	// Volcano Engine Project Name
 	ProjectName pulumi.StringPtrInput
 	// Deployment Region
@@ -267,7 +267,7 @@ type InstanceState struct {
 	ServicePlan pulumi.StringPtrInput
 	// Spending Limit Configuration
 	SpendingLimit InstanceSpendingLimitPtrInput
-	// Cluster Status
+	// Instance status
 	State pulumi.StringPtrInput
 	// Instance Tags
 	// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
@@ -294,12 +294,12 @@ type instanceArgs struct {
 	AutoScaling InstanceAutoScaling `pulumi:"autoScaling"`
 	// Automatic Backup Policy
 	AutomatedBackupPolicy *InstanceAutomatedBackupPolicy `pulumi:"automatedBackupPolicy"`
-	// Cluster Display Name
-	DisplayName *string `pulumi:"displayName"`
 	// Data Encryption Configuration
 	EncryptionConfig *InstanceEncryptionConfig `pulumi:"encryptionConfig"`
 	// High Availability Type
 	HighAvailabilityType *string `pulumi:"highAvailabilityType"`
+	// Instance name
+	InstanceName *string `pulumi:"instanceName"`
 	// Volcano Engine Project Name
 	ProjectName *string `pulumi:"projectName"`
 	// Deployment Region
@@ -322,12 +322,12 @@ type InstanceArgs struct {
 	AutoScaling InstanceAutoScalingInput
 	// Automatic Backup Policy
 	AutomatedBackupPolicy InstanceAutomatedBackupPolicyPtrInput
-	// Cluster Display Name
-	DisplayName pulumi.StringPtrInput
 	// Data Encryption Configuration
 	EncryptionConfig InstanceEncryptionConfigPtrInput
 	// High Availability Type
 	HighAvailabilityType pulumi.StringPtrInput
+	// Instance name
+	InstanceName pulumi.StringPtrInput
 	// Volcano Engine Project Name
 	ProjectName pulumi.StringPtrInput
 	// Deployment Region
@@ -431,6 +431,11 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 	return o
 }
 
+// Account ID of the instance owner
+func (o InstanceOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
 // Annotation
 // Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 func (o InstanceOutput) Annotations() InstanceAnnotationArrayOutput {
@@ -452,25 +457,15 @@ func (o InstanceOutput) AutomatedBackupPolicy() InstanceAutomatedBackupPolicyOut
 	return o.ApplyT(func(v *Instance) InstanceAutomatedBackupPolicyOutput { return v.AutomatedBackupPolicy }).(InstanceAutomatedBackupPolicyOutput)
 }
 
-// Cluster Backup List
+// Instance backup list
 // Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 func (o InstanceOutput) Backups() InstanceBackupArrayOutput {
 	return o.ApplyT(func(v *Instance) InstanceBackupArrayOutput { return v.Backups }).(InstanceBackupArrayOutput)
 }
 
-// Cluster ID
-func (o InstanceOutput) ClusterId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
-}
-
 // Creation Time (ISO8601)
 func (o InstanceOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
-}
-
-// Cluster Display Name
-func (o InstanceOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
 // Data Encryption Configuration
@@ -488,15 +483,20 @@ func (o InstanceOutput) HighAvailabilityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.HighAvailabilityType }).(pulumi.StringOutput)
 }
 
+// Instance ID
+func (o InstanceOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+// Instance name
+func (o InstanceOutput) InstanceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceName }).(pulumi.StringOutput)
+}
+
 // Tags
 // Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
 func (o InstanceOutput) Labels() InstanceLabelArrayOutput {
 	return o.ApplyT(func(v *Instance) InstanceLabelArrayOutput { return v.Labels }).(InstanceLabelArrayOutput)
-}
-
-// Resource Name: clusters/{clusterId}
-func (o InstanceOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // Volcano Engine Project Name
@@ -519,7 +519,7 @@ func (o InstanceOutput) SpendingLimit() InstanceSpendingLimitOutput {
 	return o.ApplyT(func(v *Instance) InstanceSpendingLimitOutput { return v.SpendingLimit }).(InstanceSpendingLimitOutput)
 }
 
-// Cluster Status
+// Instance status
 func (o InstanceOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

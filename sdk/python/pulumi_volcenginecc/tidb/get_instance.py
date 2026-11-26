@@ -27,7 +27,10 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, annotations=None, audit_log_config=None, auto_scaling=None, automated_backup_policy=None, backups=None, cluster_id=None, create_time=None, display_name=None, encryption_config=None, endpoints=None, high_availability_type=None, id=None, labels=None, name=None, project_name=None, region_id=None, service_plan=None, spending_limit=None, state=None, tags=None, update_time=None, user_prefix=None, version=None, vpc_id=None, zones=None):
+    def __init__(__self__, account_id=None, annotations=None, audit_log_config=None, auto_scaling=None, automated_backup_policy=None, backups=None, create_time=None, encryption_config=None, endpoints=None, high_availability_type=None, id=None, instance_id=None, instance_name=None, labels=None, project_name=None, region_id=None, service_plan=None, spending_limit=None, state=None, tags=None, update_time=None, user_prefix=None, version=None, vpc_id=None, zones=None):
+        if account_id and not isinstance(account_id, str):
+            raise TypeError("Expected argument 'account_id' to be a str")
+        pulumi.set(__self__, "account_id", account_id)
         if annotations and not isinstance(annotations, list):
             raise TypeError("Expected argument 'annotations' to be a list")
         pulumi.set(__self__, "annotations", annotations)
@@ -43,15 +46,9 @@ class GetInstanceResult:
         if backups and not isinstance(backups, list):
             raise TypeError("Expected argument 'backups' to be a list")
         pulumi.set(__self__, "backups", backups)
-        if cluster_id and not isinstance(cluster_id, str):
-            raise TypeError("Expected argument 'cluster_id' to be a str")
-        pulumi.set(__self__, "cluster_id", cluster_id)
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        pulumi.set(__self__, "display_name", display_name)
         if encryption_config and not isinstance(encryption_config, dict):
             raise TypeError("Expected argument 'encryption_config' to be a dict")
         pulumi.set(__self__, "encryption_config", encryption_config)
@@ -64,12 +61,15 @@ class GetInstanceResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if instance_id and not isinstance(instance_id, str):
+            raise TypeError("Expected argument 'instance_id' to be a str")
+        pulumi.set(__self__, "instance_id", instance_id)
+        if instance_name and not isinstance(instance_name, str):
+            raise TypeError("Expected argument 'instance_name' to be a str")
+        pulumi.set(__self__, "instance_name", instance_name)
         if labels and not isinstance(labels, list):
             raise TypeError("Expected argument 'labels' to be a list")
         pulumi.set(__self__, "labels", labels)
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        pulumi.set(__self__, "name", name)
         if project_name and not isinstance(project_name, str):
             raise TypeError("Expected argument 'project_name' to be a str")
         pulumi.set(__self__, "project_name", project_name)
@@ -103,6 +103,14 @@ class GetInstanceResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> _builtins.str:
+        """
+        Account ID of the instance owner
+        """
+        return pulumi.get(self, "account_id")
 
     @_builtins.property
     @pulumi.getter
@@ -140,17 +148,9 @@ class GetInstanceResult:
     @pulumi.getter
     def backups(self) -> Sequence['outputs.GetInstanceBackupResult']:
         """
-        Cluster Backup List
+        Instance backup list
         """
         return pulumi.get(self, "backups")
-
-    @_builtins.property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> _builtins.str:
-        """
-        Cluster ID
-        """
-        return pulumi.get(self, "cluster_id")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
@@ -159,14 +159,6 @@ class GetInstanceResult:
         Creation Time (ISO8601)
         """
         return pulumi.get(self, "create_time")
-
-    @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> _builtins.str:
-        """
-        Cluster Display Name
-        """
-        return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfig")
@@ -201,20 +193,28 @@ class GetInstanceResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> _builtins.str:
+        """
+        Instance ID
+        """
+        return pulumi.get(self, "instance_id")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> _builtins.str:
+        """
+        Instance name
+        """
+        return pulumi.get(self, "instance_name")
+
+    @_builtins.property
     @pulumi.getter
     def labels(self) -> Sequence['outputs.GetInstanceLabelResult']:
         """
         Tags
         """
         return pulumi.get(self, "labels")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
-        """
-        Resource Name: clusters/{clusterId}
-        """
-        return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -252,7 +252,7 @@ class GetInstanceResult:
     @pulumi.getter
     def state(self) -> _builtins.str:
         """
-        Cluster Status
+        Instance status
         """
         return pulumi.get(self, "state")
 
@@ -311,20 +311,20 @@ class AwaitableGetInstanceResult(GetInstanceResult):
         if False:
             yield self
         return GetInstanceResult(
+            account_id=self.account_id,
             annotations=self.annotations,
             audit_log_config=self.audit_log_config,
             auto_scaling=self.auto_scaling,
             automated_backup_policy=self.automated_backup_policy,
             backups=self.backups,
-            cluster_id=self.cluster_id,
             create_time=self.create_time,
-            display_name=self.display_name,
             encryption_config=self.encryption_config,
             endpoints=self.endpoints,
             high_availability_type=self.high_availability_type,
             id=self.id,
+            instance_id=self.instance_id,
+            instance_name=self.instance_name,
             labels=self.labels,
-            name=self.name,
             project_name=self.project_name,
             region_id=self.region_id,
             service_plan=self.service_plan,
@@ -352,20 +352,20 @@ def get_instance(id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('volcenginecc:tidb/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult).value
 
     return AwaitableGetInstanceResult(
+        account_id=pulumi.get(__ret__, 'account_id'),
         annotations=pulumi.get(__ret__, 'annotations'),
         audit_log_config=pulumi.get(__ret__, 'audit_log_config'),
         auto_scaling=pulumi.get(__ret__, 'auto_scaling'),
         automated_backup_policy=pulumi.get(__ret__, 'automated_backup_policy'),
         backups=pulumi.get(__ret__, 'backups'),
-        cluster_id=pulumi.get(__ret__, 'cluster_id'),
         create_time=pulumi.get(__ret__, 'create_time'),
-        display_name=pulumi.get(__ret__, 'display_name'),
         encryption_config=pulumi.get(__ret__, 'encryption_config'),
         endpoints=pulumi.get(__ret__, 'endpoints'),
         high_availability_type=pulumi.get(__ret__, 'high_availability_type'),
         id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        instance_name=pulumi.get(__ret__, 'instance_name'),
         labels=pulumi.get(__ret__, 'labels'),
-        name=pulumi.get(__ret__, 'name'),
         project_name=pulumi.get(__ret__, 'project_name'),
         region_id=pulumi.get(__ret__, 'region_id'),
         service_plan=pulumi.get(__ret__, 'service_plan'),
@@ -390,20 +390,20 @@ def get_instance_output(id: pulumi.Input[Optional[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('volcenginecc:tidb/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult)
     return __ret__.apply(lambda __response__: GetInstanceResult(
+        account_id=pulumi.get(__response__, 'account_id'),
         annotations=pulumi.get(__response__, 'annotations'),
         audit_log_config=pulumi.get(__response__, 'audit_log_config'),
         auto_scaling=pulumi.get(__response__, 'auto_scaling'),
         automated_backup_policy=pulumi.get(__response__, 'automated_backup_policy'),
         backups=pulumi.get(__response__, 'backups'),
-        cluster_id=pulumi.get(__response__, 'cluster_id'),
         create_time=pulumi.get(__response__, 'create_time'),
-        display_name=pulumi.get(__response__, 'display_name'),
         encryption_config=pulumi.get(__response__, 'encryption_config'),
         endpoints=pulumi.get(__response__, 'endpoints'),
         high_availability_type=pulumi.get(__response__, 'high_availability_type'),
         id=pulumi.get(__response__, 'id'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        instance_name=pulumi.get(__response__, 'instance_name'),
         labels=pulumi.get(__response__, 'labels'),
-        name=pulumi.get(__response__, 'name'),
         project_name=pulumi.get(__response__, 'project_name'),
         region_id=pulumi.get(__response__, 'region_id'),
         service_plan=pulumi.get(__response__, 'service_plan'),

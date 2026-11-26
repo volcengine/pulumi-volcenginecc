@@ -15,13 +15,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
     public sealed class InstanceEndpointsPrivateEndpointAuthorizedNetwork
     {
         /// <summary>
-        /// Descriptive Name
+        /// Identifiable name
         /// </summary>
-        public readonly string? DisplayName;
+        public readonly string? AuthorizedNetworkName;
         /// <summary>
         /// Number of Security Groups Associated with Endpoint (not returned if query fails)
         /// </summary>
-        public readonly string? SecurityGroupCount;
+        public readonly int? SecurityGroupCount;
         /// <summary>
         /// VPC Endpoint ID。
         /// </summary>
@@ -33,15 +33,15 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
 
         [OutputConstructor]
         private InstanceEndpointsPrivateEndpointAuthorizedNetwork(
-            string? displayName,
+            string? authorizedNetworkName,
 
-            string? securityGroupCount,
+            int? securityGroupCount,
 
             string? vpcEndpointId,
 
             string? vpcEndpointName)
         {
-            DisplayName = displayName;
+            AuthorizedNetworkName = authorizedNetworkName;
             SecurityGroupCount = securityGroupCount;
             VpcEndpointId = vpcEndpointId;
             VpcEndpointName = vpcEndpointName;

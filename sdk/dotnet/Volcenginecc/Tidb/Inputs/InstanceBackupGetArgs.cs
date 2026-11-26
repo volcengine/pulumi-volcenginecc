@@ -20,16 +20,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Inputs
         public Input<string>? BackupId { get; set; }
 
         /// <summary>
+        /// Backup name
+        /// </summary>
+        [Input("backupName")]
+        public Input<string>? BackupName { get; set; }
+
+        /// <summary>
         /// Backup Time
         /// </summary>
         [Input("backupTime")]
         public Input<string>? BackupTime { get; set; }
-
-        /// <summary>
-        /// Cluster ID
-        /// </summary>
-        [Input("clusterId")]
-        public Input<string>? ClusterId { get; set; }
 
         /// <summary>
         /// Creation Time
@@ -44,16 +44,28 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Inputs
         public Input<string>? ExpireTime { get; set; }
 
         /// <summary>
-        /// Backup Name
+        /// Instance ID
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("instanceId")]
+        public Input<string>? InstanceId { get; set; }
+
+        /// <summary>
+        /// Backup size (bytes)
+        /// </summary>
+        [Input("sizeBytes")]
+        public Input<int>? SizeBytes { get; set; }
 
         /// <summary>
         /// Backup Status
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// Backup trigger type
+        /// </summary>
+        [Input("triggerType")]
+        public Input<string>? TriggerType { get; set; }
 
         /// <summary>
         /// Backup Type

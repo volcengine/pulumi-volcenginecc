@@ -12,10 +12,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InstanceEndpointsPublicEndpointAuthorizedNetwork {
     /**
-     * @return Authorized Network Name
+     * @return Authorized network name
      * 
      */
-    private @Nullable String displayName;
+    private @Nullable String authorizedNetworkName;
     /**
      * @return End IP
      * 
@@ -29,11 +29,11 @@ public final class InstanceEndpointsPublicEndpointAuthorizedNetwork {
 
     private InstanceEndpointsPublicEndpointAuthorizedNetwork() {}
     /**
-     * @return Authorized Network Name
+     * @return Authorized network name
      * 
      */
-    public Optional<String> displayName() {
-        return Optional.ofNullable(this.displayName);
+    public Optional<String> authorizedNetworkName() {
+        return Optional.ofNullable(this.authorizedNetworkName);
     }
     /**
      * @return End IP
@@ -59,21 +59,21 @@ public final class InstanceEndpointsPublicEndpointAuthorizedNetwork {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String displayName;
+        private @Nullable String authorizedNetworkName;
         private @Nullable String endIpAddress;
         private @Nullable String startIpAddress;
         public Builder() {}
         public Builder(InstanceEndpointsPublicEndpointAuthorizedNetwork defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.displayName = defaults.displayName;
+    	      this.authorizedNetworkName = defaults.authorizedNetworkName;
     	      this.endIpAddress = defaults.endIpAddress;
     	      this.startIpAddress = defaults.startIpAddress;
         }
 
         @CustomType.Setter
-        public Builder displayName(@Nullable String displayName) {
+        public Builder authorizedNetworkName(@Nullable String authorizedNetworkName) {
 
-            this.displayName = displayName;
+            this.authorizedNetworkName = authorizedNetworkName;
             return this;
         }
         @CustomType.Setter
@@ -90,7 +90,7 @@ public final class InstanceEndpointsPublicEndpointAuthorizedNetwork {
         }
         public InstanceEndpointsPublicEndpointAuthorizedNetwork build() {
             final var _resultValue = new InstanceEndpointsPublicEndpointAuthorizedNetwork();
-            _resultValue.displayName = displayName;
+            _resultValue.authorizedNetworkName = authorizedNetworkName;
             _resultValue.endIpAddress = endIpAddress;
             _resultValue.startIpAddress = startIpAddress;
             return _resultValue;

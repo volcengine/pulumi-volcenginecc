@@ -27,25 +27,22 @@ class GetBranchResult:
     """
     A collection of values returned by getBranch.
     """
-    def __init__(__self__, annotations=None, branch_id=None, cluster_id=None, create_time=None, created_by=None, display_name=None, endpoints=None, has_set_pwd=None, id=None, name=None, parent_display_name=None, parent_id=None, parent_timestamp=None, password=None, project_name=None, reset_branch=None, state=None, update_time=None, usages=None, user_prefix=None):
+    def __init__(__self__, annotations=None, branch_id=None, branch_name=None, create_time=None, created_by=None, endpoints=None, has_set_pwd=None, id=None, instance_id=None, parent_branch_name=None, parent_id=None, parent_timestamp=None, password=None, project_name=None, reset_branch=None, state=None, update_time=None, usages=None, user_prefix=None):
         if annotations and not isinstance(annotations, list):
             raise TypeError("Expected argument 'annotations' to be a list")
         pulumi.set(__self__, "annotations", annotations)
         if branch_id and not isinstance(branch_id, str):
             raise TypeError("Expected argument 'branch_id' to be a str")
         pulumi.set(__self__, "branch_id", branch_id)
-        if cluster_id and not isinstance(cluster_id, str):
-            raise TypeError("Expected argument 'cluster_id' to be a str")
-        pulumi.set(__self__, "cluster_id", cluster_id)
+        if branch_name and not isinstance(branch_name, str):
+            raise TypeError("Expected argument 'branch_name' to be a str")
+        pulumi.set(__self__, "branch_name", branch_name)
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
         if created_by and not isinstance(created_by, str):
             raise TypeError("Expected argument 'created_by' to be a str")
         pulumi.set(__self__, "created_by", created_by)
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        pulumi.set(__self__, "display_name", display_name)
         if endpoints and not isinstance(endpoints, dict):
             raise TypeError("Expected argument 'endpoints' to be a dict")
         pulumi.set(__self__, "endpoints", endpoints)
@@ -55,12 +52,12 @@ class GetBranchResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        pulumi.set(__self__, "name", name)
-        if parent_display_name and not isinstance(parent_display_name, str):
-            raise TypeError("Expected argument 'parent_display_name' to be a str")
-        pulumi.set(__self__, "parent_display_name", parent_display_name)
+        if instance_id and not isinstance(instance_id, str):
+            raise TypeError("Expected argument 'instance_id' to be a str")
+        pulumi.set(__self__, "instance_id", instance_id)
+        if parent_branch_name and not isinstance(parent_branch_name, str):
+            raise TypeError("Expected argument 'parent_branch_name' to be a str")
+        pulumi.set(__self__, "parent_branch_name", parent_branch_name)
         if parent_id and not isinstance(parent_id, str):
             raise TypeError("Expected argument 'parent_id' to be a str")
         pulumi.set(__self__, "parent_id", parent_id)
@@ -106,12 +103,12 @@ class GetBranchResult:
         return pulumi.get(self, "branch_id")
 
     @_builtins.property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> _builtins.str:
+    @pulumi.getter(name="branchName")
+    def branch_name(self) -> _builtins.str:
         """
-        Cluster ID
+        Branch Name
         """
-        return pulumi.get(self, "cluster_id")
+        return pulumi.get(self, "branch_name")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
@@ -128,14 +125,6 @@ class GetBranchResult:
         Creator identifier
         """
         return pulumi.get(self, "created_by")
-
-    @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> _builtins.str:
-        """
-        Branch display name
-        """
-        return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter
@@ -162,20 +151,20 @@ class GetBranchResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
-    @pulumi.getter
-    def name(self) -> _builtins.str:
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> _builtins.str:
         """
-        Branch resource name
+        Instance ID
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "instance_id")
 
     @_builtins.property
-    @pulumi.getter(name="parentDisplayName")
-    def parent_display_name(self) -> _builtins.str:
+    @pulumi.getter(name="parentBranchName")
+    def parent_branch_name(self) -> _builtins.str:
         """
-        Parent branch display name
+        Parent Branch Name
         """
-        return pulumi.get(self, "parent_display_name")
+        return pulumi.get(self, "parent_branch_name")
 
     @_builtins.property
     @pulumi.getter(name="parentId")
@@ -258,15 +247,14 @@ class AwaitableGetBranchResult(GetBranchResult):
         return GetBranchResult(
             annotations=self.annotations,
             branch_id=self.branch_id,
-            cluster_id=self.cluster_id,
+            branch_name=self.branch_name,
             create_time=self.create_time,
             created_by=self.created_by,
-            display_name=self.display_name,
             endpoints=self.endpoints,
             has_set_pwd=self.has_set_pwd,
             id=self.id,
-            name=self.name,
-            parent_display_name=self.parent_display_name,
+            instance_id=self.instance_id,
+            parent_branch_name=self.parent_branch_name,
             parent_id=self.parent_id,
             parent_timestamp=self.parent_timestamp,
             password=self.password,
@@ -294,15 +282,14 @@ def get_branch(id: Optional[_builtins.str] = None,
     return AwaitableGetBranchResult(
         annotations=pulumi.get(__ret__, 'annotations'),
         branch_id=pulumi.get(__ret__, 'branch_id'),
-        cluster_id=pulumi.get(__ret__, 'cluster_id'),
+        branch_name=pulumi.get(__ret__, 'branch_name'),
         create_time=pulumi.get(__ret__, 'create_time'),
         created_by=pulumi.get(__ret__, 'created_by'),
-        display_name=pulumi.get(__ret__, 'display_name'),
         endpoints=pulumi.get(__ret__, 'endpoints'),
         has_set_pwd=pulumi.get(__ret__, 'has_set_pwd'),
         id=pulumi.get(__ret__, 'id'),
-        name=pulumi.get(__ret__, 'name'),
-        parent_display_name=pulumi.get(__ret__, 'parent_display_name'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        parent_branch_name=pulumi.get(__ret__, 'parent_branch_name'),
         parent_id=pulumi.get(__ret__, 'parent_id'),
         parent_timestamp=pulumi.get(__ret__, 'parent_timestamp'),
         password=pulumi.get(__ret__, 'password'),
@@ -327,15 +314,14 @@ def get_branch_output(id: pulumi.Input[Optional[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetBranchResult(
         annotations=pulumi.get(__response__, 'annotations'),
         branch_id=pulumi.get(__response__, 'branch_id'),
-        cluster_id=pulumi.get(__response__, 'cluster_id'),
+        branch_name=pulumi.get(__response__, 'branch_name'),
         create_time=pulumi.get(__response__, 'create_time'),
         created_by=pulumi.get(__response__, 'created_by'),
-        display_name=pulumi.get(__response__, 'display_name'),
         endpoints=pulumi.get(__response__, 'endpoints'),
         has_set_pwd=pulumi.get(__response__, 'has_set_pwd'),
         id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name'),
-        parent_display_name=pulumi.get(__response__, 'parent_display_name'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        parent_branch_name=pulumi.get(__response__, 'parent_branch_name'),
         parent_id=pulumi.get(__response__, 'parent_id'),
         parent_timestamp=pulumi.get(__response__, 'parent_timestamp'),
         password=pulumi.get(__response__, 'password'),

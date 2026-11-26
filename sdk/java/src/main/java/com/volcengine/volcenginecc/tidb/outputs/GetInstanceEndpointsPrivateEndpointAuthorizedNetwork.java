@@ -5,21 +5,22 @@ package com.volcengine.volcenginecc.tidb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetInstanceEndpointsPrivateEndpointAuthorizedNetwork {
     /**
-     * @return Descriptive Name
+     * @return Identifiable name
      * 
      */
-    private String displayName;
+    private String authorizedNetworkName;
     /**
      * @return Number of Security Groups Associated with Endpoint (not returned if query fails)
      * 
      */
-    private String securityGroupCount;
+    private Integer securityGroupCount;
     /**
      * @return VPC Endpoint ID。
      * 
@@ -33,17 +34,17 @@ public final class GetInstanceEndpointsPrivateEndpointAuthorizedNetwork {
 
     private GetInstanceEndpointsPrivateEndpointAuthorizedNetwork() {}
     /**
-     * @return Descriptive Name
+     * @return Identifiable name
      * 
      */
-    public String displayName() {
-        return this.displayName;
+    public String authorizedNetworkName() {
+        return this.authorizedNetworkName;
     }
     /**
      * @return Number of Security Groups Associated with Endpoint (not returned if query fails)
      * 
      */
-    public String securityGroupCount() {
+    public Integer securityGroupCount() {
         return this.securityGroupCount;
     }
     /**
@@ -70,29 +71,29 @@ public final class GetInstanceEndpointsPrivateEndpointAuthorizedNetwork {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String displayName;
-        private String securityGroupCount;
+        private String authorizedNetworkName;
+        private Integer securityGroupCount;
         private String vpcEndpointId;
         private String vpcEndpointName;
         public Builder() {}
         public Builder(GetInstanceEndpointsPrivateEndpointAuthorizedNetwork defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.displayName = defaults.displayName;
+    	      this.authorizedNetworkName = defaults.authorizedNetworkName;
     	      this.securityGroupCount = defaults.securityGroupCount;
     	      this.vpcEndpointId = defaults.vpcEndpointId;
     	      this.vpcEndpointName = defaults.vpcEndpointName;
         }
 
         @CustomType.Setter
-        public Builder displayName(String displayName) {
-            if (displayName == null) {
-              throw new MissingRequiredPropertyException("GetInstanceEndpointsPrivateEndpointAuthorizedNetwork", "displayName");
+        public Builder authorizedNetworkName(String authorizedNetworkName) {
+            if (authorizedNetworkName == null) {
+              throw new MissingRequiredPropertyException("GetInstanceEndpointsPrivateEndpointAuthorizedNetwork", "authorizedNetworkName");
             }
-            this.displayName = displayName;
+            this.authorizedNetworkName = authorizedNetworkName;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupCount(String securityGroupCount) {
+        public Builder securityGroupCount(Integer securityGroupCount) {
             if (securityGroupCount == null) {
               throw new MissingRequiredPropertyException("GetInstanceEndpointsPrivateEndpointAuthorizedNetwork", "securityGroupCount");
             }
@@ -117,7 +118,7 @@ public final class GetInstanceEndpointsPrivateEndpointAuthorizedNetwork {
         }
         public GetInstanceEndpointsPrivateEndpointAuthorizedNetwork build() {
             final var _resultValue = new GetInstanceEndpointsPrivateEndpointAuthorizedNetwork();
-            _resultValue.displayName = displayName;
+            _resultValue.authorizedNetworkName = authorizedNetworkName;
             _resultValue.securityGroupCount = securityGroupCount;
             _resultValue.vpcEndpointId = vpcEndpointId;
             _resultValue.vpcEndpointName = vpcEndpointName;

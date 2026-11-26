@@ -31,6 +31,10 @@ export interface GetInstanceArgs {
  */
 export interface GetInstanceResult {
     /**
+     * Account ID of the instance owner
+     */
+    readonly accountId: string;
+    /**
      * Annotation
      */
     readonly annotations: outputs.tidb.GetInstanceAnnotation[];
@@ -47,21 +51,13 @@ export interface GetInstanceResult {
      */
     readonly automatedBackupPolicy: outputs.tidb.GetInstanceAutomatedBackupPolicy;
     /**
-     * Cluster Backup List
+     * Instance backup list
      */
     readonly backups: outputs.tidb.GetInstanceBackup[];
-    /**
-     * Cluster ID
-     */
-    readonly clusterId: string;
     /**
      * Creation Time (ISO8601)
      */
     readonly createTime: string;
-    /**
-     * Cluster Display Name
-     */
-    readonly displayName: string;
     /**
      * Data Encryption Configuration
      */
@@ -79,13 +75,17 @@ export interface GetInstanceResult {
      */
     readonly id: string;
     /**
+     * Instance ID
+     */
+    readonly instanceId: string;
+    /**
+     * Instance name
+     */
+    readonly instanceName: string;
+    /**
      * Tags
      */
     readonly labels: outputs.tidb.GetInstanceLabel[];
-    /**
-     * Resource Name: clusters/{clusterId}
-     */
-    readonly name: string;
     /**
      * Volcano Engine Project Name
      */
@@ -103,7 +103,7 @@ export interface GetInstanceResult {
      */
     readonly spendingLimit: outputs.tidb.GetInstanceSpendingLimit;
     /**
-     * Cluster Status
+     * Instance status
      */
     readonly state: string;
     /**

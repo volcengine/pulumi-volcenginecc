@@ -5,10 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AllowlistArgs, AllowlistState } from "./allowlist";
+export type Allowlist = import("./allowlist").Allowlist;
+export const Allowlist: typeof import("./allowlist").Allowlist = null as any;
+utilities.lazyLoad(exports, ["Allowlist"], () => require("./allowlist"));
+
 export { BranchArgs, BranchState } from "./branch";
 export type Branch = import("./branch").Branch;
 export const Branch: typeof import("./branch").Branch = null as any;
 utilities.lazyLoad(exports, ["Branch"], () => require("./branch"));
+
+export { GetAllowlistArgs, GetAllowlistResult, GetAllowlistOutputArgs } from "./getAllowlist";
+export const getAllowlist: typeof import("./getAllowlist").getAllowlist = null as any;
+export const getAllowlistOutput: typeof import("./getAllowlist").getAllowlistOutput = null as any;
+utilities.lazyLoad(exports, ["getAllowlist","getAllowlistOutput"], () => require("./getAllowlist"));
+
+export { GetAllowlistsResult } from "./getAllowlists";
+export const getAllowlists: typeof import("./getAllowlists").getAllowlists = null as any;
+export const getAllowlistsOutput: typeof import("./getAllowlists").getAllowlistsOutput = null as any;
+utilities.lazyLoad(exports, ["getAllowlists","getAllowlistsOutput"], () => require("./getAllowlists"));
 
 export { GetBranchArgs, GetBranchResult, GetBranchOutputArgs } from "./getBranch";
 export const getBranch: typeof import("./getBranch").getBranch = null as any;
@@ -40,6 +55,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "volcenginecc:tidb/allowlist:Allowlist":
+                return new Allowlist(name, <any>undefined, { urn })
             case "volcenginecc:tidb/branch:Branch":
                 return new Branch(name, <any>undefined, { urn })
             case "volcenginecc:tidb/instance:Instance":
@@ -49,5 +66,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("volcenginecc", "tidb/allowlist", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tidb/branch", _module)
 pulumi.runtime.registerResourceModule("volcenginecc", "tidb/instance", _module)

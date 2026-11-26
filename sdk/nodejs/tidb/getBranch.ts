@@ -39,9 +39,9 @@ export interface GetBranchResult {
      */
     readonly branchId: string;
     /**
-     * Cluster ID
+     * Branch Name
      */
-    readonly clusterId: string;
+    readonly branchName: string;
     /**
      * Creation time
      */
@@ -50,10 +50,6 @@ export interface GetBranchResult {
      * Creator identifier
      */
     readonly createdBy: string;
-    /**
-     * Branch display name
-     */
-    readonly displayName: string;
     /**
      * Branch endpoint configuration
      */
@@ -67,13 +63,13 @@ export interface GetBranchResult {
      */
     readonly id: string;
     /**
-     * Branch resource name
+     * Instance ID
      */
-    readonly name: string;
+    readonly instanceId: string;
     /**
-     * Parent branch display name
+     * Parent Branch Name
      */
-    readonly parentDisplayName: string;
+    readonly parentBranchName: string;
     /**
      * Parent branch ID
      */

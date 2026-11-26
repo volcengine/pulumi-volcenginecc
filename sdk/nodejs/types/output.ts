@@ -10997,6 +10997,59 @@ export namespace cloudidentity {
 }
 
 export namespace cloudmonitor {
+    export interface AggregationPolicyAggregation {
+        /**
+         * Alert group fields, default [rule*id+region]. Currently only supports: 1. rule*id+region grouping, i.e., default grouping by severity. 2. Any rule*id+region+* grouping, i.e., each faulty resource forms a separate group, notification cycle is not affected by other faulty resources; in this mode, GroupWait/GroupInterval are not effective, default is 0. 3. rule*id+region+keys grouping based on actual alert group fields, grouped by key match and value. For example, rule_id+region+namespace+cluster+pod, each namespace+cluster+pod combination forms a separate group, notification cycle is not affected by other faulty resources; this method requires configuring a fallback aggregation strategy.
+         */
+        groupBies: string[];
+        /**
+         * Alert group wait interval for the 2nd to Nth times, in seconds, range is 5 seconds to 24 hours. If there is a new alert or recovery in the alert group, send immediately after GroupInterval and recalculate RepeatInterval.
+         */
+        groupInterval: number;
+        /**
+         * Alert group initial wait time, in seconds, range is 5 seconds to 24 hours. If not specified, defaults to GroupInterval.
+         */
+        groupWait: number;
+        /**
+         * Alert severity, supports p0/p1/p2/all. all indicates the fallback aggregation strategy, meaning alerts are aggregated without distinguishing severity, but messages are still sent separately by severity. If not all p0/p1/p2 levels are configured, the "all" fallback strategy must be configured.
+         */
+        level: string;
+        /**
+         * Notification frequency reduction configuration. Note: P0 does not support notification frequency reduction, while P1/P2 do.
+         */
+        repeatDowngrade: outputs.cloudmonitor.AggregationPolicyAggregationRepeatDowngrade;
+        /**
+         * Alert repeat notification interval, in seconds, range is 1 minute to 24 hours.
+         */
+        repeatInterval: number;
+    }
+
+    export interface AggregationPolicyAggregationRepeatDowngrade {
+        /**
+         * Enable notification frequency reduction.
+         */
+        enable: boolean;
+        /**
+         * Maximum repeat send interval, in seconds. Frequency reduction stops when this value is exceeded. Default is 24 hours (86400 seconds).
+         */
+        maxRepeatInterval: number;
+        /**
+         * Frequency reduction mode, currently only supports doubled. doubled means each time the frequency is reduced, the repeat send interval is multiplied by 2 until MaxRepeatInterval.
+         */
+        mode: string;
+    }
+
+    export interface AggregationPolicyAssociatedAttribute {
+        /**
+         * Attribute name. CloudMonitor supports Namespace, SubNamespace; VMP supports WorkspaceID; Cloud probe supports DetectTaskID; APMPlus Server supports ServiceName, Workspace; APMPlus Client TBD.
+         */
+        name: string;
+        /**
+         * List of attribute values.
+         */
+        values: string[];
+    }
+
     export interface AlertTemplateNoData {
         /**
          * Enable no data alert
@@ -11201,6 +11254,59 @@ export namespace cloudmonitor {
          * Contact ID
          */
         contactId: string;
+    }
+
+    export interface GetAggregationPolicyAggregation {
+        /**
+         * Alert group fields, default [rule*id+region]. Currently only supports: 1. rule*id+region grouping, i.e., default grouping by severity. 2. Any rule*id+region+* grouping, i.e., each faulty resource forms a separate group, notification cycle is not affected by other faulty resources; in this mode, GroupWait/GroupInterval are not effective, default is 0. 3. rule*id+region+keys grouping based on actual alert group fields, grouped by key match and value. For example, rule_id+region+namespace+cluster+pod, each namespace+cluster+pod combination forms a separate group, notification cycle is not affected by other faulty resources; this method requires configuring a fallback aggregation strategy.
+         */
+        groupBies: string[];
+        /**
+         * Alert group wait interval for the 2nd to Nth times, in seconds, range is 5 seconds to 24 hours. If there is a new alert or recovery in the alert group, send immediately after GroupInterval and recalculate RepeatInterval.
+         */
+        groupInterval: number;
+        /**
+         * Alert group initial wait time, in seconds, range is 5 seconds to 24 hours. If not specified, defaults to GroupInterval.
+         */
+        groupWait: number;
+        /**
+         * Alert severity, supports p0/p1/p2/all. all indicates the fallback aggregation strategy, meaning alerts are aggregated without distinguishing severity, but messages are still sent separately by severity. If not all p0/p1/p2 levels are configured, the "all" fallback strategy must be configured.
+         */
+        level: string;
+        /**
+         * Notification frequency reduction configuration. Note: P0 does not support notification frequency reduction, while P1/P2 do.
+         */
+        repeatDowngrade: outputs.cloudmonitor.GetAggregationPolicyAggregationRepeatDowngrade;
+        /**
+         * Alert repeat notification interval, in seconds, range is 1 minute to 24 hours.
+         */
+        repeatInterval: number;
+    }
+
+    export interface GetAggregationPolicyAggregationRepeatDowngrade {
+        /**
+         * Enable notification frequency reduction.
+         */
+        enable: boolean;
+        /**
+         * Maximum repeat send interval, in seconds. Frequency reduction stops when this value is exceeded. Default is 24 hours (86400 seconds).
+         */
+        maxRepeatInterval: number;
+        /**
+         * Frequency reduction mode, currently only supports doubled. doubled means each time the frequency is reduced, the repeat send interval is multiplied by 2 until MaxRepeatInterval.
+         */
+        mode: string;
+    }
+
+    export interface GetAggregationPolicyAssociatedAttribute {
+        /**
+         * Attribute name. CloudMonitor supports Namespace, SubNamespace; VMP supports WorkspaceID; Cloud probe supports DetectTaskID; APMPlus Server supports ServiceName, Workspace; APMPlus Client TBD.
+         */
+        name: string;
+        /**
+         * List of attribute values.
+         */
+        values: string[];
     }
 
     export interface GetAlertTemplateNoData {
@@ -27961,26 +28067,14 @@ export namespace tidb {
          * Private endpoint
          */
         privateEndpoint: outputs.tidb.BranchEndpointsPrivateEndpoint;
-        /**
-         * Public endpoint
-         */
-        publicEndpoint: outputs.tidb.BranchEndpointsPublicEndpoint;
     }
 
     export interface BranchEndpointsPrivateEndpoint {
-        /**
-         * Alicloud private endpoint
-         */
-        alicloud: outputs.tidb.BranchEndpointsPrivateEndpointAlicloud;
         /**
          * Private endpoint authorized network list
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
          */
         authorizedNetworks: outputs.tidb.BranchEndpointsPrivateEndpointAuthorizedNetwork[];
-        /**
-         * AWS private endpoint
-         */
-        aws: outputs.tidb.BranchEndpointsPrivateEndpointAws;
         /**
          * Disable private network access
          */
@@ -28011,22 +28105,11 @@ export namespace tidb {
         vpcEndpointName: string;
     }
 
-    export interface BranchEndpointsPrivateEndpointAlicloud {
-        /**
-         * Availability zone list
-         */
-        availabilityZones: string[];
-        /**
-         * Private service name
-         */
-        serviceName: string;
-    }
-
     export interface BranchEndpointsPrivateEndpointAuthorizedNetwork {
         /**
-         * Authorized network name
+         * Authorized Network Name
          */
-        displayName: string;
+        authorizedNetworkName: string;
         /**
          * Security group count
          */
@@ -28039,52 +28122,6 @@ export namespace tidb {
          * VPC endpoint name
          */
         vpcEndpointName: string;
-    }
-
-    export interface BranchEndpointsPrivateEndpointAws {
-        /**
-         * Availability zone list
-         */
-        availabilityZones: string[];
-        /**
-         * VPC endpoint service name
-         */
-        serviceName: string;
-    }
-
-    export interface BranchEndpointsPublicEndpoint {
-        /**
-         * IP Allowlist
-         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         */
-        authorizedNetworks: outputs.tidb.BranchEndpointsPublicEndpointAuthorizedNetwork[];
-        /**
-         * Disable public network access
-         */
-        disabled: boolean;
-        /**
-         * Public hostname
-         */
-        host: string;
-        /**
-         * Public port
-         */
-        port: number;
-    }
-
-    export interface BranchEndpointsPublicEndpointAuthorizedNetwork {
-        /**
-         * Authorized network name
-         */
-        displayName: string;
-        /**
-         * End IP
-         */
-        endIpAddress: string;
-        /**
-         * Start IP
-         */
-        startIpAddress: string;
     }
 
     export interface BranchUsages {
@@ -28118,25 +28155,13 @@ export namespace tidb {
          * Private endpoint
          */
         privateEndpoint: outputs.tidb.GetBranchEndpointsPrivateEndpoint;
-        /**
-         * Public endpoint
-         */
-        publicEndpoint: outputs.tidb.GetBranchEndpointsPublicEndpoint;
     }
 
     export interface GetBranchEndpointsPrivateEndpoint {
         /**
-         * Alicloud private endpoint
-         */
-        alicloud: outputs.tidb.GetBranchEndpointsPrivateEndpointAlicloud;
-        /**
          * Private endpoint authorized network list
          */
         authorizedNetworks: outputs.tidb.GetBranchEndpointsPrivateEndpointAuthorizedNetwork[];
-        /**
-         * AWS private endpoint
-         */
-        aws: outputs.tidb.GetBranchEndpointsPrivateEndpointAws;
         /**
          * Disable private network access
          */
@@ -28167,22 +28192,11 @@ export namespace tidb {
         vpcEndpointName: string;
     }
 
-    export interface GetBranchEndpointsPrivateEndpointAlicloud {
-        /**
-         * Availability zone list
-         */
-        availabilityZones: string[];
-        /**
-         * Private service name
-         */
-        serviceName: string;
-    }
-
     export interface GetBranchEndpointsPrivateEndpointAuthorizedNetwork {
         /**
-         * Authorized network name
+         * Authorized Network Name
          */
-        displayName: string;
+        authorizedNetworkName: string;
         /**
          * Security group count
          */
@@ -28195,51 +28209,6 @@ export namespace tidb {
          * VPC endpoint name
          */
         vpcEndpointName: string;
-    }
-
-    export interface GetBranchEndpointsPrivateEndpointAws {
-        /**
-         * Availability zone list
-         */
-        availabilityZones: string[];
-        /**
-         * VPC endpoint service name
-         */
-        serviceName: string;
-    }
-
-    export interface GetBranchEndpointsPublicEndpoint {
-        /**
-         * IP Allowlist
-         */
-        authorizedNetworks: outputs.tidb.GetBranchEndpointsPublicEndpointAuthorizedNetwork[];
-        /**
-         * Disable public network access
-         */
-        disabled: boolean;
-        /**
-         * Public hostname
-         */
-        host: string;
-        /**
-         * Public port
-         */
-        port: number;
-    }
-
-    export interface GetBranchEndpointsPublicEndpointAuthorizedNetwork {
-        /**
-         * Authorized network name
-         */
-        displayName: string;
-        /**
-         * End IP
-         */
-        endIpAddress: string;
-        /**
-         * Start IP
-         */
-        startIpAddress: string;
     }
 
     export interface GetBranchUsages {
@@ -28307,13 +28276,13 @@ export namespace tidb {
          */
         backupId: string;
         /**
+         * Backup name
+         */
+        backupName: string;
+        /**
          * Backup Time
          */
         backupTime: string;
-        /**
-         * Cluster ID
-         */
-        clusterId: string;
         /**
          * Creation Time
          */
@@ -28323,13 +28292,21 @@ export namespace tidb {
          */
         expireTime: string;
         /**
-         * Backup Name
+         * Instance ID
          */
-        name: string;
+        instanceId: string;
+        /**
+         * Backup size (bytes)
+         */
+        sizeBytes: number;
         /**
          * Backup Status
          */
         state: string;
+        /**
+         * Backup trigger type
+         */
+        triggerType: string;
         /**
          * Backup Type
          */
@@ -28391,13 +28368,13 @@ export namespace tidb {
 
     export interface GetInstanceEndpointsPrivateEndpointAuthorizedNetwork {
         /**
-         * Descriptive Name
+         * Identifiable name
          */
-        displayName: string;
+        authorizedNetworkName: string;
         /**
          * Number of Security Groups Associated with Endpoint (not returned if query fails)
          */
-        securityGroupCount: string;
+        securityGroupCount: number;
         /**
          * VPC Endpoint ID。
          */
@@ -28429,9 +28406,9 @@ export namespace tidb {
 
     export interface GetInstanceEndpointsPublicEndpointAuthorizedNetwork {
         /**
-         * Authorized Network Name
+         * Authorized network name
          */
-        displayName: string;
+        authorizedNetworkName: string;
         /**
          * End IP
          */
@@ -28477,7 +28454,7 @@ export namespace tidb {
          */
         subnetId: string;
         /**
-         * Availability Zone ID
+         * Availability zone ID
          */
         zoneId: string;
     }
@@ -28532,13 +28509,13 @@ export namespace tidb {
          */
         backupId: string;
         /**
+         * Backup name
+         */
+        backupName: string;
+        /**
          * Backup Time
          */
         backupTime: string;
-        /**
-         * Cluster ID
-         */
-        clusterId: string;
         /**
          * Creation Time
          */
@@ -28548,13 +28525,21 @@ export namespace tidb {
          */
         expireTime: string;
         /**
-         * Backup Name
+         * Instance ID
          */
-        name: string;
+        instanceId: string;
+        /**
+         * Backup size (bytes)
+         */
+        sizeBytes: number;
         /**
          * Backup Status
          */
         state: string;
+        /**
+         * Backup trigger type
+         */
+        triggerType: string;
         /**
          * Backup Type
          */
@@ -28617,13 +28602,13 @@ export namespace tidb {
 
     export interface InstanceEndpointsPrivateEndpointAuthorizedNetwork {
         /**
-         * Descriptive Name
+         * Identifiable name
          */
-        displayName: string;
+        authorizedNetworkName: string;
         /**
          * Number of Security Groups Associated with Endpoint (not returned if query fails)
          */
-        securityGroupCount: string;
+        securityGroupCount: number;
         /**
          * VPC Endpoint ID。
          */
@@ -28656,9 +28641,9 @@ export namespace tidb {
 
     export interface InstanceEndpointsPublicEndpointAuthorizedNetwork {
         /**
-         * Authorized Network Name
+         * Authorized network name
          */
-        displayName: string;
+        authorizedNetworkName: string;
         /**
          * End IP
          */
@@ -28704,7 +28689,7 @@ export namespace tidb {
          */
         subnetId: string;
         /**
-         * Availability Zone ID
+         * Availability zone ID
          */
         zoneId: string;
     }

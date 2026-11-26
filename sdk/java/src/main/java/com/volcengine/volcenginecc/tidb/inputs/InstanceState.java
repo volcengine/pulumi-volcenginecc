@@ -28,6 +28,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     public static final InstanceState Empty = new InstanceState();
 
     /**
+     * Account ID of the instance owner
+     * 
+     */
+    @Import(name="accountId")
+    private @Nullable Output<String> accountId;
+
+    /**
+     * @return Account ID of the instance owner
+     * 
+     */
+    public Optional<Output<String>> accountId() {
+        return Optional.ofNullable(this.accountId);
+    }
+
+    /**
      * Annotation
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
      * 
@@ -90,7 +105,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Cluster Backup List
+     * Instance backup list
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
      * 
      */
@@ -98,27 +113,12 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<InstanceBackupArgs>> backups;
 
     /**
-     * @return Cluster Backup List
+     * @return Instance backup list
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
      * 
      */
     public Optional<Output<List<InstanceBackupArgs>>> backups() {
         return Optional.ofNullable(this.backups);
-    }
-
-    /**
-     * Cluster ID
-     * 
-     */
-    @Import(name="clusterId")
-    private @Nullable Output<String> clusterId;
-
-    /**
-     * @return Cluster ID
-     * 
-     */
-    public Optional<Output<String>> clusterId() {
-        return Optional.ofNullable(this.clusterId);
     }
 
     /**
@@ -134,21 +134,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> createTime() {
         return Optional.ofNullable(this.createTime);
-    }
-
-    /**
-     * Cluster Display Name
-     * 
-     */
-    @Import(name="displayName")
-    private @Nullable Output<String> displayName;
-
-    /**
-     * @return Cluster Display Name
-     * 
-     */
-    public Optional<Output<String>> displayName() {
-        return Optional.ofNullable(this.displayName);
     }
 
     /**
@@ -197,6 +182,36 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Instance ID
+     * 
+     */
+    @Import(name="instanceId")
+    private @Nullable Output<String> instanceId;
+
+    /**
+     * @return Instance ID
+     * 
+     */
+    public Optional<Output<String>> instanceId() {
+        return Optional.ofNullable(this.instanceId);
+    }
+
+    /**
+     * Instance name
+     * 
+     */
+    @Import(name="instanceName")
+    private @Nullable Output<String> instanceName;
+
+    /**
+     * @return Instance name
+     * 
+     */
+    public Optional<Output<String>> instanceName() {
+        return Optional.ofNullable(this.instanceName);
+    }
+
+    /**
      * Tags
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
      * 
@@ -211,21 +226,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<InstanceLabelArgs>>> labels() {
         return Optional.ofNullable(this.labels);
-    }
-
-    /**
-     * Resource Name: clusters/{clusterId}
-     * 
-     */
-    @Import(name="name")
-    private @Nullable Output<String> name;
-
-    /**
-     * @return Resource Name: clusters/{clusterId}
-     * 
-     */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -289,14 +289,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Cluster Status
+     * Instance status
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return Cluster Status
+     * @return Instance status
      * 
      */
     public Optional<Output<String>> state() {
@@ -400,19 +400,19 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     private InstanceState() {}
 
     private InstanceState(InstanceState $) {
+        this.accountId = $.accountId;
         this.annotations = $.annotations;
         this.auditLogConfig = $.auditLogConfig;
         this.autoScaling = $.autoScaling;
         this.automatedBackupPolicy = $.automatedBackupPolicy;
         this.backups = $.backups;
-        this.clusterId = $.clusterId;
         this.createTime = $.createTime;
-        this.displayName = $.displayName;
         this.encryptionConfig = $.encryptionConfig;
         this.endpoints = $.endpoints;
         this.highAvailabilityType = $.highAvailabilityType;
+        this.instanceId = $.instanceId;
+        this.instanceName = $.instanceName;
         this.labels = $.labels;
-        this.name = $.name;
         this.projectName = $.projectName;
         this.regionId = $.regionId;
         this.servicePlan = $.servicePlan;
@@ -442,6 +442,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(InstanceState defaults) {
             $ = new InstanceState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accountId Account ID of the instance owner
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountId(@Nullable Output<String> accountId) {
+            $.accountId = accountId;
+            return this;
+        }
+
+        /**
+         * @param accountId Account ID of the instance owner
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountId(String accountId) {
+            return accountId(Output.of(accountId));
         }
 
         /**
@@ -542,7 +563,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backups Cluster Backup List
+         * @param backups Instance backup list
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
          * 
          * @return builder
@@ -554,7 +575,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backups Cluster Backup List
+         * @param backups Instance backup list
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
          * 
          * @return builder
@@ -565,7 +586,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backups Cluster Backup List
+         * @param backups Instance backup list
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
          * 
          * @return builder
@@ -573,27 +594,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder backups(InstanceBackupArgs... backups) {
             return backups(List.of(backups));
-        }
-
-        /**
-         * @param clusterId Cluster ID
-         * 
-         * @return builder
-         * 
-         */
-        public Builder clusterId(@Nullable Output<String> clusterId) {
-            $.clusterId = clusterId;
-            return this;
-        }
-
-        /**
-         * @param clusterId Cluster ID
-         * 
-         * @return builder
-         * 
-         */
-        public Builder clusterId(String clusterId) {
-            return clusterId(Output.of(clusterId));
         }
 
         /**
@@ -615,27 +615,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder createTime(String createTime) {
             return createTime(Output.of(createTime));
-        }
-
-        /**
-         * @param displayName Cluster Display Name
-         * 
-         * @return builder
-         * 
-         */
-        public Builder displayName(@Nullable Output<String> displayName) {
-            $.displayName = displayName;
-            return this;
-        }
-
-        /**
-         * @param displayName Cluster Display Name
-         * 
-         * @return builder
-         * 
-         */
-        public Builder displayName(String displayName) {
-            return displayName(Output.of(displayName));
         }
 
         /**
@@ -702,6 +681,48 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param instanceId Instance ID
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceId(@Nullable Output<String> instanceId) {
+            $.instanceId = instanceId;
+            return this;
+        }
+
+        /**
+         * @param instanceId Instance ID
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceId(String instanceId) {
+            return instanceId(Output.of(instanceId));
+        }
+
+        /**
+         * @param instanceName Instance name
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceName(@Nullable Output<String> instanceName) {
+            $.instanceName = instanceName;
+            return this;
+        }
+
+        /**
+         * @param instanceName Instance name
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceName(String instanceName) {
+            return instanceName(Output.of(instanceName));
+        }
+
+        /**
          * @param labels Tags
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
          * 
@@ -733,27 +754,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder labels(InstanceLabelArgs... labels) {
             return labels(List.of(labels));
-        }
-
-        /**
-         * @param name Resource Name: clusters/{clusterId}
-         * 
-         * @return builder
-         * 
-         */
-        public Builder name(@Nullable Output<String> name) {
-            $.name = name;
-            return this;
-        }
-
-        /**
-         * @param name Resource Name: clusters/{clusterId}
-         * 
-         * @return builder
-         * 
-         */
-        public Builder name(String name) {
-            return name(Output.of(name));
         }
 
         /**
@@ -841,7 +841,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state Cluster Status
+         * @param state Instance status
          * 
          * @return builder
          * 
@@ -852,7 +852,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state Cluster Status
+         * @param state Instance status
          * 
          * @return builder
          * 
