@@ -5,6 +5,7 @@ package com.volcengine.volcenginecc.tidb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 
@@ -16,15 +17,15 @@ public final class GetInstanceBackup {
      */
     private String backupId;
     /**
+     * @return Backup name
+     * 
+     */
+    private String backupName;
+    /**
      * @return Backup Time
      * 
      */
     private String backupTime;
-    /**
-     * @return Cluster ID
-     * 
-     */
-    private String clusterId;
     /**
      * @return Creation Time
      * 
@@ -36,15 +37,25 @@ public final class GetInstanceBackup {
      */
     private String expireTime;
     /**
-     * @return Backup Name
+     * @return Instance ID
      * 
      */
-    private String name;
+    private String instanceId;
+    /**
+     * @return Backup size (bytes)
+     * 
+     */
+    private Integer sizeBytes;
     /**
      * @return Backup Status
      * 
      */
     private String state;
+    /**
+     * @return Backup trigger type
+     * 
+     */
+    private String triggerType;
     /**
      * @return Backup Type
      * 
@@ -60,18 +71,18 @@ public final class GetInstanceBackup {
         return this.backupId;
     }
     /**
+     * @return Backup name
+     * 
+     */
+    public String backupName() {
+        return this.backupName;
+    }
+    /**
      * @return Backup Time
      * 
      */
     public String backupTime() {
         return this.backupTime;
-    }
-    /**
-     * @return Cluster ID
-     * 
-     */
-    public String clusterId() {
-        return this.clusterId;
     }
     /**
      * @return Creation Time
@@ -88,11 +99,18 @@ public final class GetInstanceBackup {
         return this.expireTime;
     }
     /**
-     * @return Backup Name
+     * @return Instance ID
      * 
      */
-    public String name() {
-        return this.name;
+    public String instanceId() {
+        return this.instanceId;
+    }
+    /**
+     * @return Backup size (bytes)
+     * 
+     */
+    public Integer sizeBytes() {
+        return this.sizeBytes;
     }
     /**
      * @return Backup Status
@@ -100,6 +118,13 @@ public final class GetInstanceBackup {
      */
     public String state() {
         return this.state;
+    }
+    /**
+     * @return Backup trigger type
+     * 
+     */
+    public String triggerType() {
+        return this.triggerType;
     }
     /**
      * @return Backup Type
@@ -119,23 +144,27 @@ public final class GetInstanceBackup {
     @CustomType.Builder
     public static final class Builder {
         private String backupId;
+        private String backupName;
         private String backupTime;
-        private String clusterId;
         private String createTime;
         private String expireTime;
-        private String name;
+        private String instanceId;
+        private Integer sizeBytes;
         private String state;
+        private String triggerType;
         private String type;
         public Builder() {}
         public Builder(GetInstanceBackup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backupId = defaults.backupId;
+    	      this.backupName = defaults.backupName;
     	      this.backupTime = defaults.backupTime;
-    	      this.clusterId = defaults.clusterId;
     	      this.createTime = defaults.createTime;
     	      this.expireTime = defaults.expireTime;
-    	      this.name = defaults.name;
+    	      this.instanceId = defaults.instanceId;
+    	      this.sizeBytes = defaults.sizeBytes;
     	      this.state = defaults.state;
+    	      this.triggerType = defaults.triggerType;
     	      this.type = defaults.type;
         }
 
@@ -148,19 +177,19 @@ public final class GetInstanceBackup {
             return this;
         }
         @CustomType.Setter
+        public Builder backupName(String backupName) {
+            if (backupName == null) {
+              throw new MissingRequiredPropertyException("GetInstanceBackup", "backupName");
+            }
+            this.backupName = backupName;
+            return this;
+        }
+        @CustomType.Setter
         public Builder backupTime(String backupTime) {
             if (backupTime == null) {
               throw new MissingRequiredPropertyException("GetInstanceBackup", "backupTime");
             }
             this.backupTime = backupTime;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder clusterId(String clusterId) {
-            if (clusterId == null) {
-              throw new MissingRequiredPropertyException("GetInstanceBackup", "clusterId");
-            }
-            this.clusterId = clusterId;
             return this;
         }
         @CustomType.Setter
@@ -180,11 +209,19 @@ public final class GetInstanceBackup {
             return this;
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetInstanceBackup", "name");
+        public Builder instanceId(String instanceId) {
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetInstanceBackup", "instanceId");
             }
-            this.name = name;
+            this.instanceId = instanceId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sizeBytes(Integer sizeBytes) {
+            if (sizeBytes == null) {
+              throw new MissingRequiredPropertyException("GetInstanceBackup", "sizeBytes");
+            }
+            this.sizeBytes = sizeBytes;
             return this;
         }
         @CustomType.Setter
@@ -193,6 +230,14 @@ public final class GetInstanceBackup {
               throw new MissingRequiredPropertyException("GetInstanceBackup", "state");
             }
             this.state = state;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder triggerType(String triggerType) {
+            if (triggerType == null) {
+              throw new MissingRequiredPropertyException("GetInstanceBackup", "triggerType");
+            }
+            this.triggerType = triggerType;
             return this;
         }
         @CustomType.Setter
@@ -206,12 +251,14 @@ public final class GetInstanceBackup {
         public GetInstanceBackup build() {
             final var _resultValue = new GetInstanceBackup();
             _resultValue.backupId = backupId;
+            _resultValue.backupName = backupName;
             _resultValue.backupTime = backupTime;
-            _resultValue.clusterId = clusterId;
             _resultValue.createTime = createTime;
             _resultValue.expireTime = expireTime;
-            _resultValue.name = name;
+            _resultValue.instanceId = instanceId;
+            _resultValue.sizeBytes = sizeBytes;
             _resultValue.state = state;
+            _resultValue.triggerType = triggerType;
             _resultValue.type = type;
             return _resultValue;
         }

@@ -21,8 +21,8 @@ __all__ = ['BranchArgs', 'Branch']
 @pulumi.input_type
 class BranchArgs:
     def __init__(__self__, *,
-                 cluster_id: pulumi.Input[_builtins.str],
-                 display_name: pulumi.Input[_builtins.str],
+                 branch_name: pulumi.Input[_builtins.str],
+                 instance_id: pulumi.Input[_builtins.str],
                  parent_id: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
@@ -30,15 +30,15 @@ class BranchArgs:
         """
         The set of arguments for constructing a Branch resource.
 
-        :param pulumi.Input[_builtins.str] cluster_id: Cluster ID
-        :param pulumi.Input[_builtins.str] display_name: Branch display name
+        :param pulumi.Input[_builtins.str] branch_name: Branch Name
+        :param pulumi.Input[_builtins.str] instance_id: Instance ID
         :param pulumi.Input[_builtins.str] parent_id: Parent branch ID
         :param pulumi.Input[_builtins.str] parent_timestamp: Timestamp of derivation from the parent branch
         :param pulumi.Input[_builtins.str] password: Branch root password, only for setting or changing the password (not returned after writing)
         :param pulumi.Input[_builtins.bool] reset_branch: Reset branch. Resetting briefly changes the branch status before returning to READY; only used to trigger actions (no return value)
         """
-        pulumi.set(__self__, "cluster_id", cluster_id)
-        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "branch_name", branch_name)
+        pulumi.set(__self__, "instance_id", instance_id)
         if parent_id is not None:
             pulumi.set(__self__, "parent_id", parent_id)
         if parent_timestamp is not None:
@@ -49,28 +49,28 @@ class BranchArgs:
             pulumi.set(__self__, "reset_branch", reset_branch)
 
     @_builtins.property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> pulumi.Input[_builtins.str]:
+    @pulumi.getter(name="branchName")
+    def branch_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Cluster ID
+        Branch Name
         """
-        return pulumi.get(self, "cluster_id")
+        return pulumi.get(self, "branch_name")
 
-    @cluster_id.setter
-    def cluster_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cluster_id", value)
+    @branch_name.setter
+    def branch_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "branch_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[_builtins.str]:
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> pulumi.Input[_builtins.str]:
         """
-        Branch display name
+        Instance ID
         """
-        return pulumi.get(self, "display_name")
+        return pulumi.get(self, "instance_id")
 
-    @display_name.setter
-    def display_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "display_name", value)
+    @instance_id.setter
+    def instance_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="parentId")
@@ -126,14 +126,13 @@ class _BranchState:
     def __init__(__self__, *,
                  annotations: pulumi.Input[Optional[Sequence[pulumi.Input['BranchAnnotationArgs']]]] = None,
                  branch_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch_name: pulumi.Input[Optional[_builtins.str]] = None,
                  create_time: pulumi.Input[Optional[_builtins.str]] = None,
                  created_by: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoints: pulumi.Input[Optional['BranchEndpointsArgs']] = None,
                  has_set_pwd: pulumi.Input[Optional[_builtins.bool]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parent_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_branch_name: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_id: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
@@ -149,14 +148,13 @@ class _BranchState:
         :param pulumi.Input[Sequence[pulumi.Input['BranchAnnotationArgs']]] annotations: Annotation
                Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
         :param pulumi.Input[_builtins.str] branch_id: Branch ID, assigned by the creation API
-        :param pulumi.Input[_builtins.str] cluster_id: Cluster ID
+        :param pulumi.Input[_builtins.str] branch_name: Branch Name
         :param pulumi.Input[_builtins.str] create_time: Creation time
         :param pulumi.Input[_builtins.str] created_by: Creator identifier
-        :param pulumi.Input[_builtins.str] display_name: Branch display name
         :param pulumi.Input['BranchEndpointsArgs'] endpoints: Branch endpoint configuration
         :param pulumi.Input[_builtins.bool] has_set_pwd: Root password set
-        :param pulumi.Input[_builtins.str] name: Branch resource name
-        :param pulumi.Input[_builtins.str] parent_display_name: Parent branch display name
+        :param pulumi.Input[_builtins.str] instance_id: Instance ID
+        :param pulumi.Input[_builtins.str] parent_branch_name: Parent Branch Name
         :param pulumi.Input[_builtins.str] parent_id: Parent branch ID
         :param pulumi.Input[_builtins.str] parent_timestamp: Timestamp of derivation from the parent branch
         :param pulumi.Input[_builtins.str] password: Branch root password, only for setting or changing the password (not returned after writing)
@@ -171,22 +169,20 @@ class _BranchState:
             pulumi.set(__self__, "annotations", annotations)
         if branch_id is not None:
             pulumi.set(__self__, "branch_id", branch_id)
-        if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
+        if branch_name is not None:
+            pulumi.set(__self__, "branch_name", branch_name)
         if create_time is not None:
             pulumi.set(__self__, "create_time", create_time)
         if created_by is not None:
             pulumi.set(__self__, "created_by", created_by)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
         if endpoints is not None:
             pulumi.set(__self__, "endpoints", endpoints)
         if has_set_pwd is not None:
             pulumi.set(__self__, "has_set_pwd", has_set_pwd)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if parent_display_name is not None:
-            pulumi.set(__self__, "parent_display_name", parent_display_name)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if parent_branch_name is not None:
+            pulumi.set(__self__, "parent_branch_name", parent_branch_name)
         if parent_id is not None:
             pulumi.set(__self__, "parent_id", parent_id)
         if parent_timestamp is not None:
@@ -232,16 +228,16 @@ class _BranchState:
         pulumi.set(self, "branch_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="branchName")
+    def branch_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Cluster ID
+        Branch Name
         """
-        return pulumi.get(self, "cluster_id")
+        return pulumi.get(self, "branch_name")
 
-    @cluster_id.setter
-    def cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "cluster_id", value)
+    @branch_name.setter
+    def branch_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "branch_name", value)
 
     @_builtins.property
     @pulumi.getter(name="createTime")
@@ -268,18 +264,6 @@ class _BranchState:
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Branch display name
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "display_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def endpoints(self) -> pulumi.Input[Optional['BranchEndpointsArgs']]:
         """
@@ -304,28 +288,28 @@ class _BranchState:
         pulumi.set(self, "has_set_pwd", value)
 
     @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Branch resource name
+        Instance ID
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "instance_id")
 
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
+    @instance_id.setter
+    def instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instance_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="parentDisplayName")
-    def parent_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="parentBranchName")
+    def parent_branch_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Parent branch display name
+        Parent Branch Name
         """
-        return pulumi.get(self, "parent_display_name")
+        return pulumi.get(self, "parent_branch_name")
 
-    @parent_display_name.setter
-    def parent_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "parent_display_name", value)
+    @parent_branch_name.setter
+    def parent_branch_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "parent_branch_name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentId")
@@ -442,8 +426,8 @@ class Branch(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_id: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
@@ -459,8 +443,8 @@ class Branch(pulumi.CustomResource):
         import pulumi_volcenginecc as volcenginecc
 
         example = volcenginecc.tidb.Branch("example",
-            cluster_id="cluster_id-xxx",
-            display_name="ccapi-tidb-branch-full",
+            instance_id="替换为 TiDB 实例 ID",
+            branch_name="ccapi-tidb-branch-full",
             parent_id="parent_id",
             parent_timestamp="YYYY-MM-DD'T'hh:mm:ss'Z'",
             password="Example@Test1234")
@@ -469,14 +453,14 @@ class Branch(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import volcenginecc:tidb/branch:Branch example "cluster_id|branch_id"
+        $ pulumi import volcenginecc:tidb/branch:Branch example "instance_id|branch_id"
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_id: Cluster ID
-        :param pulumi.Input[_builtins.str] display_name: Branch display name
+        :param pulumi.Input[_builtins.str] branch_name: Branch Name
+        :param pulumi.Input[_builtins.str] instance_id: Instance ID
         :param pulumi.Input[_builtins.str] parent_id: Parent branch ID
         :param pulumi.Input[_builtins.str] parent_timestamp: Timestamp of derivation from the parent branch
         :param pulumi.Input[_builtins.str] password: Branch root password, only for setting or changing the password (not returned after writing)
@@ -498,8 +482,8 @@ class Branch(pulumi.CustomResource):
         import pulumi_volcenginecc as volcenginecc
 
         example = volcenginecc.tidb.Branch("example",
-            cluster_id="cluster_id-xxx",
-            display_name="ccapi-tidb-branch-full",
+            instance_id="替换为 TiDB 实例 ID",
+            branch_name="ccapi-tidb-branch-full",
             parent_id="parent_id",
             parent_timestamp="YYYY-MM-DD'T'hh:mm:ss'Z'",
             password="Example@Test1234")
@@ -508,7 +492,7 @@ class Branch(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import volcenginecc:tidb/branch:Branch example "cluster_id|branch_id"
+        $ pulumi import volcenginecc:tidb/branch:Branch example "instance_id|branch_id"
         ```
 
 
@@ -527,8 +511,8 @@ class Branch(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_id: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
@@ -542,12 +526,12 @@ class Branch(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BranchArgs.__new__(BranchArgs)
 
-            if cluster_id is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_id'")
-            __props__.__dict__["cluster_id"] = cluster_id
-            if display_name is None and not opts.urn:
-                raise TypeError("Missing required property 'display_name'")
-            __props__.__dict__["display_name"] = display_name
+            if branch_name is None and not opts.urn:
+                raise TypeError("Missing required property 'branch_name'")
+            __props__.__dict__["branch_name"] = branch_name
+            if instance_id is None and not opts.urn:
+                raise TypeError("Missing required property 'instance_id'")
+            __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["parent_id"] = parent_id
             __props__.__dict__["parent_timestamp"] = parent_timestamp
             __props__.__dict__["password"] = password
@@ -558,8 +542,7 @@ class Branch(pulumi.CustomResource):
             __props__.__dict__["created_by"] = None
             __props__.__dict__["endpoints"] = None
             __props__.__dict__["has_set_pwd"] = None
-            __props__.__dict__["name"] = None
-            __props__.__dict__["parent_display_name"] = None
+            __props__.__dict__["parent_branch_name"] = None
             __props__.__dict__["project_name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["update_time"] = None
@@ -577,14 +560,13 @@ class Branch(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             annotations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchAnnotationArgs', 'BranchAnnotationArgsDict']]]]] = None,
             branch_id: pulumi.Input[Optional[_builtins.str]] = None,
-            cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+            branch_name: pulumi.Input[Optional[_builtins.str]] = None,
             create_time: pulumi.Input[Optional[_builtins.str]] = None,
             created_by: pulumi.Input[Optional[_builtins.str]] = None,
-            display_name: pulumi.Input[Optional[_builtins.str]] = None,
             endpoints: pulumi.Input[Optional[Union['BranchEndpointsArgs', 'BranchEndpointsArgsDict']]] = None,
             has_set_pwd: pulumi.Input[Optional[_builtins.bool]] = None,
-            name: pulumi.Input[Optional[_builtins.str]] = None,
-            parent_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_branch_name: pulumi.Input[Optional[_builtins.str]] = None,
             parent_id: pulumi.Input[Optional[_builtins.str]] = None,
             parent_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
             password: pulumi.Input[Optional[_builtins.str]] = None,
@@ -604,14 +586,13 @@ class Branch(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['BranchAnnotationArgs', 'BranchAnnotationArgsDict']]]] annotations: Annotation
                Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
         :param pulumi.Input[_builtins.str] branch_id: Branch ID, assigned by the creation API
-        :param pulumi.Input[_builtins.str] cluster_id: Cluster ID
+        :param pulumi.Input[_builtins.str] branch_name: Branch Name
         :param pulumi.Input[_builtins.str] create_time: Creation time
         :param pulumi.Input[_builtins.str] created_by: Creator identifier
-        :param pulumi.Input[_builtins.str] display_name: Branch display name
         :param pulumi.Input[Union['BranchEndpointsArgs', 'BranchEndpointsArgsDict']] endpoints: Branch endpoint configuration
         :param pulumi.Input[_builtins.bool] has_set_pwd: Root password set
-        :param pulumi.Input[_builtins.str] name: Branch resource name
-        :param pulumi.Input[_builtins.str] parent_display_name: Parent branch display name
+        :param pulumi.Input[_builtins.str] instance_id: Instance ID
+        :param pulumi.Input[_builtins.str] parent_branch_name: Parent Branch Name
         :param pulumi.Input[_builtins.str] parent_id: Parent branch ID
         :param pulumi.Input[_builtins.str] parent_timestamp: Timestamp of derivation from the parent branch
         :param pulumi.Input[_builtins.str] password: Branch root password, only for setting or changing the password (not returned after writing)
@@ -628,14 +609,13 @@ class Branch(pulumi.CustomResource):
 
         __props__.__dict__["annotations"] = annotations
         __props__.__dict__["branch_id"] = branch_id
-        __props__.__dict__["cluster_id"] = cluster_id
+        __props__.__dict__["branch_name"] = branch_name
         __props__.__dict__["create_time"] = create_time
         __props__.__dict__["created_by"] = created_by
-        __props__.__dict__["display_name"] = display_name
         __props__.__dict__["endpoints"] = endpoints
         __props__.__dict__["has_set_pwd"] = has_set_pwd
-        __props__.__dict__["name"] = name
-        __props__.__dict__["parent_display_name"] = parent_display_name
+        __props__.__dict__["instance_id"] = instance_id
+        __props__.__dict__["parent_branch_name"] = parent_branch_name
         __props__.__dict__["parent_id"] = parent_id
         __props__.__dict__["parent_timestamp"] = parent_timestamp
         __props__.__dict__["password"] = password
@@ -665,12 +645,12 @@ class Branch(pulumi.CustomResource):
         return pulumi.get(self, "branch_id")
 
     @_builtins.property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> pulumi.Output[_builtins.str]:
+    @pulumi.getter(name="branchName")
+    def branch_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Cluster ID
+        Branch Name
         """
-        return pulumi.get(self, "cluster_id")
+        return pulumi.get(self, "branch_name")
 
     @_builtins.property
     @pulumi.getter(name="createTime")
@@ -689,14 +669,6 @@ class Branch(pulumi.CustomResource):
         return pulumi.get(self, "created_by")
 
     @_builtins.property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Branch display name
-        """
-        return pulumi.get(self, "display_name")
-
-    @_builtins.property
     @pulumi.getter
     def endpoints(self) -> pulumi.Output['outputs.BranchEndpoints']:
         """
@@ -713,20 +685,20 @@ class Branch(pulumi.CustomResource):
         return pulumi.get(self, "has_set_pwd")
 
     @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Output[_builtins.str]:
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Branch resource name
+        Instance ID
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "instance_id")
 
     @_builtins.property
-    @pulumi.getter(name="parentDisplayName")
-    def parent_display_name(self) -> pulumi.Output[_builtins.str]:
+    @pulumi.getter(name="parentBranchName")
+    def parent_branch_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Parent branch display name
+        Parent Branch Name
         """
-        return pulumi.get(self, "parent_display_name")
+        return pulumi.get(self, "parent_branch_name")
 
     @_builtins.property
     @pulumi.getter(name="parentId")

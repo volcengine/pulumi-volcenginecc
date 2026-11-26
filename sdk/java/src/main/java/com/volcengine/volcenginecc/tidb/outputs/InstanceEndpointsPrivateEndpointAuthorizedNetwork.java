@@ -4,6 +4,7 @@
 package com.volcengine.volcenginecc.tidb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,15 +13,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InstanceEndpointsPrivateEndpointAuthorizedNetwork {
     /**
-     * @return Descriptive Name
+     * @return Identifiable name
      * 
      */
-    private @Nullable String displayName;
+    private @Nullable String authorizedNetworkName;
     /**
      * @return Number of Security Groups Associated with Endpoint (not returned if query fails)
      * 
      */
-    private @Nullable String securityGroupCount;
+    private @Nullable Integer securityGroupCount;
     /**
      * @return VPC Endpoint ID。
      * 
@@ -34,17 +35,17 @@ public final class InstanceEndpointsPrivateEndpointAuthorizedNetwork {
 
     private InstanceEndpointsPrivateEndpointAuthorizedNetwork() {}
     /**
-     * @return Descriptive Name
+     * @return Identifiable name
      * 
      */
-    public Optional<String> displayName() {
-        return Optional.ofNullable(this.displayName);
+    public Optional<String> authorizedNetworkName() {
+        return Optional.ofNullable(this.authorizedNetworkName);
     }
     /**
      * @return Number of Security Groups Associated with Endpoint (not returned if query fails)
      * 
      */
-    public Optional<String> securityGroupCount() {
+    public Optional<Integer> securityGroupCount() {
         return Optional.ofNullable(this.securityGroupCount);
     }
     /**
@@ -71,27 +72,27 @@ public final class InstanceEndpointsPrivateEndpointAuthorizedNetwork {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String displayName;
-        private @Nullable String securityGroupCount;
+        private @Nullable String authorizedNetworkName;
+        private @Nullable Integer securityGroupCount;
         private @Nullable String vpcEndpointId;
         private @Nullable String vpcEndpointName;
         public Builder() {}
         public Builder(InstanceEndpointsPrivateEndpointAuthorizedNetwork defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.displayName = defaults.displayName;
+    	      this.authorizedNetworkName = defaults.authorizedNetworkName;
     	      this.securityGroupCount = defaults.securityGroupCount;
     	      this.vpcEndpointId = defaults.vpcEndpointId;
     	      this.vpcEndpointName = defaults.vpcEndpointName;
         }
 
         @CustomType.Setter
-        public Builder displayName(@Nullable String displayName) {
+        public Builder authorizedNetworkName(@Nullable String authorizedNetworkName) {
 
-            this.displayName = displayName;
+            this.authorizedNetworkName = authorizedNetworkName;
             return this;
         }
         @CustomType.Setter
-        public Builder securityGroupCount(@Nullable String securityGroupCount) {
+        public Builder securityGroupCount(@Nullable Integer securityGroupCount) {
 
             this.securityGroupCount = securityGroupCount;
             return this;
@@ -110,7 +111,7 @@ public final class InstanceEndpointsPrivateEndpointAuthorizedNetwork {
         }
         public InstanceEndpointsPrivateEndpointAuthorizedNetwork build() {
             final var _resultValue = new InstanceEndpointsPrivateEndpointAuthorizedNetwork();
-            _resultValue.displayName = displayName;
+            _resultValue.authorizedNetworkName = authorizedNetworkName;
             _resultValue.securityGroupCount = securityGroupCount;
             _resultValue.vpcEndpointId = vpcEndpointId;
             _resultValue.vpcEndpointName = vpcEndpointName;

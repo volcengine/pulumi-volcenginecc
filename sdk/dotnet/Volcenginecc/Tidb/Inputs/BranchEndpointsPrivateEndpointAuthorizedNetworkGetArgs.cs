@@ -14,10 +14,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Inputs
     public sealed class BranchEndpointsPrivateEndpointAuthorizedNetworkGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Authorized network name
+        /// Authorized Network Name
         /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
+        [Input("authorizedNetworkName")]
+        public Input<string>? AuthorizedNetworkName { get; set; }
 
         /// <summary>
         /// Security group count

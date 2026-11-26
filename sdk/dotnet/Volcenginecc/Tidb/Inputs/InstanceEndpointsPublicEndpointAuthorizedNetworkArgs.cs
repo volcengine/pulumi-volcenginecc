@@ -14,10 +14,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Inputs
     public sealed class InstanceEndpointsPublicEndpointAuthorizedNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Authorized Network Name
+        /// Authorized network name
         /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
+        [Input("authorizedNetworkName")]
+        public Input<string>? AuthorizedNetworkName { get; set; }
 
         /// <summary>
         /// End IP

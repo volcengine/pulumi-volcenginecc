@@ -5,6 +5,7 @@ package com.volcengine.volcenginecc.tidb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,18 +17,18 @@ public final class InstanceEndpointsPrivateEndpointAuthorizedNetworkArgs extends
     public static final InstanceEndpointsPrivateEndpointAuthorizedNetworkArgs Empty = new InstanceEndpointsPrivateEndpointAuthorizedNetworkArgs();
 
     /**
-     * Descriptive Name
+     * Identifiable name
      * 
      */
-    @Import(name="displayName")
-    private @Nullable Output<String> displayName;
+    @Import(name="authorizedNetworkName")
+    private @Nullable Output<String> authorizedNetworkName;
 
     /**
-     * @return Descriptive Name
+     * @return Identifiable name
      * 
      */
-    public Optional<Output<String>> displayName() {
-        return Optional.ofNullable(this.displayName);
+    public Optional<Output<String>> authorizedNetworkName() {
+        return Optional.ofNullable(this.authorizedNetworkName);
     }
 
     /**
@@ -35,13 +36,13 @@ public final class InstanceEndpointsPrivateEndpointAuthorizedNetworkArgs extends
      * 
      */
     @Import(name="securityGroupCount")
-    private @Nullable Output<String> securityGroupCount;
+    private @Nullable Output<Integer> securityGroupCount;
 
     /**
      * @return Number of Security Groups Associated with Endpoint (not returned if query fails)
      * 
      */
-    public Optional<Output<String>> securityGroupCount() {
+    public Optional<Output<Integer>> securityGroupCount() {
         return Optional.ofNullable(this.securityGroupCount);
     }
 
@@ -78,7 +79,7 @@ public final class InstanceEndpointsPrivateEndpointAuthorizedNetworkArgs extends
     private InstanceEndpointsPrivateEndpointAuthorizedNetworkArgs() {}
 
     private InstanceEndpointsPrivateEndpointAuthorizedNetworkArgs(InstanceEndpointsPrivateEndpointAuthorizedNetworkArgs $) {
-        this.displayName = $.displayName;
+        this.authorizedNetworkName = $.authorizedNetworkName;
         this.securityGroupCount = $.securityGroupCount;
         this.vpcEndpointId = $.vpcEndpointId;
         this.vpcEndpointName = $.vpcEndpointName;
@@ -103,24 +104,24 @@ public final class InstanceEndpointsPrivateEndpointAuthorizedNetworkArgs extends
         }
 
         /**
-         * @param displayName Descriptive Name
+         * @param authorizedNetworkName Identifiable name
          * 
          * @return builder
          * 
          */
-        public Builder displayName(@Nullable Output<String> displayName) {
-            $.displayName = displayName;
+        public Builder authorizedNetworkName(@Nullable Output<String> authorizedNetworkName) {
+            $.authorizedNetworkName = authorizedNetworkName;
             return this;
         }
 
         /**
-         * @param displayName Descriptive Name
+         * @param authorizedNetworkName Identifiable name
          * 
          * @return builder
          * 
          */
-        public Builder displayName(String displayName) {
-            return displayName(Output.of(displayName));
+        public Builder authorizedNetworkName(String authorizedNetworkName) {
+            return authorizedNetworkName(Output.of(authorizedNetworkName));
         }
 
         /**
@@ -129,7 +130,7 @@ public final class InstanceEndpointsPrivateEndpointAuthorizedNetworkArgs extends
          * @return builder
          * 
          */
-        public Builder securityGroupCount(@Nullable Output<String> securityGroupCount) {
+        public Builder securityGroupCount(@Nullable Output<Integer> securityGroupCount) {
             $.securityGroupCount = securityGroupCount;
             return this;
         }
@@ -140,7 +141,7 @@ public final class InstanceEndpointsPrivateEndpointAuthorizedNetworkArgs extends
          * @return builder
          * 
          */
-        public Builder securityGroupCount(String securityGroupCount) {
+        public Builder securityGroupCount(Integer securityGroupCount) {
             return securityGroupCount(Output.of(securityGroupCount));
         }
 

@@ -5476,6 +5476,59 @@ export namespace cloudidentity {
 }
 
 export namespace cloudmonitor {
+    export interface AggregationPolicyAggregation {
+        /**
+         * Alert group fields, default [rule*id+region]. Currently only supports: 1. rule*id+region grouping, i.e., default grouping by severity. 2. Any rule*id+region+* grouping, i.e., each faulty resource forms a separate group, notification cycle is not affected by other faulty resources; in this mode, GroupWait/GroupInterval are not effective, default is 0. 3. rule*id+region+keys grouping based on actual alert group fields, grouped by key match and value. For example, rule_id+region+namespace+cluster+pod, each namespace+cluster+pod combination forms a separate group, notification cycle is not affected by other faulty resources; this method requires configuring a fallback aggregation strategy.
+         */
+        groupBies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Alert group wait interval for the 2nd to Nth times, in seconds, range is 5 seconds to 24 hours. If there is a new alert or recovery in the alert group, send immediately after GroupInterval and recalculate RepeatInterval.
+         */
+        groupInterval?: pulumi.Input<number | undefined>;
+        /**
+         * Alert group initial wait time, in seconds, range is 5 seconds to 24 hours. If not specified, defaults to GroupInterval.
+         */
+        groupWait?: pulumi.Input<number | undefined>;
+        /**
+         * Alert severity, supports p0/p1/p2/all. all indicates the fallback aggregation strategy, meaning alerts are aggregated without distinguishing severity, but messages are still sent separately by severity. If not all p0/p1/p2 levels are configured, the "all" fallback strategy must be configured.
+         */
+        level?: pulumi.Input<string | undefined>;
+        /**
+         * Notification frequency reduction configuration. Note: P0 does not support notification frequency reduction, while P1/P2 do.
+         */
+        repeatDowngrade?: pulumi.Input<inputs.cloudmonitor.AggregationPolicyAggregationRepeatDowngrade | undefined>;
+        /**
+         * Alert repeat notification interval, in seconds, range is 1 minute to 24 hours.
+         */
+        repeatInterval?: pulumi.Input<number | undefined>;
+    }
+
+    export interface AggregationPolicyAggregationRepeatDowngrade {
+        /**
+         * Enable notification frequency reduction.
+         */
+        enable?: pulumi.Input<boolean | undefined>;
+        /**
+         * Maximum repeat send interval, in seconds. Frequency reduction stops when this value is exceeded. Default is 24 hours (86400 seconds).
+         */
+        maxRepeatInterval?: pulumi.Input<number | undefined>;
+        /**
+         * Frequency reduction mode, currently only supports doubled. doubled means each time the frequency is reduced, the repeat send interval is multiplied by 2 until MaxRepeatInterval.
+         */
+        mode?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AggregationPolicyAssociatedAttribute {
+        /**
+         * Attribute name. CloudMonitor supports Namespace, SubNamespace; VMP supports WorkspaceID; Cloud probe supports DetectTaskID; APMPlus Server supports ServiceName, Workspace; APMPlus Client TBD.
+         */
+        name?: pulumi.Input<string | undefined>;
+        /**
+         * List of attribute values.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
     export interface AlertTemplateNoData {
         /**
          * Enable no data alert
@@ -13774,26 +13827,14 @@ export namespace tidb {
          * Private endpoint
          */
         privateEndpoint?: pulumi.Input<inputs.tidb.BranchEndpointsPrivateEndpoint | undefined>;
-        /**
-         * Public endpoint
-         */
-        publicEndpoint?: pulumi.Input<inputs.tidb.BranchEndpointsPublicEndpoint | undefined>;
     }
 
     export interface BranchEndpointsPrivateEndpoint {
-        /**
-         * Alicloud private endpoint
-         */
-        alicloud?: pulumi.Input<inputs.tidb.BranchEndpointsPrivateEndpointAlicloud | undefined>;
         /**
          * Private endpoint authorized network list
          * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
          */
         authorizedNetworks?: pulumi.Input<pulumi.Input<inputs.tidb.BranchEndpointsPrivateEndpointAuthorizedNetwork>[] | undefined>;
-        /**
-         * AWS private endpoint
-         */
-        aws?: pulumi.Input<inputs.tidb.BranchEndpointsPrivateEndpointAws | undefined>;
         /**
          * Disable private network access
          */
@@ -13824,22 +13865,11 @@ export namespace tidb {
         vpcEndpointName?: pulumi.Input<string | undefined>;
     }
 
-    export interface BranchEndpointsPrivateEndpointAlicloud {
-        /**
-         * Availability zone list
-         */
-        availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        /**
-         * Private service name
-         */
-        serviceName?: pulumi.Input<string | undefined>;
-    }
-
     export interface BranchEndpointsPrivateEndpointAuthorizedNetwork {
         /**
-         * Authorized network name
+         * Authorized Network Name
          */
-        displayName?: pulumi.Input<string | undefined>;
+        authorizedNetworkName?: pulumi.Input<string | undefined>;
         /**
          * Security group count
          */
@@ -13852,52 +13882,6 @@ export namespace tidb {
          * VPC endpoint name
          */
         vpcEndpointName?: pulumi.Input<string | undefined>;
-    }
-
-    export interface BranchEndpointsPrivateEndpointAws {
-        /**
-         * Availability zone list
-         */
-        availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        /**
-         * VPC endpoint service name
-         */
-        serviceName?: pulumi.Input<string | undefined>;
-    }
-
-    export interface BranchEndpointsPublicEndpoint {
-        /**
-         * IP Allowlist
-         * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
-         */
-        authorizedNetworks?: pulumi.Input<pulumi.Input<inputs.tidb.BranchEndpointsPublicEndpointAuthorizedNetwork>[] | undefined>;
-        /**
-         * Disable public network access
-         */
-        disabled?: pulumi.Input<boolean | undefined>;
-        /**
-         * Public hostname
-         */
-        host?: pulumi.Input<string | undefined>;
-        /**
-         * Public port
-         */
-        port?: pulumi.Input<number | undefined>;
-    }
-
-    export interface BranchEndpointsPublicEndpointAuthorizedNetwork {
-        /**
-         * Authorized network name
-         */
-        displayName?: pulumi.Input<string | undefined>;
-        /**
-         * End IP
-         */
-        endIpAddress?: pulumi.Input<string | undefined>;
-        /**
-         * Start IP
-         */
-        startIpAddress?: pulumi.Input<string | undefined>;
     }
 
     export interface BranchUsages {
@@ -13965,13 +13949,13 @@ export namespace tidb {
          */
         backupId?: pulumi.Input<string | undefined>;
         /**
+         * Backup name
+         */
+        backupName?: pulumi.Input<string | undefined>;
+        /**
          * Backup Time
          */
         backupTime?: pulumi.Input<string | undefined>;
-        /**
-         * Cluster ID
-         */
-        clusterId?: pulumi.Input<string | undefined>;
         /**
          * Creation Time
          */
@@ -13981,13 +13965,21 @@ export namespace tidb {
          */
         expireTime?: pulumi.Input<string | undefined>;
         /**
-         * Backup Name
+         * Instance ID
          */
-        name?: pulumi.Input<string | undefined>;
+        instanceId?: pulumi.Input<string | undefined>;
+        /**
+         * Backup size (bytes)
+         */
+        sizeBytes?: pulumi.Input<number | undefined>;
         /**
          * Backup Status
          */
         state?: pulumi.Input<string | undefined>;
+        /**
+         * Backup trigger type
+         */
+        triggerType?: pulumi.Input<string | undefined>;
         /**
          * Backup Type
          */
@@ -14050,13 +14042,13 @@ export namespace tidb {
 
     export interface InstanceEndpointsPrivateEndpointAuthorizedNetwork {
         /**
-         * Descriptive Name
+         * Identifiable name
          */
-        displayName?: pulumi.Input<string | undefined>;
+        authorizedNetworkName?: pulumi.Input<string | undefined>;
         /**
          * Number of Security Groups Associated with Endpoint (not returned if query fails)
          */
-        securityGroupCount?: pulumi.Input<string | undefined>;
+        securityGroupCount?: pulumi.Input<number | undefined>;
         /**
          * VPC Endpoint ID。
          */
@@ -14089,9 +14081,9 @@ export namespace tidb {
 
     export interface InstanceEndpointsPublicEndpointAuthorizedNetwork {
         /**
-         * Authorized Network Name
+         * Authorized network name
          */
-        displayName?: pulumi.Input<string | undefined>;
+        authorizedNetworkName?: pulumi.Input<string | undefined>;
         /**
          * End IP
          */
@@ -14137,7 +14129,7 @@ export namespace tidb {
          */
         subnetId?: pulumi.Input<string | undefined>;
         /**
-         * Availability Zone ID
+         * Availability zone ID
          */
         zoneId?: pulumi.Input<string | undefined>;
     }

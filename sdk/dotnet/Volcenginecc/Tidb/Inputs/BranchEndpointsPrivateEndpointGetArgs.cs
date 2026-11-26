@@ -13,12 +13,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Inputs
 
     public sealed class BranchEndpointsPrivateEndpointGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Alicloud private endpoint
-        /// </summary>
-        [Input("alicloud")]
-        public Input<Inputs.BranchEndpointsPrivateEndpointAlicloudGetArgs>? Alicloud { get; set; }
-
         [Input("authorizedNetworks")]
         private InputList<Inputs.BranchEndpointsPrivateEndpointAuthorizedNetworkGetArgs>? _authorizedNetworks;
 
@@ -31,12 +25,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Inputs
             get => _authorizedNetworks ?? (_authorizedNetworks = new InputList<Inputs.BranchEndpointsPrivateEndpointAuthorizedNetworkGetArgs>());
             set => _authorizedNetworks = value;
         }
-
-        /// <summary>
-        /// AWS private endpoint
-        /// </summary>
-        [Input("aws")]
-        public Input<Inputs.BranchEndpointsPrivateEndpointAwsGetArgs>? Aws { get; set; }
 
         /// <summary>
         /// Disable private network access

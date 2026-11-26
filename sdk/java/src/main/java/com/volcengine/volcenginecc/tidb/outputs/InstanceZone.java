@@ -17,7 +17,7 @@ public final class InstanceZone {
      */
     private @Nullable String subnetId;
     /**
-     * @return Availability Zone ID
+     * @return Availability zone ID
      * 
      */
     private @Nullable String zoneId;
@@ -31,7 +31,7 @@ public final class InstanceZone {
         return Optional.ofNullable(this.subnetId);
     }
     /**
-     * @return Availability Zone ID
+     * @return Availability zone ID
      * 
      */
     public Optional<String> zoneId() {

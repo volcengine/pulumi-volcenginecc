@@ -30,6 +30,8 @@ type LookupInstanceArgs struct {
 
 // A collection of values returned by getInstance.
 type LookupInstanceResult struct {
+	// Account ID of the instance owner
+	AccountId string `pulumi:"accountId"`
 	// Annotation
 	Annotations []GetInstanceAnnotation `pulumi:"annotations"`
 	// Audit Log Configuration
@@ -38,14 +40,10 @@ type LookupInstanceResult struct {
 	AutoScaling GetInstanceAutoScaling `pulumi:"autoScaling"`
 	// Automatic Backup Policy
 	AutomatedBackupPolicy GetInstanceAutomatedBackupPolicy `pulumi:"automatedBackupPolicy"`
-	// Cluster Backup List
+	// Instance backup list
 	Backups []GetInstanceBackup `pulumi:"backups"`
-	// Cluster ID
-	ClusterId string `pulumi:"clusterId"`
 	// Creation Time (ISO8601)
 	CreateTime string `pulumi:"createTime"`
-	// Cluster Display Name
-	DisplayName string `pulumi:"displayName"`
 	// Data Encryption Configuration
 	EncryptionConfig GetInstanceEncryptionConfig `pulumi:"encryptionConfig"`
 	// Connection Endpoint
@@ -54,10 +52,12 @@ type LookupInstanceResult struct {
 	HighAvailabilityType string `pulumi:"highAvailabilityType"`
 	// Uniquely identifies the resource.
 	Id string `pulumi:"id"`
+	// Instance ID
+	InstanceId string `pulumi:"instanceId"`
+	// Instance name
+	InstanceName string `pulumi:"instanceName"`
 	// Tags
 	Labels []GetInstanceLabel `pulumi:"labels"`
-	// Resource Name: clusters/{clusterId}
-	Name string `pulumi:"name"`
 	// Volcano Engine Project Name
 	ProjectName string `pulumi:"projectName"`
 	// Deployment Region
@@ -66,7 +66,7 @@ type LookupInstanceResult struct {
 	ServicePlan string `pulumi:"servicePlan"`
 	// Spending Limit Configuration
 	SpendingLimit GetInstanceSpendingLimit `pulumi:"spendingLimit"`
-	// Cluster Status
+	// Instance status
 	State string `pulumi:"state"`
 	// Instance Tags
 	Tags []GetInstanceTag `pulumi:"tags"`
@@ -116,6 +116,11 @@ func (o LookupInstanceResultOutput) ToLookupInstanceResultOutputWithContext(ctx 
 	return o
 }
 
+// Account ID of the instance owner
+func (o LookupInstanceResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
 // Annotation
 func (o LookupInstanceResultOutput) Annotations() GetInstanceAnnotationArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []GetInstanceAnnotation { return v.Annotations }).(GetInstanceAnnotationArrayOutput)
@@ -136,24 +141,14 @@ func (o LookupInstanceResultOutput) AutomatedBackupPolicy() GetInstanceAutomated
 	return o.ApplyT(func(v LookupInstanceResult) GetInstanceAutomatedBackupPolicy { return v.AutomatedBackupPolicy }).(GetInstanceAutomatedBackupPolicyOutput)
 }
 
-// Cluster Backup List
+// Instance backup list
 func (o LookupInstanceResultOutput) Backups() GetInstanceBackupArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []GetInstanceBackup { return v.Backups }).(GetInstanceBackupArrayOutput)
-}
-
-// Cluster ID
-func (o LookupInstanceResultOutput) ClusterId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.ClusterId }).(pulumi.StringOutput)
 }
 
 // Creation Time (ISO8601)
 func (o LookupInstanceResultOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.CreateTime }).(pulumi.StringOutput)
-}
-
-// Cluster Display Name
-func (o LookupInstanceResultOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
 // Data Encryption Configuration
@@ -176,14 +171,19 @@ func (o LookupInstanceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Instance ID
+func (o LookupInstanceResultOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+// Instance name
+func (o LookupInstanceResultOutput) InstanceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.InstanceName }).(pulumi.StringOutput)
+}
+
 // Tags
 func (o LookupInstanceResultOutput) Labels() GetInstanceLabelArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []GetInstanceLabel { return v.Labels }).(GetInstanceLabelArrayOutput)
-}
-
-// Resource Name: clusters/{clusterId}
-func (o LookupInstanceResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInstanceResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Volcano Engine Project Name
@@ -206,7 +206,7 @@ func (o LookupInstanceResultOutput) SpendingLimit() GetInstanceSpendingLimitOutp
 	return o.ApplyT(func(v LookupInstanceResult) GetInstanceSpendingLimit { return v.SpendingLimit }).(GetInstanceSpendingLimitOutput)
 }
 
-// Cluster Status
+// Instance status
 func (o LookupInstanceResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.State }).(pulumi.StringOutput)
 }

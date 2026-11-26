@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as volcenginecc from "@volcengine/pulumi-volcenginecc";
  *
  * const example = new volcenginecc.tidb.Instance("example", {
- *     displayName: "ccapi-tidb-instance-full",
+ *     instanceName: "ccapi-tidb-instance-full",
  *     autoScaling: {
  *         min_rcu: 2000,
  *         max_rcu: 4000,
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import volcenginecc:tidb/instance:Instance example "cluster_id"
+ * $ pulumi import volcenginecc:tidb/instance:Instance example "instance_id"
  * ```
  */
 export class Instance extends pulumi.CustomResource {
@@ -85,6 +85,10 @@ export class Instance extends pulumi.CustomResource {
     }
 
     /**
+     * Account ID of the instance owner
+     */
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
+    /**
      * Annotation
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
      */
@@ -102,22 +106,14 @@ export class Instance extends pulumi.CustomResource {
      */
     declare public readonly automatedBackupPolicy: pulumi.Output<outputs.tidb.InstanceAutomatedBackupPolicy>;
     /**
-     * Cluster Backup List
+     * Instance backup list
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
      */
     declare public /*out*/ readonly backups: pulumi.Output<outputs.tidb.InstanceBackup[]>;
     /**
-     * Cluster ID
-     */
-    declare public /*out*/ readonly clusterId: pulumi.Output<string>;
-    /**
      * Creation Time (ISO8601)
      */
     declare public /*out*/ readonly createTime: pulumi.Output<string>;
-    /**
-     * Cluster Display Name
-     */
-    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Data Encryption Configuration
      */
@@ -131,14 +127,18 @@ export class Instance extends pulumi.CustomResource {
      */
     declare public readonly highAvailabilityType: pulumi.Output<string>;
     /**
+     * Instance ID
+     */
+    declare public /*out*/ readonly instanceId: pulumi.Output<string>;
+    /**
+     * Instance name
+     */
+    declare public readonly instanceName: pulumi.Output<string>;
+    /**
      * Tags
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
      */
     declare public /*out*/ readonly labels: pulumi.Output<outputs.tidb.InstanceLabel[]>;
-    /**
-     * Resource Name: clusters/{clusterId}
-     */
-    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Volcano Engine Project Name
      */
@@ -156,7 +156,7 @@ export class Instance extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly spendingLimit: pulumi.Output<outputs.tidb.InstanceSpendingLimit>;
     /**
-     * Cluster Status
+     * Instance status
      */
     declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
@@ -199,19 +199,19 @@ export class Instance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceState | undefined;
+            resourceInputs["accountId"] = state?.accountId;
             resourceInputs["annotations"] = state?.annotations;
             resourceInputs["auditLogConfig"] = state?.auditLogConfig;
             resourceInputs["autoScaling"] = state?.autoScaling;
             resourceInputs["automatedBackupPolicy"] = state?.automatedBackupPolicy;
             resourceInputs["backups"] = state?.backups;
-            resourceInputs["clusterId"] = state?.clusterId;
             resourceInputs["createTime"] = state?.createTime;
-            resourceInputs["displayName"] = state?.displayName;
             resourceInputs["encryptionConfig"] = state?.encryptionConfig;
             resourceInputs["endpoints"] = state?.endpoints;
             resourceInputs["highAvailabilityType"] = state?.highAvailabilityType;
+            resourceInputs["instanceId"] = state?.instanceId;
+            resourceInputs["instanceName"] = state?.instanceName;
             resourceInputs["labels"] = state?.labels;
-            resourceInputs["name"] = state?.name;
             resourceInputs["projectName"] = state?.projectName;
             resourceInputs["regionId"] = state?.regionId;
             resourceInputs["servicePlan"] = state?.servicePlan;
@@ -236,23 +236,23 @@ export class Instance extends pulumi.CustomResource {
             }
             resourceInputs["autoScaling"] = args?.autoScaling;
             resourceInputs["automatedBackupPolicy"] = args?.automatedBackupPolicy;
-            resourceInputs["displayName"] = args?.displayName;
             resourceInputs["encryptionConfig"] = args?.encryptionConfig;
             resourceInputs["highAvailabilityType"] = args?.highAvailabilityType;
+            resourceInputs["instanceName"] = args?.instanceName;
             resourceInputs["projectName"] = args?.projectName;
             resourceInputs["regionId"] = args?.regionId;
             resourceInputs["servicePlan"] = args?.servicePlan;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["vpcId"] = args?.vpcId;
             resourceInputs["zones"] = args?.zones;
+            resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["annotations"] = undefined /*out*/;
             resourceInputs["auditLogConfig"] = undefined /*out*/;
             resourceInputs["backups"] = undefined /*out*/;
-            resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
+            resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["labels"] = undefined /*out*/;
-            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["spendingLimit"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["updateTime"] = undefined /*out*/;
@@ -268,6 +268,10 @@ export class Instance extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Instance resources.
  */
 export interface InstanceState {
+    /**
+     * Account ID of the instance owner
+     */
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Annotation
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
@@ -286,22 +290,14 @@ export interface InstanceState {
      */
     automatedBackupPolicy?: pulumi.Input<inputs.tidb.InstanceAutomatedBackupPolicy | undefined>;
     /**
-     * Cluster Backup List
+     * Instance backup list
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
      */
     backups?: pulumi.Input<pulumi.Input<inputs.tidb.InstanceBackup>[] | undefined>;
     /**
-     * Cluster ID
-     */
-    clusterId?: pulumi.Input<string | undefined>;
-    /**
      * Creation Time (ISO8601)
      */
     createTime?: pulumi.Input<string | undefined>;
-    /**
-     * Cluster Display Name
-     */
-    displayName?: pulumi.Input<string | undefined>;
     /**
      * Data Encryption Configuration
      */
@@ -315,14 +311,18 @@ export interface InstanceState {
      */
     highAvailabilityType?: pulumi.Input<string | undefined>;
     /**
+     * Instance ID
+     */
+    instanceId?: pulumi.Input<string | undefined>;
+    /**
+     * Instance name
+     */
+    instanceName?: pulumi.Input<string | undefined>;
+    /**
      * Tags
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
      */
     labels?: pulumi.Input<pulumi.Input<inputs.tidb.InstanceLabel>[] | undefined>;
-    /**
-     * Resource Name: clusters/{clusterId}
-     */
-    name?: pulumi.Input<string | undefined>;
     /**
      * Volcano Engine Project Name
      */
@@ -340,7 +340,7 @@ export interface InstanceState {
      */
     spendingLimit?: pulumi.Input<inputs.tidb.InstanceSpendingLimit | undefined>;
     /**
-     * Cluster Status
+     * Instance status
      */
     state?: pulumi.Input<string | undefined>;
     /**
@@ -384,10 +384,6 @@ export interface InstanceArgs {
      */
     automatedBackupPolicy?: pulumi.Input<inputs.tidb.InstanceAutomatedBackupPolicy | undefined>;
     /**
-     * Cluster Display Name
-     */
-    displayName?: pulumi.Input<string | undefined>;
-    /**
      * Data Encryption Configuration
      */
     encryptionConfig?: pulumi.Input<inputs.tidb.InstanceEncryptionConfig | undefined>;
@@ -395,6 +391,10 @@ export interface InstanceArgs {
      * High Availability Type
      */
     highAvailabilityType?: pulumi.Input<string | undefined>;
+    /**
+     * Instance name
+     */
+    instanceName?: pulumi.Input<string | undefined>;
     /**
      * Volcano Engine Project Name
      */

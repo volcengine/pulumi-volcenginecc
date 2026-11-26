@@ -16,7 +16,7 @@ public final class GetInstanceZone {
      */
     private String subnetId;
     /**
-     * @return Availability Zone ID
+     * @return Availability zone ID
      * 
      */
     private String zoneId;
@@ -30,7 +30,7 @@ public final class GetInstanceZone {
         return this.subnetId;
     }
     /**
-     * @return Availability Zone ID
+     * @return Availability zone ID
      * 
      */
     public String zoneId() {

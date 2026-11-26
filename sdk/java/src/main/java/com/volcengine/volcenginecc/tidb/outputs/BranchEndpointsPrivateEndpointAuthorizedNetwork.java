@@ -13,10 +13,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BranchEndpointsPrivateEndpointAuthorizedNetwork {
     /**
-     * @return Authorized network name
+     * @return Authorized Network Name
      * 
      */
-    private @Nullable String displayName;
+    private @Nullable String authorizedNetworkName;
     /**
      * @return Security group count
      * 
@@ -35,11 +35,11 @@ public final class BranchEndpointsPrivateEndpointAuthorizedNetwork {
 
     private BranchEndpointsPrivateEndpointAuthorizedNetwork() {}
     /**
-     * @return Authorized network name
+     * @return Authorized Network Name
      * 
      */
-    public Optional<String> displayName() {
-        return Optional.ofNullable(this.displayName);
+    public Optional<String> authorizedNetworkName() {
+        return Optional.ofNullable(this.authorizedNetworkName);
     }
     /**
      * @return Security group count
@@ -72,23 +72,23 @@ public final class BranchEndpointsPrivateEndpointAuthorizedNetwork {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String displayName;
+        private @Nullable String authorizedNetworkName;
         private @Nullable Integer securityGroupCount;
         private @Nullable String vpcEndpointId;
         private @Nullable String vpcEndpointName;
         public Builder() {}
         public Builder(BranchEndpointsPrivateEndpointAuthorizedNetwork defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.displayName = defaults.displayName;
+    	      this.authorizedNetworkName = defaults.authorizedNetworkName;
     	      this.securityGroupCount = defaults.securityGroupCount;
     	      this.vpcEndpointId = defaults.vpcEndpointId;
     	      this.vpcEndpointName = defaults.vpcEndpointName;
         }
 
         @CustomType.Setter
-        public Builder displayName(@Nullable String displayName) {
+        public Builder authorizedNetworkName(@Nullable String authorizedNetworkName) {
 
-            this.displayName = displayName;
+            this.authorizedNetworkName = authorizedNetworkName;
             return this;
         }
         @CustomType.Setter
@@ -111,7 +111,7 @@ public final class BranchEndpointsPrivateEndpointAuthorizedNetwork {
         }
         public BranchEndpointsPrivateEndpointAuthorizedNetwork build() {
             final var _resultValue = new BranchEndpointsPrivateEndpointAuthorizedNetwork();
-            _resultValue.displayName = displayName;
+            _resultValue.authorizedNetworkName = authorizedNetworkName;
             _resultValue.securityGroupCount = securityGroupCount;
             _resultValue.vpcEndpointId = vpcEndpointId;
             _resultValue.vpcEndpointName = vpcEndpointName;

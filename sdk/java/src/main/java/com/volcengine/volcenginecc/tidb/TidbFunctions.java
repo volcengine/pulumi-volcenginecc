@@ -10,10 +10,14 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.volcengine.volcenginecc.Utilities;
+import com.volcengine.volcenginecc.tidb.inputs.GetAllowlistArgs;
+import com.volcengine.volcenginecc.tidb.inputs.GetAllowlistPlainArgs;
 import com.volcengine.volcenginecc.tidb.inputs.GetBranchArgs;
 import com.volcengine.volcenginecc.tidb.inputs.GetBranchPlainArgs;
 import com.volcengine.volcenginecc.tidb.inputs.GetInstanceArgs;
 import com.volcengine.volcenginecc.tidb.inputs.GetInstancePlainArgs;
+import com.volcengine.volcenginecc.tidb.outputs.GetAllowlistResult;
+import com.volcengine.volcenginecc.tidb.outputs.GetAllowlistsResult;
 import com.volcengine.volcenginecc.tidb.outputs.GetBranchResult;
 import com.volcengine.volcenginecc.tidb.outputs.GetBranchesResult;
 import com.volcengine.volcenginecc.tidb.outputs.GetInstanceResult;
@@ -21,6 +25,90 @@ import com.volcengine.volcenginecc.tidb.outputs.GetInstancesResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class TidbFunctions {
+    /**
+     * Data Source schema for Volcengine::TiDB::Allowlist
+     * 
+     */
+    public static Output<GetAllowlistResult> getAllowlist(GetAllowlistArgs args) {
+        return getAllowlist(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TiDB::Allowlist
+     * 
+     */
+    public static CompletableFuture<GetAllowlistResult> getAllowlistPlain(GetAllowlistPlainArgs args) {
+        return getAllowlistPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data Source schema for Volcengine::TiDB::Allowlist
+     * 
+     */
+    public static Output<GetAllowlistResult> getAllowlist(GetAllowlistArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tidb/getAllowlist:getAllowlist", TypeShape.of(GetAllowlistResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TiDB::Allowlist
+     * 
+     */
+    public static Output<GetAllowlistResult> getAllowlist(GetAllowlistArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tidb/getAllowlist:getAllowlist", TypeShape.of(GetAllowlistResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data Source schema for Volcengine::TiDB::Allowlist
+     * 
+     */
+    public static CompletableFuture<GetAllowlistResult> getAllowlistPlain(GetAllowlistPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tidb/getAllowlist:getAllowlist", TypeShape.of(GetAllowlistResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TiDB::Allowlist
+     * 
+     */
+    public static Output<GetAllowlistsResult> getAllowlists() {
+        return getAllowlists(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TiDB::Allowlist
+     * 
+     */
+    public static CompletableFuture<GetAllowlistsResult> getAllowlistsPlain() {
+        return getAllowlistsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TiDB::Allowlist
+     * 
+     */
+    public static Output<GetAllowlistsResult> getAllowlists(InvokeArgs args) {
+        return getAllowlists(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TiDB::Allowlist
+     * 
+     */
+    public static CompletableFuture<GetAllowlistsResult> getAllowlistsPlain(InvokeArgs args) {
+        return getAllowlistsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TiDB::Allowlist
+     * 
+     */
+    public static Output<GetAllowlistsResult> getAllowlists(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tidb/getAllowlists:getAllowlists", TypeShape.of(GetAllowlistsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TiDB::Allowlist
+     * 
+     */
+    public static Output<GetAllowlistsResult> getAllowlists(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("volcenginecc:tidb/getAllowlists:getAllowlists", TypeShape.of(GetAllowlistsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Plural Data Source schema for Volcengine::TiDB::Allowlist
+     * 
+     */
+    public static CompletableFuture<GetAllowlistsResult> getAllowlistsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("volcenginecc:tidb/getAllowlists:getAllowlists", TypeShape.of(GetAllowlistsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data Source schema for Volcengine::TiDB::Branch
      * 

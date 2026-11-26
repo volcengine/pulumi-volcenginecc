@@ -18,19 +18,11 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
         /// Private endpoint
         /// </summary>
         public readonly Outputs.GetBranchEndpointsPrivateEndpointResult PrivateEndpoint;
-        /// <summary>
-        /// Public endpoint
-        /// </summary>
-        public readonly Outputs.GetBranchEndpointsPublicEndpointResult PublicEndpoint;
 
         [OutputConstructor]
-        private GetBranchEndpointsResult(
-            Outputs.GetBranchEndpointsPrivateEndpointResult privateEndpoint,
-
-            Outputs.GetBranchEndpointsPublicEndpointResult publicEndpoint)
+        private GetBranchEndpointsResult(Outputs.GetBranchEndpointsPrivateEndpointResult privateEndpoint)
         {
             PrivateEndpoint = privateEndpoint;
-            PublicEndpoint = publicEndpoint;
         }
     }
 }

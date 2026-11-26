@@ -15,9 +15,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
     public sealed class GetBranchEndpointsPrivateEndpointAuthorizedNetworkResult
     {
         /// <summary>
-        /// Authorized network name
+        /// Authorized Network Name
         /// </summary>
-        public readonly string DisplayName;
+        public readonly string AuthorizedNetworkName;
         /// <summary>
         /// Security group count
         /// </summary>
@@ -33,7 +33,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
 
         [OutputConstructor]
         private GetBranchEndpointsPrivateEndpointAuthorizedNetworkResult(
-            string displayName,
+            string authorizedNetworkName,
 
             int securityGroupCount,
 
@@ -41,7 +41,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
 
             string vpcEndpointName)
         {
-            DisplayName = displayName;
+            AuthorizedNetworkName = authorizedNetworkName;
             SecurityGroupCount = securityGroupCount;
             VpcEndpointId = vpcEndpointId;
             VpcEndpointName = vpcEndpointName;

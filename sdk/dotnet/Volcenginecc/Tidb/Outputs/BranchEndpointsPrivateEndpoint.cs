@@ -15,18 +15,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
     public sealed class BranchEndpointsPrivateEndpoint
     {
         /// <summary>
-        /// Alicloud private endpoint
-        /// </summary>
-        public readonly Outputs.BranchEndpointsPrivateEndpointAlicloud? Alicloud;
-        /// <summary>
         /// Private endpoint authorized network list
         /// Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
         /// </summary>
         public readonly ImmutableArray<Outputs.BranchEndpointsPrivateEndpointAuthorizedNetwork> AuthorizedNetworks;
-        /// <summary>
-        /// AWS private endpoint
-        /// </summary>
-        public readonly Outputs.BranchEndpointsPrivateEndpointAws? Aws;
         /// <summary>
         /// Disable private network access
         /// </summary>
@@ -58,11 +50,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
 
         [OutputConstructor]
         private BranchEndpointsPrivateEndpoint(
-            Outputs.BranchEndpointsPrivateEndpointAlicloud? alicloud,
-
             ImmutableArray<Outputs.BranchEndpointsPrivateEndpointAuthorizedNetwork> authorizedNetworks,
-
-            Outputs.BranchEndpointsPrivateEndpointAws? aws,
 
             bool? disabled,
 
@@ -78,9 +66,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
 
             string? vpcEndpointName)
         {
-            Alicloud = alicloud;
             AuthorizedNetworks = authorizedNetworks;
-            Aws = aws;
             Disabled = disabled;
             Host = host;
             Port = port;

@@ -5,7 +5,6 @@ package com.volcengine.volcenginecc.tidb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.volcengine.volcenginecc.tidb.outputs.BranchEndpointsPrivateEndpoint;
-import com.volcengine.volcenginecc.tidb.outputs.BranchEndpointsPublicEndpoint;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,11 +16,6 @@ public final class BranchEndpoints {
      * 
      */
     private @Nullable BranchEndpointsPrivateEndpoint privateEndpoint;
-    /**
-     * @return Public endpoint
-     * 
-     */
-    private @Nullable BranchEndpointsPublicEndpoint publicEndpoint;
 
     private BranchEndpoints() {}
     /**
@@ -30,13 +24,6 @@ public final class BranchEndpoints {
      */
     public Optional<BranchEndpointsPrivateEndpoint> privateEndpoint() {
         return Optional.ofNullable(this.privateEndpoint);
-    }
-    /**
-     * @return Public endpoint
-     * 
-     */
-    public Optional<BranchEndpointsPublicEndpoint> publicEndpoint() {
-        return Optional.ofNullable(this.publicEndpoint);
     }
 
     public static Builder builder() {
@@ -49,12 +36,10 @@ public final class BranchEndpoints {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable BranchEndpointsPrivateEndpoint privateEndpoint;
-        private @Nullable BranchEndpointsPublicEndpoint publicEndpoint;
         public Builder() {}
         public Builder(BranchEndpoints defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.privateEndpoint = defaults.privateEndpoint;
-    	      this.publicEndpoint = defaults.publicEndpoint;
         }
 
         @CustomType.Setter
@@ -63,16 +48,9 @@ public final class BranchEndpoints {
             this.privateEndpoint = privateEndpoint;
             return this;
         }
-        @CustomType.Setter
-        public Builder publicEndpoint(@Nullable BranchEndpointsPublicEndpoint publicEndpoint) {
-
-            this.publicEndpoint = publicEndpoint;
-            return this;
-        }
         public BranchEndpoints build() {
             final var _resultValue = new BranchEndpoints();
             _resultValue.privateEndpoint = privateEndpoint;
-            _resultValue.publicEndpoint = publicEndpoint;
             return _resultValue;
         }
     }

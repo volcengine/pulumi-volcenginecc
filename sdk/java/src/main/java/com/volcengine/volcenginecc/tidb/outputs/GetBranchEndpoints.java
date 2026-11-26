@@ -6,7 +6,6 @@ package com.volcengine.volcenginecc.tidb.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.volcengine.volcenginecc.tidb.outputs.GetBranchEndpointsPrivateEndpoint;
-import com.volcengine.volcenginecc.tidb.outputs.GetBranchEndpointsPublicEndpoint;
 import java.util.Objects;
 
 @CustomType
@@ -16,11 +15,6 @@ public final class GetBranchEndpoints {
      * 
      */
     private GetBranchEndpointsPrivateEndpoint privateEndpoint;
-    /**
-     * @return Public endpoint
-     * 
-     */
-    private GetBranchEndpointsPublicEndpoint publicEndpoint;
 
     private GetBranchEndpoints() {}
     /**
@@ -29,13 +23,6 @@ public final class GetBranchEndpoints {
      */
     public GetBranchEndpointsPrivateEndpoint privateEndpoint() {
         return this.privateEndpoint;
-    }
-    /**
-     * @return Public endpoint
-     * 
-     */
-    public GetBranchEndpointsPublicEndpoint publicEndpoint() {
-        return this.publicEndpoint;
     }
 
     public static Builder builder() {
@@ -48,12 +35,10 @@ public final class GetBranchEndpoints {
     @CustomType.Builder
     public static final class Builder {
         private GetBranchEndpointsPrivateEndpoint privateEndpoint;
-        private GetBranchEndpointsPublicEndpoint publicEndpoint;
         public Builder() {}
         public Builder(GetBranchEndpoints defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.privateEndpoint = defaults.privateEndpoint;
-    	      this.publicEndpoint = defaults.publicEndpoint;
         }
 
         @CustomType.Setter
@@ -64,18 +49,9 @@ public final class GetBranchEndpoints {
             this.privateEndpoint = privateEndpoint;
             return this;
         }
-        @CustomType.Setter
-        public Builder publicEndpoint(GetBranchEndpointsPublicEndpoint publicEndpoint) {
-            if (publicEndpoint == null) {
-              throw new MissingRequiredPropertyException("GetBranchEndpoints", "publicEndpoint");
-            }
-            this.publicEndpoint = publicEndpoint;
-            return this;
-        }
         public GetBranchEndpoints build() {
             final var _resultValue = new GetBranchEndpoints();
             _resultValue.privateEndpoint = privateEndpoint;
-            _resultValue.publicEndpoint = publicEndpoint;
             return _resultValue;
         }
     }

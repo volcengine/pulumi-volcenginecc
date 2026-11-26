@@ -19,12 +19,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Inputs
         [Input("privateEndpoint")]
         public Input<Inputs.BranchEndpointsPrivateEndpointArgs>? PrivateEndpoint { get; set; }
 
-        /// <summary>
-        /// Public endpoint
-        /// </summary>
-        [Input("publicEndpoint")]
-        public Input<Inputs.BranchEndpointsPublicEndpointArgs>? PublicEndpoint { get; set; }
-
         public BranchEndpointsArgs()
         {
         }

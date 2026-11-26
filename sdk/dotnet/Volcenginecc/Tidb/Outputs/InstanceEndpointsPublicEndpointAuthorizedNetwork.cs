@@ -15,9 +15,9 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
     public sealed class InstanceEndpointsPublicEndpointAuthorizedNetwork
     {
         /// <summary>
-        /// Authorized Network Name
+        /// Authorized network name
         /// </summary>
-        public readonly string? DisplayName;
+        public readonly string? AuthorizedNetworkName;
         /// <summary>
         /// End IP
         /// </summary>
@@ -29,13 +29,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
 
         [OutputConstructor]
         private InstanceEndpointsPublicEndpointAuthorizedNetwork(
-            string? displayName,
+            string? authorizedNetworkName,
 
             string? endIpAddress,
 
             string? startIpAddress)
         {
-            DisplayName = displayName;
+            AuthorizedNetworkName = authorizedNetworkName;
             EndIpAddress = endIpAddress;
             StartIpAddress = startIpAddress;
         }

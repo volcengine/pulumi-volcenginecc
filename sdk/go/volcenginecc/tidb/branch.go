@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := tidb.NewBranch(ctx, "example", &tidb.BranchArgs{
-//				ClusterId:       pulumi.String("cluster_id-xxx"),
-//				DisplayName:     pulumi.String("ccapi-tidb-branch-full"),
+//				InstanceId:      pulumi.String("替换为 TiDB 实例 ID"),
+//				BranchName:      pulumi.String("ccapi-tidb-branch-full"),
 //				ParentId:        pulumi.String("parent_id"),
 //				ParentTimestamp: pulumi.String("YYYY-MM-DD'T'hh:mm:ss'Z'"),
 //				Password:        pulumi.String("Example@Test1234"),
@@ -47,7 +47,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import volcenginecc:tidb/branch:Branch example "cluster_id|branch_id"
+// $ pulumi import volcenginecc:tidb/branch:Branch example "instance_id|branch_id"
 // ```
 type Branch struct {
 	pulumi.CustomResourceState
@@ -57,22 +57,20 @@ type Branch struct {
 	Annotations BranchAnnotationArrayOutput `pulumi:"annotations"`
 	// Branch ID, assigned by the creation API
 	BranchId pulumi.StringOutput `pulumi:"branchId"`
-	// Cluster ID
-	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
+	// Branch Name
+	BranchName pulumi.StringOutput `pulumi:"branchName"`
 	// Creation time
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
 	// Creator identifier
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// Branch display name
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Branch endpoint configuration
 	Endpoints BranchEndpointsOutput `pulumi:"endpoints"`
 	// Root password set
 	HasSetPwd pulumi.BoolOutput `pulumi:"hasSetPwd"`
-	// Branch resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Parent branch display name
-	ParentDisplayName pulumi.StringOutput `pulumi:"parentDisplayName"`
+	// Instance ID
+	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+	// Parent Branch Name
+	ParentBranchName pulumi.StringOutput `pulumi:"parentBranchName"`
 	// Parent branch ID
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
 	// Timestamp of derivation from the parent branch
@@ -100,11 +98,11 @@ func NewBranch(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ClusterId == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterId'")
+	if args.BranchName == nil {
+		return nil, errors.New("invalid value for required argument 'BranchName'")
 	}
-	if args.DisplayName == nil {
-		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	if args.InstanceId == nil {
+		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Branch
@@ -134,22 +132,20 @@ type branchState struct {
 	Annotations []BranchAnnotation `pulumi:"annotations"`
 	// Branch ID, assigned by the creation API
 	BranchId *string `pulumi:"branchId"`
-	// Cluster ID
-	ClusterId *string `pulumi:"clusterId"`
+	// Branch Name
+	BranchName *string `pulumi:"branchName"`
 	// Creation time
 	CreateTime *string `pulumi:"createTime"`
 	// Creator identifier
 	CreatedBy *string `pulumi:"createdBy"`
-	// Branch display name
-	DisplayName *string `pulumi:"displayName"`
 	// Branch endpoint configuration
 	Endpoints *BranchEndpoints `pulumi:"endpoints"`
 	// Root password set
 	HasSetPwd *bool `pulumi:"hasSetPwd"`
-	// Branch resource name
-	Name *string `pulumi:"name"`
-	// Parent branch display name
-	ParentDisplayName *string `pulumi:"parentDisplayName"`
+	// Instance ID
+	InstanceId *string `pulumi:"instanceId"`
+	// Parent Branch Name
+	ParentBranchName *string `pulumi:"parentBranchName"`
 	// Parent branch ID
 	ParentId *string `pulumi:"parentId"`
 	// Timestamp of derivation from the parent branch
@@ -176,22 +172,20 @@ type BranchState struct {
 	Annotations BranchAnnotationArrayInput
 	// Branch ID, assigned by the creation API
 	BranchId pulumi.StringPtrInput
-	// Cluster ID
-	ClusterId pulumi.StringPtrInput
+	// Branch Name
+	BranchName pulumi.StringPtrInput
 	// Creation time
 	CreateTime pulumi.StringPtrInput
 	// Creator identifier
 	CreatedBy pulumi.StringPtrInput
-	// Branch display name
-	DisplayName pulumi.StringPtrInput
 	// Branch endpoint configuration
 	Endpoints BranchEndpointsPtrInput
 	// Root password set
 	HasSetPwd pulumi.BoolPtrInput
-	// Branch resource name
-	Name pulumi.StringPtrInput
-	// Parent branch display name
-	ParentDisplayName pulumi.StringPtrInput
+	// Instance ID
+	InstanceId pulumi.StringPtrInput
+	// Parent Branch Name
+	ParentBranchName pulumi.StringPtrInput
 	// Parent branch ID
 	ParentId pulumi.StringPtrInput
 	// Timestamp of derivation from the parent branch
@@ -217,10 +211,10 @@ func (BranchState) ElementType() reflect.Type {
 }
 
 type branchArgs struct {
-	// Cluster ID
-	ClusterId string `pulumi:"clusterId"`
-	// Branch display name
-	DisplayName string `pulumi:"displayName"`
+	// Branch Name
+	BranchName string `pulumi:"branchName"`
+	// Instance ID
+	InstanceId string `pulumi:"instanceId"`
 	// Parent branch ID
 	ParentId *string `pulumi:"parentId"`
 	// Timestamp of derivation from the parent branch
@@ -233,10 +227,10 @@ type branchArgs struct {
 
 // The set of arguments for constructing a Branch resource.
 type BranchArgs struct {
-	// Cluster ID
-	ClusterId pulumi.StringInput
-	// Branch display name
-	DisplayName pulumi.StringInput
+	// Branch Name
+	BranchName pulumi.StringInput
+	// Instance ID
+	InstanceId pulumi.StringInput
 	// Parent branch ID
 	ParentId pulumi.StringPtrInput
 	// Timestamp of derivation from the parent branch
@@ -345,9 +339,9 @@ func (o BranchOutput) BranchId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.BranchId }).(pulumi.StringOutput)
 }
 
-// Cluster ID
-func (o BranchOutput) ClusterId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
+// Branch Name
+func (o BranchOutput) BranchName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.BranchName }).(pulumi.StringOutput)
 }
 
 // Creation time
@@ -360,11 +354,6 @@ func (o BranchOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// Branch display name
-func (o BranchOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
-}
-
 // Branch endpoint configuration
 func (o BranchOutput) Endpoints() BranchEndpointsOutput {
 	return o.ApplyT(func(v *Branch) BranchEndpointsOutput { return v.Endpoints }).(BranchEndpointsOutput)
@@ -375,14 +364,14 @@ func (o BranchOutput) HasSetPwd() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Branch) pulumi.BoolOutput { return v.HasSetPwd }).(pulumi.BoolOutput)
 }
 
-// Branch resource name
-func (o BranchOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+// Instance ID
+func (o BranchOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Parent branch display name
-func (o BranchOutput) ParentDisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.ParentDisplayName }).(pulumi.StringOutput)
+// Parent Branch Name
+func (o BranchOutput) ParentBranchName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.ParentBranchName }).(pulumi.StringOutput)
 }
 
 // Parent branch ID

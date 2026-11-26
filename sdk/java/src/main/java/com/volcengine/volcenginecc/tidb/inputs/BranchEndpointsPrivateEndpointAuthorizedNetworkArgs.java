@@ -17,18 +17,18 @@ public final class BranchEndpointsPrivateEndpointAuthorizedNetworkArgs extends c
     public static final BranchEndpointsPrivateEndpointAuthorizedNetworkArgs Empty = new BranchEndpointsPrivateEndpointAuthorizedNetworkArgs();
 
     /**
-     * Authorized network name
+     * Authorized Network Name
      * 
      */
-    @Import(name="displayName")
-    private @Nullable Output<String> displayName;
+    @Import(name="authorizedNetworkName")
+    private @Nullable Output<String> authorizedNetworkName;
 
     /**
-     * @return Authorized network name
+     * @return Authorized Network Name
      * 
      */
-    public Optional<Output<String>> displayName() {
-        return Optional.ofNullable(this.displayName);
+    public Optional<Output<String>> authorizedNetworkName() {
+        return Optional.ofNullable(this.authorizedNetworkName);
     }
 
     /**
@@ -79,7 +79,7 @@ public final class BranchEndpointsPrivateEndpointAuthorizedNetworkArgs extends c
     private BranchEndpointsPrivateEndpointAuthorizedNetworkArgs() {}
 
     private BranchEndpointsPrivateEndpointAuthorizedNetworkArgs(BranchEndpointsPrivateEndpointAuthorizedNetworkArgs $) {
-        this.displayName = $.displayName;
+        this.authorizedNetworkName = $.authorizedNetworkName;
         this.securityGroupCount = $.securityGroupCount;
         this.vpcEndpointId = $.vpcEndpointId;
         this.vpcEndpointName = $.vpcEndpointName;
@@ -104,24 +104,24 @@ public final class BranchEndpointsPrivateEndpointAuthorizedNetworkArgs extends c
         }
 
         /**
-         * @param displayName Authorized network name
+         * @param authorizedNetworkName Authorized Network Name
          * 
          * @return builder
          * 
          */
-        public Builder displayName(@Nullable Output<String> displayName) {
-            $.displayName = displayName;
+        public Builder authorizedNetworkName(@Nullable Output<String> authorizedNetworkName) {
+            $.authorizedNetworkName = authorizedNetworkName;
             return this;
         }
 
         /**
-         * @param displayName Authorized network name
+         * @param authorizedNetworkName Authorized Network Name
          * 
          * @return builder
          * 
          */
-        public Builder displayName(String displayName) {
-            return displayName(Output.of(displayName));
+        public Builder authorizedNetworkName(String authorizedNetworkName) {
+            return authorizedNetworkName(Output.of(authorizedNetworkName));
         }
 
         /**

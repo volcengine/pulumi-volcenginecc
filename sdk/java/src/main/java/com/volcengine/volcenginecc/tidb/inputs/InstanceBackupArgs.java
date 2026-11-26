@@ -5,6 +5,7 @@ package com.volcengine.volcenginecc.tidb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +32,21 @@ public final class InstanceBackupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Backup name
+     * 
+     */
+    @Import(name="backupName")
+    private @Nullable Output<String> backupName;
+
+    /**
+     * @return Backup name
+     * 
+     */
+    public Optional<Output<String>> backupName() {
+        return Optional.ofNullable(this.backupName);
+    }
+
+    /**
      * Backup Time
      * 
      */
@@ -43,21 +59,6 @@ public final class InstanceBackupArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<String>> backupTime() {
         return Optional.ofNullable(this.backupTime);
-    }
-
-    /**
-     * Cluster ID
-     * 
-     */
-    @Import(name="clusterId")
-    private @Nullable Output<String> clusterId;
-
-    /**
-     * @return Cluster ID
-     * 
-     */
-    public Optional<Output<String>> clusterId() {
-        return Optional.ofNullable(this.clusterId);
     }
 
     /**
@@ -91,18 +92,33 @@ public final class InstanceBackupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Backup Name
+     * Instance ID
      * 
      */
-    @Import(name="name")
-    private @Nullable Output<String> name;
+    @Import(name="instanceId")
+    private @Nullable Output<String> instanceId;
 
     /**
-     * @return Backup Name
+     * @return Instance ID
      * 
      */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
+    public Optional<Output<String>> instanceId() {
+        return Optional.ofNullable(this.instanceId);
+    }
+
+    /**
+     * Backup size (bytes)
+     * 
+     */
+    @Import(name="sizeBytes")
+    private @Nullable Output<Integer> sizeBytes;
+
+    /**
+     * @return Backup size (bytes)
+     * 
+     */
+    public Optional<Output<Integer>> sizeBytes() {
+        return Optional.ofNullable(this.sizeBytes);
     }
 
     /**
@@ -118,6 +134,21 @@ public final class InstanceBackupArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
+    }
+
+    /**
+     * Backup trigger type
+     * 
+     */
+    @Import(name="triggerType")
+    private @Nullable Output<String> triggerType;
+
+    /**
+     * @return Backup trigger type
+     * 
+     */
+    public Optional<Output<String>> triggerType() {
+        return Optional.ofNullable(this.triggerType);
     }
 
     /**
@@ -139,12 +170,14 @@ public final class InstanceBackupArgs extends com.pulumi.resources.ResourceArgs 
 
     private InstanceBackupArgs(InstanceBackupArgs $) {
         this.backupId = $.backupId;
+        this.backupName = $.backupName;
         this.backupTime = $.backupTime;
-        this.clusterId = $.clusterId;
         this.createTime = $.createTime;
         this.expireTime = $.expireTime;
-        this.name = $.name;
+        this.instanceId = $.instanceId;
+        this.sizeBytes = $.sizeBytes;
         this.state = $.state;
+        this.triggerType = $.triggerType;
         this.type = $.type;
     }
 
@@ -188,6 +221,27 @@ public final class InstanceBackupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param backupName Backup name
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backupName(@Nullable Output<String> backupName) {
+            $.backupName = backupName;
+            return this;
+        }
+
+        /**
+         * @param backupName Backup name
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backupName(String backupName) {
+            return backupName(Output.of(backupName));
+        }
+
+        /**
          * @param backupTime Backup Time
          * 
          * @return builder
@@ -206,27 +260,6 @@ public final class InstanceBackupArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder backupTime(String backupTime) {
             return backupTime(Output.of(backupTime));
-        }
-
-        /**
-         * @param clusterId Cluster ID
-         * 
-         * @return builder
-         * 
-         */
-        public Builder clusterId(@Nullable Output<String> clusterId) {
-            $.clusterId = clusterId;
-            return this;
-        }
-
-        /**
-         * @param clusterId Cluster ID
-         * 
-         * @return builder
-         * 
-         */
-        public Builder clusterId(String clusterId) {
-            return clusterId(Output.of(clusterId));
         }
 
         /**
@@ -272,24 +305,45 @@ public final class InstanceBackupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Backup Name
+         * @param instanceId Instance ID
          * 
          * @return builder
          * 
          */
-        public Builder name(@Nullable Output<String> name) {
-            $.name = name;
+        public Builder instanceId(@Nullable Output<String> instanceId) {
+            $.instanceId = instanceId;
             return this;
         }
 
         /**
-         * @param name Backup Name
+         * @param instanceId Instance ID
          * 
          * @return builder
          * 
          */
-        public Builder name(String name) {
-            return name(Output.of(name));
+        public Builder instanceId(String instanceId) {
+            return instanceId(Output.of(instanceId));
+        }
+
+        /**
+         * @param sizeBytes Backup size (bytes)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sizeBytes(@Nullable Output<Integer> sizeBytes) {
+            $.sizeBytes = sizeBytes;
+            return this;
+        }
+
+        /**
+         * @param sizeBytes Backup size (bytes)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sizeBytes(Integer sizeBytes) {
+            return sizeBytes(Output.of(sizeBytes));
         }
 
         /**
@@ -311,6 +365,27 @@ public final class InstanceBackupArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder state(String state) {
             return state(Output.of(state));
+        }
+
+        /**
+         * @param triggerType Backup trigger type
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggerType(@Nullable Output<String> triggerType) {
+            $.triggerType = triggerType;
+            return this;
+        }
+
+        /**
+         * @param triggerType Backup trigger type
+         * 
+         * @return builder
+         * 
+         */
+        public Builder triggerType(String triggerType) {
+            return triggerType(Output.of(triggerType));
         }
 
         /**

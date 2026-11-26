@@ -23,6 +23,11 @@ import java.util.Objects;
 @CustomType
 public final class GetInstanceResult {
     /**
+     * @return Account ID of the instance owner
+     * 
+     */
+    private String accountId;
+    /**
      * @return Annotation
      * 
      */
@@ -43,25 +48,15 @@ public final class GetInstanceResult {
      */
     private GetInstanceAutomatedBackupPolicy automatedBackupPolicy;
     /**
-     * @return Cluster Backup List
+     * @return Instance backup list
      * 
      */
     private List<GetInstanceBackup> backups;
-    /**
-     * @return Cluster ID
-     * 
-     */
-    private String clusterId;
     /**
      * @return Creation Time (ISO8601)
      * 
      */
     private String createTime;
-    /**
-     * @return Cluster Display Name
-     * 
-     */
-    private String displayName;
     /**
      * @return Data Encryption Configuration
      * 
@@ -83,15 +78,20 @@ public final class GetInstanceResult {
      */
     private String id;
     /**
+     * @return Instance ID
+     * 
+     */
+    private String instanceId;
+    /**
+     * @return Instance name
+     * 
+     */
+    private String instanceName;
+    /**
      * @return Tags
      * 
      */
     private List<GetInstanceLabel> labels;
-    /**
-     * @return Resource Name: clusters/{clusterId}
-     * 
-     */
-    private String name;
     /**
      * @return Volcano Engine Project Name
      * 
@@ -113,7 +113,7 @@ public final class GetInstanceResult {
      */
     private GetInstanceSpendingLimit spendingLimit;
     /**
-     * @return Cluster Status
+     * @return Instance status
      * 
      */
     private String state;
@@ -150,6 +150,13 @@ public final class GetInstanceResult {
 
     private GetInstanceResult() {}
     /**
+     * @return Account ID of the instance owner
+     * 
+     */
+    public String accountId() {
+        return this.accountId;
+    }
+    /**
      * @return Annotation
      * 
      */
@@ -178,18 +185,11 @@ public final class GetInstanceResult {
         return this.automatedBackupPolicy;
     }
     /**
-     * @return Cluster Backup List
+     * @return Instance backup list
      * 
      */
     public List<GetInstanceBackup> backups() {
         return this.backups;
-    }
-    /**
-     * @return Cluster ID
-     * 
-     */
-    public String clusterId() {
-        return this.clusterId;
     }
     /**
      * @return Creation Time (ISO8601)
@@ -197,13 +197,6 @@ public final class GetInstanceResult {
      */
     public String createTime() {
         return this.createTime;
-    }
-    /**
-     * @return Cluster Display Name
-     * 
-     */
-    public String displayName() {
-        return this.displayName;
     }
     /**
      * @return Data Encryption Configuration
@@ -234,18 +227,25 @@ public final class GetInstanceResult {
         return this.id;
     }
     /**
+     * @return Instance ID
+     * 
+     */
+    public String instanceId() {
+        return this.instanceId;
+    }
+    /**
+     * @return Instance name
+     * 
+     */
+    public String instanceName() {
+        return this.instanceName;
+    }
+    /**
      * @return Tags
      * 
      */
     public List<GetInstanceLabel> labels() {
         return this.labels;
-    }
-    /**
-     * @return Resource Name: clusters/{clusterId}
-     * 
-     */
-    public String name() {
-        return this.name;
     }
     /**
      * @return Volcano Engine Project Name
@@ -276,7 +276,7 @@ public final class GetInstanceResult {
         return this.spendingLimit;
     }
     /**
-     * @return Cluster Status
+     * @return Instance status
      * 
      */
     public String state() {
@@ -334,20 +334,20 @@ public final class GetInstanceResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String accountId;
         private List<GetInstanceAnnotation> annotations;
         private GetInstanceAuditLogConfig auditLogConfig;
         private GetInstanceAutoScaling autoScaling;
         private GetInstanceAutomatedBackupPolicy automatedBackupPolicy;
         private List<GetInstanceBackup> backups;
-        private String clusterId;
         private String createTime;
-        private String displayName;
         private GetInstanceEncryptionConfig encryptionConfig;
         private GetInstanceEndpoints endpoints;
         private String highAvailabilityType;
         private String id;
+        private String instanceId;
+        private String instanceName;
         private List<GetInstanceLabel> labels;
-        private String name;
         private String projectName;
         private String regionId;
         private String servicePlan;
@@ -362,20 +362,20 @@ public final class GetInstanceResult {
         public Builder() {}
         public Builder(GetInstanceResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accountId = defaults.accountId;
     	      this.annotations = defaults.annotations;
     	      this.auditLogConfig = defaults.auditLogConfig;
     	      this.autoScaling = defaults.autoScaling;
     	      this.automatedBackupPolicy = defaults.automatedBackupPolicy;
     	      this.backups = defaults.backups;
-    	      this.clusterId = defaults.clusterId;
     	      this.createTime = defaults.createTime;
-    	      this.displayName = defaults.displayName;
     	      this.encryptionConfig = defaults.encryptionConfig;
     	      this.endpoints = defaults.endpoints;
     	      this.highAvailabilityType = defaults.highAvailabilityType;
     	      this.id = defaults.id;
+    	      this.instanceId = defaults.instanceId;
+    	      this.instanceName = defaults.instanceName;
     	      this.labels = defaults.labels;
-    	      this.name = defaults.name;
     	      this.projectName = defaults.projectName;
     	      this.regionId = defaults.regionId;
     	      this.servicePlan = defaults.servicePlan;
@@ -389,6 +389,14 @@ public final class GetInstanceResult {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
+        public Builder accountId(String accountId) {
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "accountId");
+            }
+            this.accountId = accountId;
+            return this;
+        }
         @CustomType.Setter
         public Builder annotations(List<GetInstanceAnnotation> annotations) {
             if (annotations == null) {
@@ -436,27 +444,11 @@ public final class GetInstanceResult {
             return backups(List.of(backups));
         }
         @CustomType.Setter
-        public Builder clusterId(String clusterId) {
-            if (clusterId == null) {
-              throw new MissingRequiredPropertyException("GetInstanceResult", "clusterId");
-            }
-            this.clusterId = clusterId;
-            return this;
-        }
-        @CustomType.Setter
         public Builder createTime(String createTime) {
             if (createTime == null) {
               throw new MissingRequiredPropertyException("GetInstanceResult", "createTime");
             }
             this.createTime = createTime;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder displayName(String displayName) {
-            if (displayName == null) {
-              throw new MissingRequiredPropertyException("GetInstanceResult", "displayName");
-            }
-            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
@@ -492,6 +484,22 @@ public final class GetInstanceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder instanceId(String instanceId) {
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "instanceId");
+            }
+            this.instanceId = instanceId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder instanceName(String instanceName) {
+            if (instanceName == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "instanceName");
+            }
+            this.instanceName = instanceName;
+            return this;
+        }
+        @CustomType.Setter
         public Builder labels(List<GetInstanceLabel> labels) {
             if (labels == null) {
               throw new MissingRequiredPropertyException("GetInstanceResult", "labels");
@@ -501,14 +509,6 @@ public final class GetInstanceResult {
         }
         public Builder labels(GetInstanceLabel... labels) {
             return labels(List.of(labels));
-        }
-        @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetInstanceResult", "name");
-            }
-            this.name = name;
-            return this;
         }
         @CustomType.Setter
         public Builder projectName(String projectName) {
@@ -606,20 +606,20 @@ public final class GetInstanceResult {
         }
         public GetInstanceResult build() {
             final var _resultValue = new GetInstanceResult();
+            _resultValue.accountId = accountId;
             _resultValue.annotations = annotations;
             _resultValue.auditLogConfig = auditLogConfig;
             _resultValue.autoScaling = autoScaling;
             _resultValue.automatedBackupPolicy = automatedBackupPolicy;
             _resultValue.backups = backups;
-            _resultValue.clusterId = clusterId;
             _resultValue.createTime = createTime;
-            _resultValue.displayName = displayName;
             _resultValue.encryptionConfig = encryptionConfig;
             _resultValue.endpoints = endpoints;
             _resultValue.highAvailabilityType = highAvailabilityType;
             _resultValue.id = id;
+            _resultValue.instanceId = instanceId;
+            _resultValue.instanceName = instanceName;
             _resultValue.labels = labels;
-            _resultValue.name = name;
             _resultValue.projectName = projectName;
             _resultValue.regionId = regionId;
             _resultValue.servicePlan = servicePlan;

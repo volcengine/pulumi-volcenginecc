@@ -19,13 +19,13 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
         /// </summary>
         public readonly string? BackupId;
         /// <summary>
+        /// Backup name
+        /// </summary>
+        public readonly string? BackupName;
+        /// <summary>
         /// Backup Time
         /// </summary>
         public readonly string? BackupTime;
-        /// <summary>
-        /// Cluster ID
-        /// </summary>
-        public readonly string? ClusterId;
         /// <summary>
         /// Creation Time
         /// </summary>
@@ -35,13 +35,21 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
         /// </summary>
         public readonly string? ExpireTime;
         /// <summary>
-        /// Backup Name
+        /// Instance ID
         /// </summary>
-        public readonly string? Name;
+        public readonly string? InstanceId;
+        /// <summary>
+        /// Backup size (bytes)
+        /// </summary>
+        public readonly int? SizeBytes;
         /// <summary>
         /// Backup Status
         /// </summary>
         public readonly string? State;
+        /// <summary>
+        /// Backup trigger type
+        /// </summary>
+        public readonly string? TriggerType;
         /// <summary>
         /// Backup Type
         /// </summary>
@@ -51,27 +59,33 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb.Outputs
         private InstanceBackup(
             string? backupId,
 
-            string? backupTime,
+            string? backupName,
 
-            string? clusterId,
+            string? backupTime,
 
             string? createTime,
 
             string? expireTime,
 
-            string? name,
+            string? instanceId,
+
+            int? sizeBytes,
 
             string? state,
+
+            string? triggerType,
 
             string? type)
         {
             BackupId = backupId;
+            BackupName = backupName;
             BackupTime = backupTime;
-            ClusterId = clusterId;
             CreateTime = createTime;
             ExpireTime = expireTime;
-            Name = name;
+            InstanceId = instanceId;
+            SizeBytes = sizeBytes;
             State = state;
+            TriggerType = triggerType;
             Type = type;
         }
     }

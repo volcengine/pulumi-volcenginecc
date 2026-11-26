@@ -25,8 +25,8 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
     /// {
     ///     var example = new Volcenginecc.Tidb.Branch("example", new()
     ///     {
-    ///         ClusterId = "cluster_id-xxx",
-    ///         DisplayName = "ccapi-tidb-branch-full",
+    ///         InstanceId = "替换为 TiDB 实例 ID",
+    ///         BranchName = "ccapi-tidb-branch-full",
     ///         ParentId = "parent_id",
     ///         ParentTimestamp = "YYYY-MM-DD'T'hh:mm:ss'Z'",
     ///         Password = "Example@Test1234",
@@ -38,7 +38,7 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import volcenginecc:tidb/branch:Branch example "cluster_id|branch_id"
+    /// $ pulumi import volcenginecc:tidb/branch:Branch example "instance_id|branch_id"
     /// ```
     /// </summary>
     [VolcengineccResourceType("volcenginecc:tidb/branch:Branch")]
@@ -58,10 +58,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         public Output<string> BranchId { get; private set; } = null!;
 
         /// <summary>
-        /// Cluster ID
+        /// Branch Name
         /// </summary>
-        [Output("clusterId")]
-        public Output<string> ClusterId { get; private set; } = null!;
+        [Output("branchName")]
+        public Output<string> BranchName { get; private set; } = null!;
 
         /// <summary>
         /// Creation time
@@ -76,12 +76,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         public Output<string> CreatedBy { get; private set; } = null!;
 
         /// <summary>
-        /// Branch display name
-        /// </summary>
-        [Output("displayName")]
-        public Output<string> DisplayName { get; private set; } = null!;
-
-        /// <summary>
         /// Branch endpoint configuration
         /// </summary>
         [Output("endpoints")]
@@ -94,16 +88,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         public Output<bool> HasSetPwd { get; private set; } = null!;
 
         /// <summary>
-        /// Branch resource name
+        /// Instance ID
         /// </summary>
-        [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        [Output("instanceId")]
+        public Output<string> InstanceId { get; private set; } = null!;
 
         /// <summary>
-        /// Parent branch display name
+        /// Parent Branch Name
         /// </summary>
-        [Output("parentDisplayName")]
-        public Output<string> ParentDisplayName { get; private set; } = null!;
+        [Output("parentBranchName")]
+        public Output<string> ParentBranchName { get; private set; } = null!;
 
         /// <summary>
         /// Parent branch ID
@@ -207,16 +201,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
     public sealed class BranchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cluster ID
+        /// Branch Name
         /// </summary>
-        [Input("clusterId", required: true)]
-        public Input<string> ClusterId { get; set; } = null!;
+        [Input("branchName", required: true)]
+        public Input<string> BranchName { get; set; } = null!;
 
         /// <summary>
-        /// Branch display name
+        /// Instance ID
         /// </summary>
-        [Input("displayName", required: true)]
-        public Input<string> DisplayName { get; set; } = null!;
+        [Input("instanceId", required: true)]
+        public Input<string> InstanceId { get; set; } = null!;
 
         /// <summary>
         /// Parent branch ID
@@ -270,10 +264,10 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         public Input<string>? BranchId { get; set; }
 
         /// <summary>
-        /// Cluster ID
+        /// Branch Name
         /// </summary>
-        [Input("clusterId")]
-        public Input<string>? ClusterId { get; set; }
+        [Input("branchName")]
+        public Input<string>? BranchName { get; set; }
 
         /// <summary>
         /// Creation time
@@ -288,12 +282,6 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         public Input<string>? CreatedBy { get; set; }
 
         /// <summary>
-        /// Branch display name
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
         /// Branch endpoint configuration
         /// </summary>
         [Input("endpoints")]
@@ -306,16 +294,16 @@ namespace Volcengine.Pulumi.Volcenginecc.Tidb
         public Input<bool>? HasSetPwd { get; set; }
 
         /// <summary>
-        /// Branch resource name
+        /// Instance ID
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("instanceId")]
+        public Input<string>? InstanceId { get; set; }
 
         /// <summary>
-        /// Parent branch display name
+        /// Parent Branch Name
         /// </summary>
-        [Input("parentDisplayName")]
-        public Input<string>? ParentDisplayName { get; set; }
+        [Input("parentBranchName")]
+        public Input<string>? ParentBranchName { get; set; }
 
         /// <summary>
         /// Parent branch ID

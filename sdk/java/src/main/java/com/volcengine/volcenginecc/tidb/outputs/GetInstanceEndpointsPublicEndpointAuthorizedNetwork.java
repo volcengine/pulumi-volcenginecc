@@ -11,10 +11,10 @@ import java.util.Objects;
 @CustomType
 public final class GetInstanceEndpointsPublicEndpointAuthorizedNetwork {
     /**
-     * @return Authorized Network Name
+     * @return Authorized network name
      * 
      */
-    private String displayName;
+    private String authorizedNetworkName;
     /**
      * @return End IP
      * 
@@ -28,11 +28,11 @@ public final class GetInstanceEndpointsPublicEndpointAuthorizedNetwork {
 
     private GetInstanceEndpointsPublicEndpointAuthorizedNetwork() {}
     /**
-     * @return Authorized Network Name
+     * @return Authorized network name
      * 
      */
-    public String displayName() {
-        return this.displayName;
+    public String authorizedNetworkName() {
+        return this.authorizedNetworkName;
     }
     /**
      * @return End IP
@@ -58,23 +58,23 @@ public final class GetInstanceEndpointsPublicEndpointAuthorizedNetwork {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String displayName;
+        private String authorizedNetworkName;
         private String endIpAddress;
         private String startIpAddress;
         public Builder() {}
         public Builder(GetInstanceEndpointsPublicEndpointAuthorizedNetwork defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.displayName = defaults.displayName;
+    	      this.authorizedNetworkName = defaults.authorizedNetworkName;
     	      this.endIpAddress = defaults.endIpAddress;
     	      this.startIpAddress = defaults.startIpAddress;
         }
 
         @CustomType.Setter
-        public Builder displayName(String displayName) {
-            if (displayName == null) {
-              throw new MissingRequiredPropertyException("GetInstanceEndpointsPublicEndpointAuthorizedNetwork", "displayName");
+        public Builder authorizedNetworkName(String authorizedNetworkName) {
+            if (authorizedNetworkName == null) {
+              throw new MissingRequiredPropertyException("GetInstanceEndpointsPublicEndpointAuthorizedNetwork", "authorizedNetworkName");
             }
-            this.displayName = displayName;
+            this.authorizedNetworkName = authorizedNetworkName;
             return this;
         }
         @CustomType.Setter
@@ -95,7 +95,7 @@ public final class GetInstanceEndpointsPublicEndpointAuthorizedNetwork {
         }
         public GetInstanceEndpointsPublicEndpointAuthorizedNetwork build() {
             final var _resultValue = new GetInstanceEndpointsPublicEndpointAuthorizedNetwork();
-            _resultValue.displayName = displayName;
+            _resultValue.authorizedNetworkName = authorizedNetworkName;
             _resultValue.endIpAddress = endIpAddress;
             _resultValue.startIpAddress = startIpAddress;
             return _resultValue;

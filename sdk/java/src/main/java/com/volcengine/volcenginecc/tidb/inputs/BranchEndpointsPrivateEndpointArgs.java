@@ -5,9 +5,7 @@ package com.volcengine.volcenginecc.tidb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.volcengine.volcenginecc.tidb.inputs.BranchEndpointsPrivateEndpointAlicloudArgs;
 import com.volcengine.volcenginecc.tidb.inputs.BranchEndpointsPrivateEndpointAuthorizedNetworkArgs;
-import com.volcengine.volcenginecc.tidb.inputs.BranchEndpointsPrivateEndpointAwsArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -20,21 +18,6 @@ import javax.annotation.Nullable;
 public final class BranchEndpointsPrivateEndpointArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BranchEndpointsPrivateEndpointArgs Empty = new BranchEndpointsPrivateEndpointArgs();
-
-    /**
-     * Alicloud private endpoint
-     * 
-     */
-    @Import(name="alicloud")
-    private @Nullable Output<BranchEndpointsPrivateEndpointAlicloudArgs> alicloud;
-
-    /**
-     * @return Alicloud private endpoint
-     * 
-     */
-    public Optional<Output<BranchEndpointsPrivateEndpointAlicloudArgs>> alicloud() {
-        return Optional.ofNullable(this.alicloud);
-    }
 
     /**
      * Private endpoint authorized network list
@@ -51,21 +34,6 @@ public final class BranchEndpointsPrivateEndpointArgs extends com.pulumi.resourc
      */
     public Optional<Output<List<BranchEndpointsPrivateEndpointAuthorizedNetworkArgs>>> authorizedNetworks() {
         return Optional.ofNullable(this.authorizedNetworks);
-    }
-
-    /**
-     * AWS private endpoint
-     * 
-     */
-    @Import(name="aws")
-    private @Nullable Output<BranchEndpointsPrivateEndpointAwsArgs> aws;
-
-    /**
-     * @return AWS private endpoint
-     * 
-     */
-    public Optional<Output<BranchEndpointsPrivateEndpointAwsArgs>> aws() {
-        return Optional.ofNullable(this.aws);
     }
 
     /**
@@ -176,9 +144,7 @@ public final class BranchEndpointsPrivateEndpointArgs extends com.pulumi.resourc
     private BranchEndpointsPrivateEndpointArgs() {}
 
     private BranchEndpointsPrivateEndpointArgs(BranchEndpointsPrivateEndpointArgs $) {
-        this.alicloud = $.alicloud;
         this.authorizedNetworks = $.authorizedNetworks;
-        this.aws = $.aws;
         this.disabled = $.disabled;
         this.host = $.host;
         this.port = $.port;
@@ -204,27 +170,6 @@ public final class BranchEndpointsPrivateEndpointArgs extends com.pulumi.resourc
 
         public Builder(BranchEndpointsPrivateEndpointArgs defaults) {
             $ = new BranchEndpointsPrivateEndpointArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param alicloud Alicloud private endpoint
-         * 
-         * @return builder
-         * 
-         */
-        public Builder alicloud(@Nullable Output<BranchEndpointsPrivateEndpointAlicloudArgs> alicloud) {
-            $.alicloud = alicloud;
-            return this;
-        }
-
-        /**
-         * @param alicloud Alicloud private endpoint
-         * 
-         * @return builder
-         * 
-         */
-        public Builder alicloud(BranchEndpointsPrivateEndpointAlicloudArgs alicloud) {
-            return alicloud(Output.of(alicloud));
         }
 
         /**
@@ -259,27 +204,6 @@ public final class BranchEndpointsPrivateEndpointArgs extends com.pulumi.resourc
          */
         public Builder authorizedNetworks(BranchEndpointsPrivateEndpointAuthorizedNetworkArgs... authorizedNetworks) {
             return authorizedNetworks(List.of(authorizedNetworks));
-        }
-
-        /**
-         * @param aws AWS private endpoint
-         * 
-         * @return builder
-         * 
-         */
-        public Builder aws(@Nullable Output<BranchEndpointsPrivateEndpointAwsArgs> aws) {
-            $.aws = aws;
-            return this;
-        }
-
-        /**
-         * @param aws AWS private endpoint
-         * 
-         * @return builder
-         * 
-         */
-        public Builder aws(BranchEndpointsPrivateEndpointAwsArgs aws) {
-            return aws(Output.of(aws));
         }
 
         /**

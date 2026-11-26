@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Instance("example", InstanceArgs.builder()
- *             .displayName("ccapi-tidb-instance-full")
+ *             .instanceName("ccapi-tidb-instance-full")
  *             .autoScaling(InstanceAutoScalingArgs.builder()
  *                 .min_rcu(2000)
  *                 .max_rcu(4000)
@@ -100,12 +100,26 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import volcenginecc:tidb/instance:Instance example &#34;cluster_id&#34;
+ * $ pulumi import volcenginecc:tidb/instance:Instance example &#34;instance_id&#34;
  * ```
  * 
  */
 @ResourceType(type="volcenginecc:tidb/instance:Instance")
 public class Instance extends com.pulumi.resources.CustomResource {
+    /**
+     * Account ID of the instance owner
+     * 
+     */
+    @Export(name="accountId", refs={String.class}, tree="[0]")
+    private Output<String> accountId;
+
+    /**
+     * @return Account ID of the instance owner
+     * 
+     */
+    public Output<String> accountId() {
+        return this.accountId;
+    }
     /**
      * Annotation
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
@@ -165,7 +179,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.automatedBackupPolicy;
     }
     /**
-     * Cluster Backup List
+     * Instance backup list
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
      * 
      */
@@ -173,26 +187,12 @@ public class Instance extends com.pulumi.resources.CustomResource {
     private Output<List<InstanceBackup>> backups;
 
     /**
-     * @return Cluster Backup List
+     * @return Instance backup list
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
      * 
      */
     public Output<List<InstanceBackup>> backups() {
         return this.backups;
-    }
-    /**
-     * Cluster ID
-     * 
-     */
-    @Export(name="clusterId", refs={String.class}, tree="[0]")
-    private Output<String> clusterId;
-
-    /**
-     * @return Cluster ID
-     * 
-     */
-    public Output<String> clusterId() {
-        return this.clusterId;
     }
     /**
      * Creation Time (ISO8601)
@@ -207,20 +207,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<String> createTime() {
         return this.createTime;
-    }
-    /**
-     * Cluster Display Name
-     * 
-     */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
-    private Output<String> displayName;
-
-    /**
-     * @return Cluster Display Name
-     * 
-     */
-    public Output<String> displayName() {
-        return this.displayName;
     }
     /**
      * Data Encryption Configuration
@@ -265,6 +251,34 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.highAvailabilityType;
     }
     /**
+     * Instance ID
+     * 
+     */
+    @Export(name="instanceId", refs={String.class}, tree="[0]")
+    private Output<String> instanceId;
+
+    /**
+     * @return Instance ID
+     * 
+     */
+    public Output<String> instanceId() {
+        return this.instanceId;
+    }
+    /**
+     * Instance name
+     * 
+     */
+    @Export(name="instanceName", refs={String.class}, tree="[0]")
+    private Output<String> instanceName;
+
+    /**
+     * @return Instance name
+     * 
+     */
+    public Output<String> instanceName() {
+        return this.instanceName;
+    }
+    /**
      * Tags
      * Important Note: When using SetNestedAttribute, you must fully define all attributes of its nested structure. Incomplete definitions may cause Terraform to detect unexpected differences during plan comparison, triggering unnecessary resource updates and affecting resource stability and predictability.
      * 
@@ -279,20 +293,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<List<InstanceLabel>> labels() {
         return this.labels;
-    }
-    /**
-     * Resource Name: clusters/{clusterId}
-     * 
-     */
-    @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
-
-    /**
-     * @return Resource Name: clusters/{clusterId}
-     * 
-     */
-    public Output<String> name() {
-        return this.name;
     }
     /**
      * Volcano Engine Project Name
@@ -351,14 +351,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.spendingLimit;
     }
     /**
-     * Cluster Status
+     * Instance status
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return Cluster Status
+     * @return Instance status
      * 
      */
     public Output<String> state() {

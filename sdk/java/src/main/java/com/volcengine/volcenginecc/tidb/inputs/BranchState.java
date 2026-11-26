@@ -53,18 +53,18 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Cluster ID
+     * Branch Name
      * 
      */
-    @Import(name="clusterId")
-    private @Nullable Output<String> clusterId;
+    @Import(name="branchName")
+    private @Nullable Output<String> branchName;
 
     /**
-     * @return Cluster ID
+     * @return Branch Name
      * 
      */
-    public Optional<Output<String>> clusterId() {
-        return Optional.ofNullable(this.clusterId);
+    public Optional<Output<String>> branchName() {
+        return Optional.ofNullable(this.branchName);
     }
 
     /**
@@ -98,21 +98,6 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Branch display name
-     * 
-     */
-    @Import(name="displayName")
-    private @Nullable Output<String> displayName;
-
-    /**
-     * @return Branch display name
-     * 
-     */
-    public Optional<Output<String>> displayName() {
-        return Optional.ofNullable(this.displayName);
-    }
-
-    /**
      * Branch endpoint configuration
      * 
      */
@@ -143,33 +128,33 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Branch resource name
+     * Instance ID
      * 
      */
-    @Import(name="name")
-    private @Nullable Output<String> name;
+    @Import(name="instanceId")
+    private @Nullable Output<String> instanceId;
 
     /**
-     * @return Branch resource name
+     * @return Instance ID
      * 
      */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
+    public Optional<Output<String>> instanceId() {
+        return Optional.ofNullable(this.instanceId);
     }
 
     /**
-     * Parent branch display name
+     * Parent Branch Name
      * 
      */
-    @Import(name="parentDisplayName")
-    private @Nullable Output<String> parentDisplayName;
+    @Import(name="parentBranchName")
+    private @Nullable Output<String> parentBranchName;
 
     /**
-     * @return Parent branch display name
+     * @return Parent Branch Name
      * 
      */
-    public Optional<Output<String>> parentDisplayName() {
-        return Optional.ofNullable(this.parentDisplayName);
+    public Optional<Output<String>> parentBranchName() {
+        return Optional.ofNullable(this.parentBranchName);
     }
 
     /**
@@ -312,14 +297,13 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
     private BranchState(BranchState $) {
         this.annotations = $.annotations;
         this.branchId = $.branchId;
-        this.clusterId = $.clusterId;
+        this.branchName = $.branchName;
         this.createTime = $.createTime;
         this.createdBy = $.createdBy;
-        this.displayName = $.displayName;
         this.endpoints = $.endpoints;
         this.hasSetPwd = $.hasSetPwd;
-        this.name = $.name;
-        this.parentDisplayName = $.parentDisplayName;
+        this.instanceId = $.instanceId;
+        this.parentBranchName = $.parentBranchName;
         this.parentId = $.parentId;
         this.parentTimestamp = $.parentTimestamp;
         this.password = $.password;
@@ -405,24 +389,24 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterId Cluster ID
+         * @param branchName Branch Name
          * 
          * @return builder
          * 
          */
-        public Builder clusterId(@Nullable Output<String> clusterId) {
-            $.clusterId = clusterId;
+        public Builder branchName(@Nullable Output<String> branchName) {
+            $.branchName = branchName;
             return this;
         }
 
         /**
-         * @param clusterId Cluster ID
+         * @param branchName Branch Name
          * 
          * @return builder
          * 
          */
-        public Builder clusterId(String clusterId) {
-            return clusterId(Output.of(clusterId));
+        public Builder branchName(String branchName) {
+            return branchName(Output.of(branchName));
         }
 
         /**
@@ -468,27 +452,6 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Branch display name
-         * 
-         * @return builder
-         * 
-         */
-        public Builder displayName(@Nullable Output<String> displayName) {
-            $.displayName = displayName;
-            return this;
-        }
-
-        /**
-         * @param displayName Branch display name
-         * 
-         * @return builder
-         * 
-         */
-        public Builder displayName(String displayName) {
-            return displayName(Output.of(displayName));
-        }
-
-        /**
          * @param endpoints Branch endpoint configuration
          * 
          * @return builder
@@ -531,45 +494,45 @@ public final class BranchState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Branch resource name
+         * @param instanceId Instance ID
          * 
          * @return builder
          * 
          */
-        public Builder name(@Nullable Output<String> name) {
-            $.name = name;
+        public Builder instanceId(@Nullable Output<String> instanceId) {
+            $.instanceId = instanceId;
             return this;
         }
 
         /**
-         * @param name Branch resource name
+         * @param instanceId Instance ID
          * 
          * @return builder
          * 
          */
-        public Builder name(String name) {
-            return name(Output.of(name));
+        public Builder instanceId(String instanceId) {
+            return instanceId(Output.of(instanceId));
         }
 
         /**
-         * @param parentDisplayName Parent branch display name
+         * @param parentBranchName Parent Branch Name
          * 
          * @return builder
          * 
          */
-        public Builder parentDisplayName(@Nullable Output<String> parentDisplayName) {
-            $.parentDisplayName = parentDisplayName;
+        public Builder parentBranchName(@Nullable Output<String> parentBranchName) {
+            $.parentBranchName = parentBranchName;
             return this;
         }
 
         /**
-         * @param parentDisplayName Parent branch display name
+         * @param parentBranchName Parent Branch Name
          * 
          * @return builder
          * 
          */
-        public Builder parentDisplayName(String parentDisplayName) {
-            return parentDisplayName(Output.of(parentDisplayName));
+        public Builder parentBranchName(String parentBranchName) {
+            return parentBranchName(Output.of(parentBranchName));
         }
 
         /**
